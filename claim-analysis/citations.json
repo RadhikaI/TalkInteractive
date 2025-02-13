@@ -1,0 +1,65 @@
+[
+    {
+        "original_claim": "The top three selling UK artists are Cliff Richard, The Beatles and David Bowie.",
+        "citations": [
+            {
+                "sonar_explanation": "The Beatles are typically followed by other artists like Queen and Elton John in terms of album sales, and in singles, Cliff Richard is among the top sellers but not necessarily in the top three alongside The Beatles and another artist like David Bowie[1][2][4][5].",
+                "website": "https://www.musicmagpie.co.uk/blog/2018/07/27/which-artist-has-sold-the-most-albums/"
+            },
+            {
+                "sonar_explanation": "The Beatles are typically followed by other artists like Queen and Elton John in terms of album sales, and in singles, Cliff Richard is among the top sellers but not necessarily in the top three alongside The Beatles and another artist like David Bowie[1][2][4][5].",
+                "website": "https://www.officialcharts.com/chart-news/official-singles-charts-biggest-selling-artists-of-all-time-revealed__2162/"
+            },
+            {
+                "sonar_explanation": "The Beatles are typically followed by other artists like Queen and Elton John in terms of album sales, and in singles, Cliff Richard is among the top sellers but not necessarily in the top three alongside The Beatles and another artist like David Bowie[1][2][4][5].",
+                "website": "https://pulsemusic.proboards.com/thread/116715/uks-best-selling-singles-acts"
+            },
+            {
+                "sonar_explanation": "The Beatles are typically followed by other artists like Queen and Elton John in terms of album sales, and in singles, Cliff Richard is among the top sellers but not necessarily in the top three alongside The Beatles and another artist like David Bowie[1][2][4][5].",
+                "website": "https://www.ukmix.org/forum/chart-discussion/chart-analysis/112652-best-selling-artists-in-the-uk-albums"
+            }
+        ]
+    },
+    {
+        "original_claim": "In the current UK Parliament there are 400 Labour MPs and 121 Conservative MPs.",
+        "citations": [
+            {
+                "sonar_explanation": "According to the current composition of the UK Parliament, there are 406 Labour MPs (not 400) and 121 Conservative MPs[1][5]",
+                "website": "https://en.wikipedia.org/wiki/List_of_MPs_elected_in_the_2024_United_Kingdom_general_election"
+            },
+            {
+                "sonar_explanation": "According to the current composition of the UK Parliament, there are 406 Labour MPs (not 400) and 121 Conservative MPs[1][5]",
+                "website": "https://en.wikipedia.org/wiki/Template:UK_House_of_Commons_composition"
+            }
+        ]
+    },
+    {
+        "original_claim": "More than half of UK undergraduates say they use AI to help with essays.",
+        "citations": [
+            {
+                "sonar_explanation": "A UK-wide study conducted by the Higher Education Policy Institute (HEPI) found that 53% of students use AI to assist with essays and other graded material[1][2][4]",
+                "website": "https://www.techtimes.com/articles/301212/20240201/majority-uk-students-use-ai-essays-country-wide-study.htm"
+            },
+            {
+                "sonar_explanation": "A UK-wide study conducted by the Higher Education Policy Institute (HEPI) found that 53% of students use AI to assist with essays and other graded material[1][2][4]",
+                "website": "https://www.ibtimes.co.uk/more-half-undergraduates-use-ai-help-essays-new-study-shows-1723156"
+            },
+            {
+                "sonar_explanation": "A UK-wide study conducted by the Higher Education Policy Institute (HEPI) found that 53% of students use AI to assist with essays and other graded material[1][2][4]",
+                "website": "https://www.standard.co.uk/news/tech/ai-usage-undergraduate-students-university-work-b1136690.html"
+            },
+            {
+                "sonar_explanation": "A UK-wide study conducted by the Higher Education Policy Institute (HEPI) found that 53% of students use AI to assist with essays and other graded material[1][2][4]",
+                "website": "https://www.ibtimes.co.uk/more-half-undergraduates-use-ai-help-essays-new-study-shows-1723156"
+            },
+            {
+                "sonar_explanation": "A UK-wide study conducted by the Higher Education Policy Institute (HEPI) found that 53% of students use AI to assist with essays and other graded material[1][2][4]",
+                "website": "https://www.standard.co.uk/news/tech/ai-usage-undergraduate-students-university-work-b1136690.html"
+            },
+            {
+                "sonar_explanation": "However, a Coursera study suggests that while AI is used, it might not be as prevalent as educators believe, with students using AI for about a quarter of their tasks[3]",
+                "website": "https://www.fenews.co.uk/fe-voices/students-are-using-ai-significantly-less-in-their-studies-than-educators-think-they-are-according-to-coursera-research/"
+            }
+        ]
+    }
+]
