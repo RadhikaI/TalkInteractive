@@ -18,10 +18,10 @@ def perplexity_prompt(claim):
     payload = {
         "model": "sonar",
         "messages": [
-            {"role": "system", "content": "You are provided with a claim. What evidence is there for or against this claim? Be precise and concise: first state if it is supported, not supported, or partially supported/incorrect. There is no need to repeat what the claim is in your opening sentence; focus on the evidence."},
+            {"role": "system", "content": "You are provided with a claim. What evidence is there for or against this claim? Be precise and concise: first state if it is supported, not supported, or partially supported/incorrect. There is no need to repeat what the claim is in your opening sentence; when considering the claim, focus on semantic accuracy, and in your output, focus on the evidence. Provide a confidence score at the end of each sentence in which you cite a source, scoring your confidence for each source. When you do cite a source, you MUST provide the sentence that you use from the source as evidence.  If there is no evidence, do not provide any citations."},
             {"role": "user", "content": claim}
         ],
-        "max_tokens": 250, 
+        "max_tokens": 300, 
         "temperature": 0.1,
         "top_p": 0.9,
         "search_domain_filter": None,
@@ -94,11 +94,13 @@ test_claims = [
     "Nigel Farage has stood for a re-election in the UK Parliament three times.",
     "The top three selling UK artists are Cliff Richard, The Beatles and David Bowie.", 
     "In the current UK Parliament there are 400 Labour MPs and 121 Conservative MPs.", 
+    "My father is 3 years old",
+    "10 people died in Munich today.",
     "More than half of UK undergraduates say they use AI to help with essays."]
 
-response_json = perplexity_prompt(test_claims[3])
+response_json = perplexity_prompt(test_claims[0])
 
 if isinstance(response_json, dict):
-    extracted_info = extract_citations(response_json, test_claims[3])
+    extracted_info = extract_citations(response_json, test_claims[0])
     if extracted_info != "Error":
         save_citations(extracted_info)

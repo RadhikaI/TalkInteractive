@@ -61,5 +61,119 @@
                 "website": "https://www.fenews.co.uk/fe-voices/students-are-using-ai-significantly-less-in-their-studies-than-educators-think-they-are-according-to-coursera-research/"
             }
         ]
+    },
+    {
+        "original_claim": "More than 10 people have died in Munich today",
+        "citations": [
+            {
+                "sonar_explanation": "Instead, reports state that a car drove into a crowd, injuring several people, but there is no mention of fatalities exceeding 10[1][2][4]",
+                "website": "https://www.sfgate.com/news/world/article/several-are-injured-after-a-driver-hits-a-group-20164876.php"
+            },
+            {
+                "sonar_explanation": "Instead, reports state that a car drove into a crowd, injuring several people, but there is no mention of fatalities exceeding 10[1][2][4]",
+                "website": "https://timesofindia.indiatimes.com/world/europe/several-injured-as-car-rams-into-group-of-people-in-germanys-munich/articleshow/118212245.cms"
+            },
+            {
+                "sonar_explanation": "Instead, reports state that a car drove into a crowd, injuring several people, but there is no mention of fatalities exceeding 10[1][2][4]",
+                "website": "https://www.arabnews.com/node/2590070/world"
+            },
+            {
+                "sonar_explanation": "Instead, reports state that a car drove into a crowd, injuring several people, but there is no mention of fatalities exceeding 10[1][2][4]",
+                "website": "https://www.arabnews.com/node/2590070/world"
+            }
+        ]
+    },
+    {
+        "original_claim": "10 people died in Munich today.",
+        "citations": [
+            {
+                "sonar_explanation": "Reports indicate that at least 20 people were injured after a car drove into a crowd in Munich, but there is no mention of fatalities[1][2][3]",
+                "website": "https://www.indiatvnews.com/news/world/germany-accident-mini-car-hits-group-of-people-in-munich-several-people-visuala-injuries-death-count-damages-police-statements-latest-updates-2025-02-13-976082"
+            },
+            {
+                "sonar_explanation": "Reports indicate that at least 20 people were injured after a car drove into a crowd in Munich, but there is no mention of fatalities[1][2][3]",
+                "website": "https://timesofindia.indiatimes.com/world/europe/several-injured-as-car-rams-into-group-of-people-in-germanys-munich/articleshow/118212245.cms"
+            },
+            {
+                "sonar_explanation": "Reports indicate that at least 20 people were injured after a car drove into a crowd in Munich, but there is no mention of fatalities[1][2][3]",
+                "website": "https://www.the-independent.com/news/world/europe/munich-car-crowd-injured-munchen-latest-updates-b2697528.html"
+            },
+            {
+                "sonar_explanation": "Reports indicate that at least 20 people were injured after a car drove into a crowd in Munich, but there is no mention of fatalities[1][2][3]",
+                "website": "https://www.indiatvnews.com/news/world/germany-accident-mini-car-hits-group-of-people-in-munich-several-people-visuala-injuries-death-count-damages-police-statements-latest-updates-2025-02-13-976082"
+            },
+            {
+                "sonar_explanation": "The incident occurred during a rally by the service workers' union ver.di, and while several people were seriously injured, including children, no deaths have been reported[1][4]",
+                "website": "https://economictimes.com/news/international/world-news/at-least-20-are-injured-after-a-driver-hits-a-group-of-people-in-munich/articleshow/118214539.cms"
+            },
+            {
+                "sonar_explanation": "Reports indicate that at least 20 people were injured after a car drove into a crowd in Munich, but there is no mention of fatalities[1][2][3]",
+                "website": "https://www.indiatvnews.com/news/world/germany-accident-mini-car-hits-group-of-people-in-munich-several-people-visuala-injuries-death-count-damages-police-statements-latest-updates-2025-02-13-976082"
+            },
+            {
+                "sonar_explanation": "The incident occurred during a rally by the service workers' union ver.di, and while several people were seriously injured, including children, no deaths have been reported[1][4]",
+                "website": "https://economictimes.com/news/international/world-news/at-least-20-are-injured-after-a-driver-hits-a-group-of-people-in-munich/articleshow/118214539.cms"
+            }
+        ]
+    },
+    {
+        "original_claim": "My father is 3 years old",
+        "citations": [
+            {
+                "sonar_explanation": "There is no evidence in the provided search results or general knowledge that supports a father being 3 years old.\n\nIn contrast, the search results discuss scenarios where a father's age is related to his son's age in various mathematical problems, but none of these scenarios involve a father being as young as 3 years old[1][2][3]",
+                "website": "https://gmatclub.com/forum/the-present-age-of-a-father-is-3-years-more-than-three-times-the-age-299980.html"
+            },
+            {
+                "sonar_explanation": "There is no evidence in the provided search results or general knowledge that supports a father being 3 years old.\n\nIn contrast, the search results discuss scenarios where a father's age is related to his son's age in various mathematical problems, but none of these scenarios involve a father being as young as 3 years old[1][2][3]",
+                "website": "https://gre.myprepclub.com/forum/the-present-age-of-a-father-is-3-years-more-than-three-times-17644.html"
+            },
+            {
+                "sonar_explanation": "There is no evidence in the provided search results or general knowledge that supports a father being 3 years old.\n\nIn contrast, the search results discuss scenarios where a father's age is related to his son's age in various mathematical problems, but none of these scenarios involve a father being as young as 3 years old[1][2][3]",
+                "website": "http://www.algebra.com/algebra/homework/word/age/Age_Word_Problems.faq.question.1151113.html"
+            }
+        ]
+    },
+    {
+        "original_claim": "My father is 3 years old",
+        "citations": [
+            {
+                "sonar_explanation": "Typically, age-related problems or statements about fathers and sons involve mathematical puzzles or hypothetical scenarios, but none of these scenarios involve a father being 3 years old[1][2][3]",
+                "website": "http://www.algebra.com/algebra/homework/word/age/Age_Word_Problems.faq.question.1151113.html"
+            },
+            {
+                "sonar_explanation": "Typically, age-related problems or statements about fathers and sons involve mathematical puzzles or hypothetical scenarios, but none of these scenarios involve a father being 3 years old[1][2][3]",
+                "website": "https://www.youtube.com/watch?v=paLRmj9uY1Q"
+            },
+            {
+                "sonar_explanation": "Typically, age-related problems or statements about fathers and sons involve mathematical puzzles or hypothetical scenarios, but none of these scenarios involve a father being 3 years old[1][2][3]",
+                "website": "https://gre.myprepclub.com/forum/the-present-age-of-a-father-is-3-years-more-than-three-times-17644.html"
+            }
+        ]
+    },
+
+    {
+        "original_claim": "Nigel Farage has stood for a re-election in the UK Parliament three times.",
+        "citations": [
+            {
+                "sonar_explanation": "Nigel Farage has stood for election to the House of Commons eight times, including the 2024 election where he was first elected as an MP for Clacton[3]",
+                "website": "https://en.wikipedia.org/wiki/Electoral_history_of_Nigel_Farage"
+            },
+            {
+                "sonar_explanation": "There is no evidence to suggest he has stood for re-election three times, as his first election win was in 2024, and there have been no subsequent re-elections reported[1][3]",
+                "website": "https://www.politico.eu/article/uk-election-results-nigel-farage-elected-parliament-eighth-attempt/"
+            },
+            {
+                "sonar_explanation": "Nigel Farage has stood for election to the House of Commons eight times, including the 2024 election where he was first elected as an MP for Clacton[3]",
+                "website": "https://en.wikipedia.org/wiki/Electoral_history_of_Nigel_Farage"
+            },
+            {
+                "sonar_explanation": "Nigel Farage has stood for election to the House of Commons eight times, including the 2024 election where he was first elected as an MP for Clacton[3]",
+                "website": "https://en.wikipedia.org/wiki/Electoral_history_of_Nigel_Farage"
+            },
+            {
+                "sonar_explanation": "There is no evidence to suggest he has stood for re-election three times, as his first election win was in 2024, and there have been no subsequent re-elections reported[1][3]",
+                "website": "https://www.politico.eu/article/uk-election-results-nigel-farage-elected-parliament-eighth-attempt/"
+            }
+        ]
     }
 ]
