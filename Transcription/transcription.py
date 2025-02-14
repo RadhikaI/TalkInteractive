@@ -42,14 +42,14 @@ class AudioRecorder:
 
 
 
-    def __check_URL(self) -> bool:
+    def __check_URL(self, URL = None) -> bool:
+
+        if URL == None:
+            URL = self.__URL
 
         print("Checking URL...")
 
-        process = subprocess.run(
-            ["ffmpeg", "-y", "-i", self.__URL, "-t", "1", "-f", "null", "-"],
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE
-        )
+        process = subprocess.run(["ffmpeg", "-y", "-i", URL, "-t", "1", "-f", "null", "-"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         if process.returncode != 0:
             raise InvalidURL("The URL stream appears to be invalid.")
@@ -57,6 +57,7 @@ class AudioRecorder:
 
 
     def set_URL(self, URL: str):
+
         try:
             self.__check_URL(URL)
             self.__URL = URL
@@ -84,25 +85,28 @@ class AudioRecorder:
 
 
 
-    def __AAC_to_WAV(self, AAC_path : str = "./audio-files/temp.aac", WAV_path : str = "./audio-files/temp.wav"):
-
-        if os.path.exists(AAC_path):
-            subprocess.run(["ffmpeg", "-y", "-i", AAC_path, "-ac", "1", "-ar", "16000", "-f", "wav", WAV_path],stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
-        else:
-            raise FileException("No AAC file found, " + AAC_path)
-
-
-
     def __transcribe_audio(self, WAV_path : str = "./audio-files/temp.wav") -> str:
 
         if os.path.exists(WAV_path):
             print('Transcribing...')
             result = self.model.transcribe(WAV_path)
             return result["text"]
+        
         else:
             raise FileException("No WAV file found, " + WAV_path)
     
+
+
+
+    def __AAC_to_WAV(self, AAC_path : str = "./audio-files/temp.aac", WAV_path : str = "./audio-files/temp.wav"):
+
+        if os.path.exists(AAC_path):
+            subprocess.run(["ffmpeg", "-y", "-i", AAC_path, "-ac", "1", "-ar", "16000", "-f", "wav", WAV_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+        else:
+            raise FileException("No AAC file found, " + AAC_path)
+
+
 
 
     def __conti_record_audio(self, duration: int = 30, overlap: int = 2, starting_val: int = 0):
@@ -156,17 +160,17 @@ class AudioRecorder:
 
 
     def start(self, duration: int = 30, overlap: int = 2, delete_audio: bool = True, starting_value: int = 0):
-            record_thread = threading.Thread(target=self.__conti_record_audio, args=(duration, overlap, starting_value))
-            record_thread.daemon = True  
-            record_thread.start()
+        record_thread = threading.Thread(target=self.__conti_record_audio, args=(duration, overlap, starting_value))
+        record_thread.daemon = True  
+        record_thread.start()
 
-            transcribe_thread = threading.Thread(target=self.__conti_transcribe_audio, args=(delete_audio,))
-            transcribe_thread.daemon = True  
-            transcribe_thread.start()
+        transcribe_thread = threading.Thread(target=self.__conti_transcribe_audio, args=(delete_audio,))
+        transcribe_thread.daemon = True  
+        transcribe_thread.start()
 
 
-            while True:
-                time.sleep(1)
+        while True:
+            time.sleep(1)
 
 
 
