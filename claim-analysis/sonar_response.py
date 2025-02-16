@@ -5,7 +5,7 @@ import json
 import re
 
 logging.basicConfig(
-    filename="./claim-analysis/sonar_response.log", 
+    filename="./claim-analysis/automatic-citing/auto_sonar_response.log", 
     level=logging.INFO,  
     format="%(asctime)s - %(levelname)s - %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S"
@@ -18,7 +18,8 @@ def perplexity_prompt(claim):
     payload = {
         "model": "sonar",
         "messages": [
-            {"role": "system", "content": """You are provided with a claim. What evidence is there for or against this claim? Be precise and concise: first state if it is supported, not supported, or partially supported/incorrect. There is no need to repeat what the claim is in your opening sentence; when considering the claim, focus on semantic accuracy, and in your output, focus on the evidence. 
+            {"role": "system", "content": """You are provided with a claim. What evidence is there for or against this claim? 
+            Be precise and concise: first state if it is supported, not supported, or partially supported/incorrect. There is no need to repeat what the claim is in your opening sentence; when considering the claim, focus on semantic accuracy, and in your output, focus on the evidence. 
             The structure of your output should start with a statement on if the claim is supported or not, and reasoning for this decision (citing sources). 
             Once you have written this paragraph, then the final section ("Evidence Mapping") of your output should be a mapping of the source URL to the EXACT sentence that is used FROM THE SOURCE as evidence. This must be done for all forms of media cited, including video sources. If there is no evidence, do not provide any citations."""},
             {"role": "user", "content": claim}
@@ -105,6 +106,11 @@ test_claims = [
     "More than half of UK undergraduates say they use AI to help with essays."]
 
 
-response_json = perplexity_prompt(test_claims[5])
-format_response(test_claims[5],response_json,  "./claim-analysis/formatted.json")
+# response_json = perplexity_prompt(test_claims[5])
+# format_response(test_claims[5],response_json,  "./claim-analysis/formatted.json")
 
+def run_perplexity(claim, OUTPUT_FILE):
+    response_json = perplexity_prompt(claim)
+    print(response_json)
+    format_response(claim, response_json, OUTPUT_FILE)
+    print(2)
