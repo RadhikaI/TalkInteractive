@@ -1,0 +1,18 @@
+[
+    {
+        "segment_id": 1,
+        "segment_transcript": "But, I'm wondering what you can do to help people be more aware of the church around the world, because it does seem a bit like…most people think when they think if Anglicans, or Christians in general, they think of some upper middle class guy, you know. JW: Thanks Anthea! A: Well, you can't change who you are, that's not your fault, but I know your heart, I know a little bit about it. JW: Well, Anthea, you're really great, and I'm so pleased you asked the question. Yes, 98% of members of the Anglican community who are regular churchgoers are not in England. The average Anglian is an African woman in her thirties; a sub-Saharan African woman in her thirties. And we need to remember that, and I've spent my life being reminded of that. I came to faith in Christ myself partly as a result of the witness of the church in Africa, when I was living in Kenya in 1974",
+        "claims_found": ["Yes, 98% of members of the Anglican community who are regular churchgoers are not in England", 
+                        "The average Anglian is an African woman in her thirties; a sub-Saharan African woman in her thirties"]
+    },
+    {
+        "segment_id": 2,
+        "segment_transcript": "",
+        "claims_found": ["Nigel Farage has stood for a re-election in the UK Parliament three times."]
+    },
+    {
+        "segment_id": 3,
+        "segment_transcript": "",
+        "claims_found": ["Norway is a member of the European Union."]
+    }
+]
