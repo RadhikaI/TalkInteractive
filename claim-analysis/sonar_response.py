@@ -5,7 +5,8 @@ import json
 import re
 
 logging.basicConfig(
-    filename="./claim-analysis/automatic-citing/auto_sonar_response.log", 
+    filename="./claim-analysis/automatic-citing/auto_mover_sonar_response.log", 
+    # filename = "./test-transcripts/testC.log",
     level=logging.INFO,  
     format="%(asctime)s - %(levelname)s - %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S"
@@ -111,6 +112,4 @@ test_claims = [
 
 def run_perplexity(claim, OUTPUT_FILE):
     response_json = perplexity_prompt(claim)
-    print(response_json)
     format_response(claim, response_json, OUTPUT_FILE)
-    print(2)

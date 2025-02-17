@@ -1,0 +1,38 @@
+
+test_transcriptA = [
+    "The Eiffel Tower is a structure in France",  "Google Chrome is a browser", "Apple is a fruit.",
+    "Donald Trump is the current President of the United States.",
+    "The atmosphere is 80% nitrogen.",
+    "The capital of France is Paris.",
+    "2025 is the lunar new year of the snake.",
+    "NATO is the North Atlantic Treaty Organization.",
+    "The last general election in the UK was held in 2024."
+]
+
+test_transcriptB = [
+    "Norway is a member of the European Union.",
+    "Kamala Harris won the 2024 presidential election in the United States.",
+    "High Speed 2 is a railway line in Germany.",
+    "It's currently the year 2032.",
+    "The capital of England is Birmingham.",
+    "Princess Diana died in 1999.",
+    "UK interest rates are set by the nationwide building society.",
+    "2025 is a leap year.",
+    "The channel tunnel links Italy and Sweden.",
+    "The capital of Australia is Sydney."
+]
+
+test_transcriptC = [
+    "In the current UK Parliament there are 400 Labour MPs and 121 Conservative MPs.",
+    "The leader of the Liberal Democrats is Sir Ed Davie.",
+    "Nigel Farage has stood for a re-election in the UK Parliament three times.",
+    "The European Union has its headquarters in Brussels.",
+    "The top three selling UK artists are Cliff Richard, The Beatles and David Bowie.",
+    "Ostrich's knees tend to bend backwards.",
+    "There is no word for blue in Welsh.",
+    "Cannabis is the recommended treatment for rabies.",
+    "More than half of UK undergraduates say they use AI to help with essays.",
+    "Lego produced more than 1,000 bricks per second.",
+    "The Paris Accord of 2015 agrees that countries will try and limit the warming of the earth to three degrees.",
+    "Schwarzfeller Kirschtauter is the German word for library."
+]

@@ -39,11 +39,10 @@ class ExtractedProcessor:
             if self.check_for_change():
                 claims_found = self.process()
                 
-                if claims_found:
-                    for claim, segment_id in claims_found:
-                        print(claim, segment_id)
-                        run_perplexity(claim, "./claim-analysis/automatic-citing/formatted.json")
-                        # TODO: Error handling here if claims are not actually checked due to perplexity faults
+                for claim, segment_id in claims_found:
+                    print(claim, segment_id)
+                    run_perplexity(claim, "./claim-analysis/automatic-citing/formatted.json")
+                    # TODO: Error handling here if claims are not actually checked due to perplexity faults
 
             time.sleep(10) # TODO: Accurate time for updates, or alternate method needed
 

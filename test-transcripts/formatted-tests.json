@@ -1,0 +1,804 @@
+[
+    {
+        "original_claim": "The Eiffel Tower is a structure in France",
+        "perplexity_response": "The claim is supported. The Eiffel Tower is indeed a structure located in France, specifically in Paris. It is a wrought-iron lattice tower on the Champ de Mars, named after Gustave Eiffel, whose company designed and built it from 1887 to 1889[1][3]. The tower is one of the most recognizable landmarks in the world and has become a cultural icon of France[1][3].",
+        "citations": [
+            {
+                "url": "https://en.wikipedia.org/wiki/Eiffel_Tower",
+                "evidence": "\"The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France.\""
+            },
+            {
+                "url": "https://www.paristickets.com/eiffel-tower/architecture/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.britannica.com/topic/Eiffel-Tower-Paris-France",
+                "evidence": "\"Eiffel Tower, wrought-iron structure in Paris that is among the most famous landmarks in the world.\""
+            },
+            {
+                "url": "https://www.asce.org/about-civil-engineering/history-and-heritage/historic-landmarks/eiffel-tower",
+                "evidence": null
+            },
+            {
+                "url": "https://www.pbs.org/wgbh/buildingbig/wonder/structure/eiffel_tower.html",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Google Chrome is a browser",
+        "perplexity_response": "The claim that Google Chrome is a browser is **supported**. Evidence from multiple sources confirms that Google Chrome is indeed a web browser. For instance, TechTarget describes it as \"a free web browser used for accessing the internet and running web-based applications\" [2]. Similarly, Wikipedia states that Google Chrome is \"a web browser developed by Google\" [3]. Additionally, the official Google Chrome website also refers to it as a web browser [1].",
+        "citations": [
+            {
+                "url": "https://www.google.com/chrome/",
+                "evidence": "\"Chrome is the official web browser from Google, built to be fast, secure, and customizable.\""
+            },
+            {
+                "url": "https://www.techtarget.com/searchmobilecomputing/definition/Google-Chrome-browser",
+                "evidence": "\"Google Chrome browser is a free web browser used for accessing the internet and running web-based applications.\""
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/Google_Chrome",
+                "evidence": "\"Google Chrome is a web browser developed by Google.\""
+            },
+            {
+                "url": "https://apps.apple.com/us/app/google-chrome/id535886823",
+                "evidence": null
+            },
+            {
+                "url": "https://support.google.com/chrome/answer/95346?hl=en&co=GENIE.Platform%3DAndroid",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Apple is a fruit.",
+        "perplexity_response": "The claim that \"Apple is a fruit\" is supported. Evidence from Wikipedia and other sources confirms that apples are indeed fruits, specifically a type of deciduous fruit known as a pome, which grows on apple trees (Malus domestica) [1]. Apples are widely recognized as a fruit in culinary, nutritional, and botanical contexts [2][3].",
+        "citations": [
+            {
+                "url": "https://en.wikipedia.org/wiki/Apple",
+                "evidence": "\"An apple is a round, edible fruit produced by an apple tree (Malus spp., among them the domestic or orchard apple; Malus domestica).\""
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=eUQtfsh1Cso",
+                "evidence": "\"Apples are fruits that grow on apple trees.\""
+            },
+            {
+                "url": "https://www.medicalnewstoday.com/articles/267290",
+                "evidence": "\"Apples are rich in fiber, vitamins, and minerals, all of which benefit human health.\" (While this source does not directly state that apples are fruits, it treats them as such in a nutritional context.)"
+            },
+            {
+                "url": "http://edu.wyoming.gov/downloads/nutrition/2016/FFVP-information-sheets.pdf",
+                "evidence": null
+            },
+            {
+                "url": "https://reallifegoodfood.umn.edu/fruits/apples",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Donald Trump is the current President of the United States.",
+        "perplexity_response": "The claim is supported. Donald Trump is indeed the current President of the United States, having been inaugurated as the 47th president in January 2025. This is confirmed by multiple sources, including his Wikipedia page and news articles detailing his inauguration and subsequent actions as president[1][2].",
+        "citations": [
+            {
+                "url": "https://www.cbsnews.com/live-updates/trump-presidential-inauguration-day-2025/",
+                "evidence": null
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/Donald_Trump",
+                "evidence": null
+            },
+            {
+                "url": "https://www.weforum.org/stories/2025/01/davos-2025-special-address-donald-trump-president-united-states/",
+                "evidence": null
+            },
+            {
+                "url": "https://trumpwhitehouse.archives.gov/people/donald-j-trump/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=L0f-ZAVOoPk",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "The atmosphere is 80% nitrogen.",
+        "perplexity_response": "The claim is supported. The atmosphere is indeed composed primarily of nitrogen, with dry air containing approximately 78.08% nitrogen by volume fraction[1]. This percentage is close to 80%, making the claim semantically accurate, although not precisely exact.",
+        "citations": [
+            {
+                "url": "https://en.wikipedia.org/wiki/Atmosphere_of_Earth",
+                "evidence": "\"Dry air contains 78.08% nitrogen, 20.95% oxygen, 0.93% argon, 0.04% carbon dioxide, and small amounts of other trace gases...\""
+            },
+            {
+                "url": "https://oci-global.com/products-solutions/agricultural/fertilizers-agronomy/where-nitrogen/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.sciencelearn.org.nz/videos/1239-nitrogen-in-the-atmosphere",
+                "evidence": null
+            },
+            {
+                "url": "https://quizlet.com/206409626/nitrogen-flash-cards/",
+                "evidence": null
+            },
+            {
+                "url": "https://scied.ucar.edu/learning-zone/air-quality/whats-in-the-air",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "The capital of France is Paris.",
+        "perplexity_response": "The claim that the capital of France is Paris is **supported**. Multiple sources confirm this, including Wikipedia, which states that Paris is the capital and largest city of France[3]. Additionally, Britannica notes that Paris is the city and capital of France[4]. Simple Wikipedia also affirms Paris as the current capital of France, providing historical context on how Paris has maintained this status with some interruptions[2].",
+        "citations": [
+            {
+                "url": "https://home.adelphi.edu/~ca19535/page%204.html",
+                "evidence": null
+            },
+            {
+                "url": "https://simple.wikipedia.org/wiki/Capital_of_France",
+                "evidence": "\"The capital of France is Paris.\""
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/Paris",
+                "evidence": "\"Paris is the capital and largest city of France.\""
+            },
+            {
+                "url": "https://www.britannica.com/place/Paris",
+                "evidence": "\"Paris, city and capital of France, situated in the north-central part of the country.\""
+            },
+            {
+                "url": "https://www.iroamly.com/france-travel/what-is-the-capital-of-france.html",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "2025 is the lunar new year of the snake.",
+        "perplexity_response": "The claim that 2025 is the Lunar New Year of the Snake is **supported**. Multiple sources confirm that 2025 is indeed the Year of the Snake according to the Chinese zodiac. For instance, Farmers Almanac states that Lunar New Year 2025 begins on January 29, 2025, and is the Year of the Snake[1]. Similarly, the University of Sydney and other sources also affirm this, noting that 2025 is the Year of the Wood Snake[2][3].",
+        "citations": [
+            {
+                "url": "https://www.farmersalmanac.com/when-chinese-new-year",
+                "evidence": null
+            },
+            {
+                "url": "https://www.sydney.edu.au/news-opinion/news/2025/01/23/lunar-new-year-chinese-2025-year-of-the-snake.html",
+                "evidence": null
+            },
+            {
+                "url": "https://chinesenewyear.net",
+                "evidence": null
+            },
+            {
+                "url": "https://www.nbcnewyork.com/entertainment/holidays/lunar-new-year-2025-year-of-the-snake-what-to-know/6126235/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.travelchinaguide.com/essential/holidays/new-year/dates.htm",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "NATO is the North Atlantic Treaty Organization.",
+        "perplexity_response": "The claim is **supported**. Evidence from multiple sources confirms that NATO stands for the North Atlantic Treaty Organization. For instance, Wikipedia describes NATO as \"the North Atlantic Treaty Organization (NATO), also called the North Atlantic Alliance\" [1]. Similarly, Britannica refers to it as \"the North Atlantic Treaty Organization (NATO)\" [3]. Additionally, the Canadian government's website on international relations also uses this full name for NATO [2].",
+        "citations": [
+            {
+                "url": "https://en.wikipedia.org/wiki/NATO",
+                "evidence": "\"The North Atlantic Treaty Organization (NATO), also called the North Atlantic Alliance...\""
+            },
+            {
+                "url": "https://www.international.gc.ca/world-monde/international_relations-relations_internationales/nato-otan/index.aspx?lang=eng",
+                "evidence": "\"The North Atlantic Treaty was signed in Washington on April 4, 1949, establishing the North Atlantic Treaty Organization (NATO).\""
+            },
+            {
+                "url": "https://www.britannica.com/topic/North-Atlantic-Treaty-Organization",
+                "evidence": "\"North Atlantic Treaty Organization (NATO), military alliance established in 1949...\""
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/North_Atlantic_Treaty",
+                "evidence": null
+            },
+            {
+                "url": "https://www.nti.org/education-center/treaties-and-regimes/north-atlantic-treaty-organization-nato/",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "The last general election in the UK was held in 2024.",
+        "perplexity_response": "The claim is supported. The last general election in the UK was indeed held in 2024, specifically on July 4, 2024. This is confirmed by multiple sources, including Wikipedia, which states that the election took place on that date to elect members of Parliament[1]. The UK Parliament's website also confirms this, noting that the last general election occurred on July 4, 2024[2]. Additionally, other sources like Statista provide similar information, further supporting the claim[5].",
+        "citations": [
+            {
+                "url": "https://en.wikipedia.org/wiki/2024_United_Kingdom_general_election",
+                "evidence": "\"The 2024 United Kingdom general election was held on Thursday, 4 July 2024, to elect 650 members of Parliament to the House of Commons, the lower house of the Parliament of the United Kingdom.\""
+            },
+            {
+                "url": "https://www.parliament.uk/about/how/elections-and-voting/general/",
+                "evidence": "\"The last general election took place on **4 July 2024**.\""
+            },
+            {
+                "url": "https://www.economicsobservatory.com/what-happened-in-the-2024-uk-general-election",
+                "evidence": null
+            },
+            {
+                "url": "https://www.instituteforgovernment.org.uk/explainer/uk-general-election-july-2024",
+                "evidence": null
+            },
+            {
+                "url": "https://www.statista.com/topics/11880/uk-general-election-2024/",
+                "evidence": "\"The Labour Party won a landslide victory in the UK general election, held on July 4, 2024, winning 412 seats, with Keir Starmer becoming British Prime Minister.\""
+            }
+        ]
+    },
+    {
+        "original_claim": "Norway is a member of the European Union.",
+        "perplexity_response": "The claim that Norway is a member of the European Union is **not supported**. Norway is not a member state of the European Union but is associated with the EU through its membership in the European Economic Area (EEA), which allows it to participate in the EU's single market[1][2]. This arrangement provides Norway with access to the EU's internal market, including the free movement of goods, services, capital, and people, but it does not grant Norway full membership or voting rights in EU institutions[1][3].",
+        "citations": [
+            {
+                "url": "https://en.wikipedia.org/wiki/Norway%E2%80%93European_Union_relations",
+                "evidence": "\"Norway is not a member state of the European Union (EU). However, it is associated with the Union through its membership in the European Economic Area (EEA).\""
+            },
+            {
+                "url": "https://www.regjeringen.no/globalassets/departementene/ud/vedlegg/europapolitikk/norway_eu.pdf",
+                "evidence": "\"Norway and the EU enjoy good and close relations, although Norway is not a member of the European Union.\""
+            },
+            {
+                "url": "https://www.eeas.europa.eu/norway/european-union-and-norway_en?s=174",
+                "evidence": "\"Norway is among the EU's closest partners. EU-Norway cooperation is based on shared fundamental values and underpinned by our common heritage and history, as well as strong cultural and geographical ties.\""
+            },
+            {
+                "url": "https://voices.uchicago.edu/euchicago/norwegian-exceptionalism-how-the-european-union-can-use-norway-to-further-european-integration/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.gov.uk/eu-eea",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Kamala Harris won the 2024 presidential election in the United States.",
+        "perplexity_response": "The claim is not supported. Evidence from multiple sources indicates that Donald Trump won the 2024 presidential election, not Kamala Harris. According to the Council on Foreign Relations, Trump received 312 Electoral College votes, while Harris received 226[1]. The National Archives also confirm Trump's victory, listing him as the winner of the Electoral College with 312 votes[3]. Additionally, Wikipedia states that Trump and his running mate JD Vance defeated Harris and her running mate Tim Walz in the general election[5].",
+        "citations": [
+            {
+                "url": "https://www.cfr.org/article/2024-election-numbers",
+                "evidence": "\"The formal vote in the Electoral College went as projected. Trump won 312 votes, and Kamala Harris won 226.\""
+            },
+            {
+                "url": "https://www.brookings.edu/articles/why-donald-trump-won-and-kamala-harris-lost-an-early-analysis-of-the-results/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.archives.gov/electoral-college/2024",
+                "evidence": "\"President Donald J. Trump [R] Main Opponent ... Electoral Vote: Winner: 312|Main Opponent: 226\""
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/Kamala_Harris_2024_presidential_campaign",
+                "evidence": null
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/2024_United_States_presidential_election",
+                "evidence": "\"The Republican Party's ticket\u2014Donald Trump, who was the 45th president of the United States from 2017 to 2021, and JD Vance, the junior U.S. senator from Ohio\u2014defeated the Democratic Party's ticket\u2014Kamala Harris, the incumbent vice president, and Tim Walz, the 41st governor of Minnesota.\""
+            }
+        ]
+    },
+    {
+        "original_claim": "High Speed 2 is a railway line in Germany.",
+        "perplexity_response": "The claim is **not supported**. High Speed 2 (HS2) is actually a railway line under construction in the United Kingdom, not Germany. It aims to connect London with the Midlands and potentially further north, reducing journey times and increasing capacity on the UK's rail network[1]. There is no mention of a high-speed line named High Speed 2 in Germany in the provided sources.",
+        "citations": [
+            {
+                "url": "https://en.wikipedia.org/wiki/High-speed_rail_in_Europe",
+                "evidence": "\"A second line, High Speed 2 (HS2), has been under construction since 2019 between London and Birmingham with later extensions to Manchester and Leeds cancelled in 2023 and 2021 respectively due to spiralling costs.\""
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/High-speed_rail_in_Germany",
+                "evidence": "No relevant information about High Speed 2 in Germany."
+            },
+            {
+                "url": "https://mobilitaet-bb.de/en/calendar/high-speed-2-opportunities-railroad-industry-germany",
+                "evidence": null
+            },
+            {
+                "url": "https://www.railforums.co.uk/threads/hs2-if-the-germans-had-planned-it.242583/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=fNWfrb_Mz5M",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "It's currently the year 2032.",
+        "perplexity_response": "The claim that it is currently the year 2032 is **not supported** by the available information. The search results provide details about future events and predictions for the year 2032, such as the potential asteroid impact and the Summer Olympics, but they do not indicate that the current year is 2032[1][2][3].",
+        "citations": [
+            {
+                "url": "https://simple.wikipedia.org/wiki/2032",
+                "evidence": "\"2032 (MMXXXII) will be a leap year starting on Thursday of the Gregorian calendar, the 2032nd year of the Common Era (CE) and Anno Domini (AD) designations.\""
+            },
+            {
+                "url": "https://www.space.com/180-foot-asteroid-1-in-83-chance-hitting-Earth-2032",
+                "evidence": "\"A newly discovered asteroid, designated 2024 YR4, has a 1-in-83 chance of striking Earth in December of 2032.\""
+            },
+            {
+                "url": "https://www.calendar-365.com/2032-calendar.html",
+                "evidence": "\"2032 Calendar. User-friendly calendar of 2032, the dates are listed by month including week numbers.\""
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=uR8Hak-iL4w",
+                "evidence": null
+            },
+            {
+                "url": "https://www.cbsnews.com/news/key-facts-asteroid-could-hit-earth-2032-european-space-agency-expert/",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "The capital of England is Birmingham.",
+        "perplexity_response": "The claim that Birmingham is the capital of England is **not supported**. The capital of England is London, and Birmingham is recognized as the second-largest city in the UK, located in the West Midlands region. It serves as a significant cultural, financial, and commercial center but is not the capital[1][2][3].",
+        "citations": [
+            {
+                "url": "https://www.britannica.com/summary/Birmingham-England",
+                "evidence": "\"Birmingham lies 100 mi (160 km) northwest of London.\""
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/Birmingham",
+                "evidence": "\"Birmingham is a city and metropolitan borough in the metropolitan county of West Midlands in England.\""
+            },
+            {
+                "url": "https://www.britannica.com/place/Birmingham-England",
+                "evidence": "\"Birmingham is the second largest city of the United Kingdom and a metropolitan borough in the West Midlands metropolitan county.\""
+            },
+            {
+                "url": "https://exploretheheartofengland.co.uk/facts-about-birmingham/",
+                "evidence": null
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/History_of_Birmingham",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Princess Diana died in 1999.",
+        "perplexity_response": "The claim that Princess Diana died in 1999 is **not supported**. According to multiple sources, Princess Diana died on August 31, 1997, in a car accident in Paris[1][2]. The official investigations and reports consistently state that her death occurred in 1997, not 1999[3].",
+        "citations": [
+            {
+                "url": "https://www.womenshealthmag.com/life/a40880713/how-did-princess-diana-die/",
+                "evidence": "\"Princess Diana died on August 31, 1997....\""
+            },
+            {
+                "url": "https://time.com/6209559/princess-diana-death-history-25-years-anniversary/",
+                "evidence": "\"The \u201cPeople's Princess\u201d was killed in a car crash in Paris on Aug. 31, 1997.\""
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/Conspiracy_theories_about_the_death_of_Diana,_Princess_of_Wales",
+                "evidence": "\"Official investigations in both Britain and France found that Diana died in a manner consistent with media reports following the fatal car crash in Paris.\""
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=qF4jxj_ut-o",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "UK interest rates are set by the nationwide building society.",
+        "perplexity_response": "The claim is **not supported**. The Bank of England's Monetary Policy Committee (MPC) is responsible for setting the UK interest rates, not the Nationwide Building Society. The MPC sets the base rate, which influences interest rates for savings and borrowing across the UK, including those offered by Nationwide[1][2][3]. Nationwide, as a building society, adjusts its interest rates based on changes to the Bank of England's base rate, but it does not set these rates itself[2][4].",
+        "citations": [
+            {
+                "url": "https://en.wikipedia.org/wiki/Monetary_Policy_Committee_(United_Kingdom)",
+                "evidence": "\"The Monetary Policy Committee (MPC) is a committee of the Bank of England, which meets for three and a half days, eight times a year, to decide the official interest rate in the United Kingdom (the Bank of England Base Rate).\""
+            },
+            {
+                "url": "https://www.nationwide.co.uk/savings/help/when-your-interest-is-paid",
+                "evidence": "\"The base rate \u2013 also known as the bank rate \u2013 sets the amount of interest the Bank of England pays to banks and building societies.\""
+            },
+            {
+                "url": "https://www.british-business-bank.co.uk/business-guidance/guidance-articles/business-essentials/how-do-interest-rate-changes-affect-businesses",
+                "evidence": "\"The Bank of England base rate is the most important interest rate in the UK and influences the interest rates offered by commercial banks to businesses and individuals.\""
+            },
+            {
+                "url": "https://www.nationwide.co.uk/mortgages/existing-mortgage-members/bank-of-england-base-rate",
+                "evidence": "\"The base rate is the interest rate set by the Bank of England's Monetary Policy Committee, used to calculate interest rates for some of their mortgages and savings.\""
+            },
+            {
+                "url": "https://www.uswitch.com/mortgages/guides/bank-of-england-base-rate/",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "2025 is a leap year.",
+        "perplexity_response": "The claim that 2025 is a leap year is **not supported**. Multiple sources confirm that 2025 is not a leap year, with the last leap year being 2024 and the next one occurring in 2028[2][3][4]. Leap years occur every four years, but 2025 does not meet this criterion as it is not divisible by four in a way that aligns with leap year rules[1][3].",
+        "citations": [
+            {
+                "url": "https://www.calendarr.com/united-states/leap-year/",
+                "evidence": null
+            },
+            {
+                "url": "https://kalender-365.de/leap-years.php",
+                "evidence": "\"This year 2025 isn't a leap year. The last leap year was 2024, the next will be 2028.\""
+            },
+            {
+                "url": "https://www.timeanddate.com/date/leapyear.html",
+                "evidence": "\"No, 2025 is not a leap year. The last leap day fell on February 29, 2024. The next one is February 29, 2028.\""
+            },
+            {
+                "url": "https://www.rd.com/article/february-29th-leap-year-facts/",
+                "evidence": "\"2025 is not The next leap year will be in 2028, followed by 2032 and 2036.\""
+            },
+            {
+                "url": "https://www.calendar-365.com/leap-years.html",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "The channel tunnel links Italy and Sweden.",
+        "perplexity_response": "The claim is not supported. The Channel Tunnel connects Folkestone, Kent, in England with Coquelles, Pas-de-Calais, near Calais in northern France, and does not link Italy and Sweden[1][2]. The Scandinavian-Mediterranean Corridor, which includes the Brenner Base Rail Tunnel, is a separate project that aims to connect regions from Finland and Sweden to Italy, but it does not involve the Channel Tunnel[4].",
+        "citations": [
+            {
+                "url": "https://www.gihub.org/connectivity-across-borders/case-studies/the-channel-tunnel/",
+                "evidence": "\"The Channel Tunnel is a roughly 50 km rail tunnel linking Folkestone, Kent, in England with Coquelles, Pas-de-Calais, near Calais in northern France.\""
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/Channel_Tunnel",
+                "evidence": "\"The Channel Tunnel (French: *Tunnel sous la Manche*), sometimes referred to by the portmanteau**Chunnel**, is a 50.46 km (31.35-mile) undersea railway tunnel, opened in 1994, that connects Folkestone (Kent, England) with Coquelles (Pas-de-Calais, France) beneath the English Channel at the Strait of Dover.\""
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=30foJiPUrBA",
+                "evidence": null
+            },
+            {
+                "url": "https://www.designboom.com/technology/brenner-base-rail-tunnel-scandinavia-mediterranean-04-11-2022/",
+                "evidence": "\"The corridor stretches from Finland and Sweden in the North, to the island of Malta in the South, taking in Denmark, Northern, Central and Southern Germany, the industrial heartlands of Northern Italy and the southern Italian ports.\""
+            },
+            {
+                "url": "https://thebeautyoftransport.com/2015/07/15/the-bridge-oresund-link-denmarksweden/",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "The capital of Australia is Sydney.",
+        "perplexity_response": "The claim that Sydney is the capital of Australia is **not supported**. Evidence from multiple sources indicates that Canberra is the capital of Australia, not Sydney. Sydney is the capital of New South Wales, the most populous state in Australia, but it has never served as the national capital[1][2][4]. The decision to establish Canberra as the capital was made to avoid favoring either Sydney or Melbourne, the two major coastal cities, due to their vulnerability to naval attacks and to create a neutral location for the federal government[4][5].",
+        "citations": [
+            {
+                "url": "https://en.wikipedia.org/wiki/Sydney",
+                "evidence": "\"Sydney is the capital city of the state of New South Wales and the most populous city in Australia.\""
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/List_of_Australian_capital_cities",
+                "evidence": "\"Australian Capital Territory \u00b7 Canberra, 403,468 \u00b7 403,468 \u00b7 100.00% \u00b7 1913 \u00b7 1913\""
+            },
+            {
+                "url": "https://www.britannica.com/place/Sydney-New-South-Wales",
+                "evidence": null
+            },
+            {
+                "url": "https://youtooproject.com/en/blog/australia-en/capital-of-australia-canberra/",
+                "evidence": "\"The capital of Australia is Canberra.\""
+            },
+            {
+                "url": "https://sydneycitytour.com.au/blog/was-sydney-ever-australias-capital/",
+                "evidence": "\"Sydney is not the capital of the country and never has been. However, it was the oldest and one of the largest settlements in the continent.\""
+            }
+        ]
+    },
+    {
+        "original_claim": "In the current UK Parliament there are 400 Labour MPs and 121 Conservative MPs.",
+        "perplexity_response": "The claim is not supported. The current UK Parliament has 404 Labour MPs, not 400, as indicated by the latest composition of the House of Commons[1][3]. The number of Conservative MPs is correctly stated as 121[1][3].",
+        "citations": [
+            {
+                "url": "https://members.parliament.uk/parties/commons",
+                "evidence": "\"Labour: 404 MPs\""
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/2024_United_Kingdom_general_election",
+                "evidence": null
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/List_of_MPs_elected_in_the_2024_United_Kingdom_general_election",
+                "evidence": "\"Labour: 411 initially elected, but currently 404 MPs\""
+            },
+            {
+                "url": "https://www.statista.com/statistics/716971/general-elections-seats-won-by-party-uk/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.parallelparliament.co.uk/MPs",
+                "evidence": "\"404 Labour MPs\""
+            }
+        ]
+    },
+    {
+        "original_claim": "The leader of the Liberal Democrats is Sir Ed Davie.",
+        "perplexity_response": "The claim is partially supported but incorrect in its spelling. The leader of the Liberal Democrats is indeed Ed Davey, not \"Sir Ed Davie.\" Ed Davey is correctly identified as the leader of the Liberal Democrats in multiple sources[2][3][4]. However, there is no indication that he is referred to as \"Sir Ed Davie\" in any of the provided sources.",
+        "citations": [
+            {
+                "url": "https://www.the-independent.com/news/uk/ed-davey-labour-lib-dem-donald-trump-government-b2671838.html",
+                "evidence": null
+            },
+            {
+                "url": "https://www.libdems.org.uk/mps/kingston-and-surbiton",
+                "evidence": "\"Ed has led the Liberal Democrats to a record number of MPs at the 2024 General election...\""
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/Liberal_Democrats_(UK)",
+                "evidence": "\"The current leader of the party is Ed Davey.\""
+            },
+            {
+                "url": "https://members.parliament.uk/member/188/contact",
+                "evidence": "\"The Rt Hon Ed Davey is the Liberal Democrat MP for Kingston and Surbiton, and has been an MP continually since 8 June 2017. He is Leader of the Liberal...\""
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=5ECam_-7Hww",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Nigel Farage has stood for a re-election in the UK Parliament three times.",
+        "perplexity_response": "The claim that Nigel Farage has stood for re-election in the UK Parliament three times is not supported. Nigel Farage has stood for election to the UK Parliament eight times, including the 2024 general election, where he was finally elected as an MP for Clacton-on-Sea[1][4]. There is no mention of him standing for re-election three times, as his first successful election was in 2024, and there is no record of him seeking re-election since then.",
+        "citations": [
+            {
+                "url": "https://www.politico.eu/article/uk-election-results-nigel-farage-elected-parliament-eighth-attempt/",
+                "evidence": "\"Nigel Farage has become an MP and will bring his upstart Reform Party to the U.K. parliament. On his eighth attempt at entering the House of Commons...\""
+            },
+            {
+                "url": "https://www.politico.eu/article/nigel-farage-reform-uk-storms-parliament-cue-the-jaws-music/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=_l8BUuNICZo",
+                "evidence": null
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/Electoral_history_of_Nigel_Farage",
+                "evidence": "\"Farage has stood for election to the House of Commons eight times, in six general elections and two by-elections, losing in every attempt until 2024 in Clacton.\""
+            },
+            {
+                "url": "https://en.wikipedia.org/wiki/Nigel_Farage",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "The European Union has its headquarters in Brussels.",
+        "perplexity_response": "The claim that the European Union has its headquarters in Brussels is partially supported. While Brussels is a major hub for EU institutions and hosts key bodies like the European Commission, the European Council, and the Council of the European Union, it is not the sole headquarters for all EU institutions. For instance, the European Parliament has its official seat in Strasbourg, France, though it holds many sessions in Brussels[1][3]. Additionally, other important EU institutions, such as the Court of Justice of the European Union and the European Central Bank, are located in Luxembourg and Frankfurt, respectively[3].",
+        "citations": [
+            {
+                "url": "https://be.brussels/en/about-region/la-region-en-europe-et-linternational/european-and-international-institutions-brussels",
+                "evidence": "\"Strasbourg is the official seat of the Parliament, while Brussels hosts MEPs three weeks out of every four as well as additional plenary sessions and the meetings of parliamentary committees and political groupings.\""
+            },
+            {
+                "url": "https://european-union.europa.eu/principles-countries-history/eu-countries/belgium_en",
+                "evidence": null
+            },
+            {
+                "url": "https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/types-institutions-and-bodies_en",
+                "evidence": "\"The Court of Justice of the European Union (Luxembourg), the European Central Bank (Frankfurt)\""
+            },
+            {
+                "url": "https://www.introducingbrussels.com/european-district",
+                "evidence": null
+            },
+            {
+                "url": "https://www.britannica.com/video/Scenes-Brussels-headquarters-European-Union-Groote-Markt/-16418",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "The top three selling UK artists are Cliff Richard, The Beatles and David Bowie.",
+        "perplexity_response": "The claim is not supported. The top-selling UK artists in terms of albums and singles do not align with Cliff Richard, The Beatles, and David Bowie as the top three. The Beatles are consistently ranked as the top-selling UK artists in both albums and singles, which supports part of the claim[1][3][4]. However, Cliff Richard and David Bowie are not listed as the next two top-selling artists. In terms of singles, Cliff Richard is among the top sellers, but David Bowie is not in the top three[2][4]. For albums, Queen and other artists are often listed ahead of David Bowie[5].",
+        "citations": [
+            {
+                "url": "https://www.musicmagpie.co.uk/blog/2018/07/27/which-artist-has-sold-the-most-albums/",
+                "evidence": "\"The Beatles: 178 million units\" - Evidence that The Beatles are top-selling."
+            },
+            {
+                "url": "https://www.officialcharts.com/chart-news/official-singles-charts-biggest-selling-artists-of-all-time-revealed__2162/",
+                "evidence": "\"The list reveals The Beatles at the top, having sold the most chart singles over the past 60 years in the UK, followed by Elvis Presley and Sir Cliff Richard\" - Shows Cliff Richard's position in singles sales."
+            },
+            {
+                "url": "https://forums.digitalspy.com/discussion/1753931/uks-top-20-best-selling-groups-of-all-time",
+                "evidence": "\"The Beatles top the chart with a combined singles sales total of 22.1 million singles\" - Further evidence of The Beatles' top position."
+            },
+            {
+                "url": "https://pulsemusic.proboards.com/thread/116715/uks-best-selling-singles-acts",
+                "evidence": "\"01 THE BEATLES 21.9m, 02 ELVIS PRESLEY 21.6m, 03 CLIFF RICHARD 21.5m\" - Confirms Cliff Richard's singles sales ranking."
+            },
+            {
+                "url": "https://www.ukmix.org/forum/chart-discussion/chart-analysis/112652-best-selling-artists-in-the-uk-albums",
+                "evidence": "\"1. The Beatles - 28"
+            }
+        ]
+    },
+    {
+        "original_claim": "Ostrich's knees tend to bend backwards.",
+        "perplexity_response": "The claim that ostriches' knees tend to bend backwards is **not supported**. This misconception arises from the anatomy of birds, where the true knee is located high up on the leg, near the body, and is not visible externally. What appears to be a knee is actually the ankle joint, which is positioned higher up due to the elongated foot bones (tarsometatarsus) in birds[4][5]. The true knee of an ostrich, like other birds, bends forward and is tucked under the body[5].",
+        "citations": [
+            {
+                "url": "https://www.scienceopen.com/document?vid=b211fa44-6941-4733-ab27-f624514f2efa",
+                "evidence": null
+            },
+            {
+                "url": "https://line-of-action.com/article/digitrade-animals-dont-have-backward-knees",
+                "evidence": null
+            },
+            {
+                "url": "https://pubmed.ncbi.nlm.nih.gov/25551024/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.discoverwildlife.com/animal-facts/birds/do-birds-have-knees",
+                "evidence": null
+            },
+            {
+                "url": "https://www.ecoevoblog.com/2015/02/20/ostrich-knees/",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "There is no word for blue in Welsh.",
+        "perplexity_response": "The claim is **not supported**. Evidence from multiple sources indicates that the Welsh word for \"blue\" is indeed **glas**. This word is used to describe blue, and it can also refer to shades of green or grey in certain contexts, depending on the historical or cultural context[1][2][3]. The complexity of **glas** does not negate its use as a term for blue; rather, it highlights the nuanced nature of color terminology in Welsh.",
+        "citations": [
+            {
+                "url": "https://welearnwelsh.com/words/welsh-word-for-blue-glas/",
+                "evidence": "\"The Welsh word for \u201cblue\u201d is glas or las in its mutated form following feminine nouns.\""
+            },
+            {
+                "url": "https://en.forum.saysomethingin.com/t/varied-meaning-of-glas/35131",
+                "evidence": "\"Glas is a very old word, and while the more modern gwyrdd is used for green, glas can in fact be both blue and green, depending on context.\""
+            },
+            {
+                "url": "https://www.omniglot.com/language/colours/welsh.htm",
+                "evidence": "\"Glas [\u0261l\u0251\u02d0s] - blue, azure, sky-blue, greenish blue, sea-green\""
+            },
+            {
+                "url": "https://welshotter.co.uk/blogs/news/the-welsh-language-and-colours",
+                "evidence": null
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=lFU3vqRwWU0",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Cannabis is the recommended treatment for rabies.",
+        "perplexity_response": "The claim that cannabis is the recommended treatment for rabies is **not supported**. While there are historical accounts and some research suggesting that cannabis may provide symptomatic relief in cases of rabies, such as reducing spasms and anxiety, it is not recognized as a primary treatment for rabies by major health organizations[2][4]. The standard and recommended treatment for rabies exposure involves post-exposure prophylaxis (PEP), which includes wound washing, administration of human rabies immune globulin (HRIG), and a series of rabies vaccinations[1][3][5].",
+        "citations": [
+            {
+                "url": "https://www.health.state.mn.us/diseases/rabies/risk/postexposure.html",
+                "evidence": "\"The rabies PEP regimen involves administration of human rabies immune globulin (HRIG), which is given only once, and a series of four 1.0 mL rabies vaccinations...\""
+            },
+            {
+                "url": "https://sensiseeds.com/en/blog/cannabis-as-a-treatment-for-rabies/",
+                "evidence": "\"Although rabies isn\u2019t easily transmitted between humans, around 60,000 fatalities occur annually around the world as a result of rabies each year with the vast majority (97%) being Most cases are in Africa and Asia. ... Cannabis has been shown to help in some cases and may be something to consider for treatment, especially in these areas.\""
+            },
+            {
+                "url": "https://www.who.int/teams/control-of-neglected-tropical-diseases/rabies/vaccinations-and-immunization",
+                "evidence": "\"Post-exposure prophylaxis (PEP) consists of wound treatment, the administration of rabies vaccines based on WHO"
+            },
+            {
+                "url": "https://medicalmikes.com/blogs/medical-mikes-blog/cbd-for-rabies-relief-does-it-help-your-dog-heal",
+                "evidence": "\"Although CBD is not a viable treatment for rabies, it offers a wealth of health benefits that deliver powerful relief from harmful symptoms.\""
+            },
+            {
+                "url": "https://www.cdc.gov/rabies/hcp/prevention-recommendations/post-exposure-prophylaxis.html",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "More than half of UK undergraduates say they use AI to help with essays.",
+        "perplexity_response": "The claim is **supported**. Multiple studies and surveys indicate that more than half of UK undergraduates use AI to assist with their essays. For instance, a survey conducted by the Higher Education Policy Institute (HEPI) found that 53% of students reported using generative AI to help with assessments, such as essays[1][2][4]. This widespread use includes AI as a tool for explaining concepts, suggesting research topics, and summarizing articles[1][2].",
+        "citations": [
+            {
+                "url": "https://www.techtimes.com/articles/301212/20240201/majority-uk-students-use-ai-essays-country-wide-study.htm",
+                "evidence": "\"53% of students report using generative AI to assist with test preparation. Specifically, when using generative AI to create text for examinations, more than one in eight students (13%) usually change the content before turning it in.\""
+            },
+            {
+                "url": "https://www.telegraph.co.uk/news/2024/01/31/university-students-ai-chatgpt-google-bard-work-cheating/",
+                "evidence": "\"More than half of UK university students have used generative artificial intelligence to help them with their studies, a survey suggests. A poll of 1,250 undergraduate students through the Ucas admissions service suggests that 53 per cent of students have used generative AI to help them prepare assessments.\""
+            },
+            {
+                "url": "https://www.fenews.co.uk/student-view/new-study-reveals-the-uk-cities-where-students-are-most-likely-to-use-a-i-to-write-essays/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.ibtimes.co.uk/more-half-undergraduates-use-ai-help-essays-new-study-shows-1723156",
+                "evidence": "\"A survey of more than 1,000 UK undergraduates, conducted by the Higher Education Policy Institute (Hepi), found 53 per cent were using AI to generate material for work they would be marked on.\""
+            },
+            {
+                "url": "https://www.hepi.ac.uk/wp-content/uploads/2024/01/HEPI-Policy-Note-51.pdf",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Lego produced more than 1,000 bricks per second.",
+        "perplexity_response": "The claim that Lego produces more than 1,000 bricks per second is **partially supported**. According to several sources, Lego produces approximately 1,140 units per second, which is indeed more than 1,000 bricks per second[1][5]. However, the exact wording of the claim might be considered imprecise since it does not specify the exact number, which is slightly above 1,000.",
+        "citations": [
+            {
+                "url": "https://www.rcrwireless.com/20160921/big-data-analytics/lego-automated-factory-tag31-tag99",
+                "evidence": "\"In fact, according to Gizmodo, the factory\u2019s recent totals reach 1,140 units per second, or 36 billion per year.\""
+            },
+            {
+                "url": "https://www.natgeokids.com/uk/kids-club/entertainment/general-entertainment/ten-top-lego-facts/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.bricksmcgee.com/blog/international-lego-day-lego-facts/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.lego.com/en-us/categories/adults-welcome/article/biggest-lego-sets-ever-made",
+                "evidence": null
+            },
+            {
+                "url": "https://playitgreen.com/a-small-brick-with-a-big-footprint/",
+                "evidence": "\"The annual production of Lego bricks averages approximately 36 billion, or about 1140 pieces per second.\""
+            }
+        ]
+    },
+    {
+        "original_claim": "The Paris Accord of 2015 agrees that countries will try and limit the warming of the earth to three degrees.",
+        "perplexity_response": "The claim is not supported. The Paris Agreement, signed in 2016 following negotiations in 2015, aims to limit global warming to well below 2\u00b0C and pursue efforts to limit it to 1.5\u00b0C above pre-industrial levels, not three degrees[1][2][4]. This goal is central to the agreement's objectives, emphasizing the need to reduce greenhouse gas emissions significantly to achieve these targets[1][2].",
+        "citations": [
+            {
+                "url": "https://en.wikipedia.org/wiki/Paris_Agreement",
+                "evidence": "\"The Paris Agreement has a long-term temperature goal which is to keep the rise in global surface temperature to well below 2\u00a0\u00b0C (3.6\u00a0\u00b0F) above pre-industrial levels. The treaty also states that preferably the limit of the increase should only be 1.5\u00a0\u00b0C (2.7\u00a0\u00b0F).\""
+            },
+            {
+                "url": "https://climateactiontracker.org/methodology/paris-temperature-goal/",
+                "evidence": "\"The central objective of the Paris Agreement is its long-term temperature goal to hold global average temperature increase to \u201cwell below 2\u00b0C above preindustrial levels and pursuing efforts to limit the temperature increase to 1.5\u00b0C above pre-industrial levels\u201d.\""
+            },
+            {
+                "url": "http://climate.copernicus.eu/GCH2023-Paris-Agreement",
+                "evidence": null
+            },
+            {
+                "url": "https://climate.mit.edu/explainers/paris-agreement",
+                "evidence": "\"The main focus of the Paris Agreement is lowering greenhouse gas emissions by a system of pledge and review. Each party commits to declare a plan of climate action\u2014its \u201cnationally determined contribution\u201d or NDC... to hold the rise in global temperature \u201cwell below\u201d 2 degrees Celsius, and to try for 1.5 degrees.\""
+            },
+            {
+                "url": "https://climateanalytics.org/comment/understanding-the-paris-agreements-long-term-temperature-goal",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Schwarzfeller Kirschtauter is the German word for library.",
+        "perplexity_response": "The claim that \"Schwarzfeller Kirschtauter\" is the German word for library is **not supported**. The correct German word for \"library\" is \"Bibliothek\" or \"B\u00fccherei,\" depending on the context[1][3][5]. There is no evidence in the provided sources or general linguistic resources to suggest that \"Schwarzfeller Kirschtauter\" is a valid term for a library in German.",
+        "citations": [
+            {
+                "url": "https://homework.study.com/explanation/how-do-you-say-library-in-german.html",
+                "evidence": "\"Bibliothek is the German word for library.\""
+            },
+            {
+                "url": "https://www.oed.com/dictionary/schvartze_n",
+                "evidence": null
+            },
+            {
+                "url": "https://www.collinsdictionary.com/dictionary/english-german/library",
+                "evidence": "\"German translation of 'library' noun 1. (public) Bibliothek f, B\u00fccherei f\""
+            },
+            {
+                "url": "https://dictionary.cambridge.org/dictionary/english-german/library",
+                "evidence": null
+            },
+            {
+                "url": "https://www.online-translator.com/translation/english-german/library",
+                "evidence": "\"Translate 'library' from English to German, Bibliothek\""
+            }
+        ]
+    }
+]
