@@ -49,48 +49,49 @@ def score(evidence: List[Dict[str, int]]) -> Tuple[int, int]:
         w = d.get("reliability") # weight
         x = d.get("support") # value
 
-        x = shiftZ(x)
+        if w is not None and x is not None:
+            x = shiftZ(x)
 
-        values.append(x)
-        weights.append(w)
+            values.append(x)
+            weights.append(w)
     return int(100 * roundDown(uniteVerdict(*weightedMeanAndVariance(values, weights))))
 
-data1 = [
-    {"reliability": 1, "support": 0},
-    {"reliability": 0, "support": 1},
-    {"reliability": 1, "support": 1},
-    {"reliability": 1, "support": 1},
-    {"reliability": 1, "support": 0},
-]
-data2 = [
-    {"reliability": 1, "support": +1},
-    {"reliability": 1, "support": -1},
-    {"reliability": 1, "support": -1},
-    {"reliability": 1, "support": -1},
-    {"reliability": 1, "support": +1},
-]
-data3 = [
-    {"reliability": 1, "support": +1},
-    {"reliability": 1, "support": -1}
-]
-data4 = [
-    {"reliability": 1, "support": 0},
-    {"reliability": 0, "support": 1},
-    {"reliability": 1, "support": 1},
-    {"reliability": 1, "support": 1},
-    {"reliability": 1, "support": 1},
-    {"reliability": 1, "support": 0},
-]
-data5 = [
-    {"reliability": 1, "support": +1},
-    {"reliability": 1, "support": +1}
-]
 
-print(score(data1))
-print(score(data2))
-print(score(data3))
-print(score(data4))
-print(score(data5))
-plotShiftZ()
+def test_scoring():
+    data1 = [
+        {"reliability": 1, "support": 0},
+        {"reliability": 0, "support": 1},
+        {"reliability": 1, "support": 1},
+        {"reliability": 1, "support": 1},
+        {"reliability": 1, "support": 0},
+    ]
+    data2 = [
+        {"reliability": 1, "support": +1},
+        {"reliability": 1, "support": -1},
+        {"reliability": 1, "support": -1},
+        {"reliability": 1, "support": -1},
+        {"reliability": 1, "support": +1},
+    ]
+    data3 = [
+        {"reliability": 1, "support": +1},
+        {"reliability": 1, "support": -1}
+    ]
+    data4 = [
+        {"reliability": 1, "support": 0},
+        {"reliability": 0, "support": 1},
+        {"reliability": 1, "support": 1},
+        {"reliability": 1, "support": 1},
+        {"reliability": 1, "support": 1},
+        {"reliability": 1, "support": 0},
+    ]
+    data5 = [
+        {"reliability": 1, "support": +1},
+        {"reliability": 1, "support": +1}
+    ]
 
-# print(weightedMeanAndVariance([1, 1, 1], [1, 1, 1]))
+    print(score(data1))
+    print(score(data2))
+    print(score(data3))
+    print(score(data4))
+    print(score(data5))
+    plotShiftZ()

@@ -17,6 +17,20 @@ def list_get(l, i):
   except IndexError:
     return None
 
+def is_float(s):
+    try:
+       float(s)
+    except ValueError:
+        return False
+    else:
+        return True
+
+def to_float(x, default=None):
+    if is_float(x):
+        return float(x)
+    else:
+        return default
+
 def perplexity_prompt(instruction_message, content_message):
     url = "https://api.perplexity.ai/chat/completions"
     # key = os.getenv("PERPLEXITY_KEY")
