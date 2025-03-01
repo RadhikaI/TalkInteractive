@@ -38,24 +38,30 @@ def remove_trailing_punc(transcript):
 
 
 class TranscriptExporter:
-    def __init__(self, starting_id: int = 0, chunk_path: str = "transcript_chunks.json", whole_path: str = "transcript_whole.json"):
-        self.__id = starting_id
+    def __init__(self, delete_previous: bool = True, chunk_path: str = "transcript_chunks.json", whole_path: str = "transcript_whole.json"):
         self.__chunk_path = chunk_path
         self.__whole_path = whole_path
 
+        if delete_previous:
+            self.delete_records()
 
-    # TODO: make ids unique if have restarted
+
     def update_chunks(self, chunk: str):
         data = []
         
         if os.path.exists(self.__chunk_path):
-            with open(self.__chunk_path, "r") as f:
+            with open(self.__chunk_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
-        data.append({"id": self.__id, "chunk": chunk})
-        self.__id += 1
+        if len(data) > 0:
+            id = data[-1]["id"] + 1
+        else:
+            id = 0
 
-        with open(self.__chunk_path, "w") as f:
+        data.append({"id": id, "chunk": chunk})
+
+
+        with open(self.__chunk_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)
 
 
@@ -63,18 +69,21 @@ class TranscriptExporter:
         data = ""
         
         if os.path.exists(self.__whole_path):
-            with open(self.__whole_path, "r") as f:
+            with open(self.__whole_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
         data += extra_transcript
 
-        with open(self.__whole_path, "w") as f:
+        with open(self.__whole_path, "w", encoding="utf-8") as f:
             json.dump(data, f)
 
 
-    # restart all files
     def delete_records(self):
-        pass
+        if os.path.exists(self.__chunk_path):
+            os.remove(self.__chunk_path)
+
+        if os.path.exists(self.__whole_path):
+            os.remove(self.__whole_path)
 
 
 
@@ -100,13 +109,12 @@ class TranscriptProcessor:
         self.__removed = removed
         self.__final_transcripts.append(final)
 
+        # TODO: check size 
         chunk = self.__whole_transcript[-overlap:] + final
 
         self.__whole_transcript += final
 
         self.__overlapping.append(chunk)
-        print('chunk', chunk)
-        print('final', final)
 
         return chunk, final
 
@@ -170,7 +178,7 @@ class TranscriptProcessor:
 
 
 
-class AudioRecorder:
+class AudioTranscriber:
 
     def __init__(self, refiner, exporter, URL: str ="http://media-ice.musicradio.com/LBCUK", model_type: str = "base"):
         self.__URL = URL
@@ -250,10 +258,10 @@ class AudioRecorder:
 
                 previous, _ = remove_trailing_punc(previous)
      
-                result = self.model.transcribe(WAV_path, temperature=0.0, initial_prompt=previous)
+                result = self.model.transcribe(WAV_path, temperature=0.1, initial_prompt=previous)
 
             else:
-                result = self.model.transcribe(WAV_path, temperature=0.0)
+                result = self.model.transcribe(WAV_path, temperature=0.1)
 
 
  
@@ -276,7 +284,7 @@ class AudioRecorder:
 
 
 
-    def __conti_record_audio_overlap(self, duration: int = 45, overlap: int = 15, starting_val: int = 0, wait_time: int = 15):
+    def __conti_record_audio_overlap(self, duration: int = 45, overlap = 0.5, starting_val: int = 0):
         num_file = starting_val
 
         while True:
@@ -334,7 +342,7 @@ class AudioRecorder:
 
 
 
-    def start(self, duration: int = 60, overlap: int = 15, delete_audio: bool = True, starting_value: int = 0, transcript_overlap: int = 200):
+    def start(self, duration: int = 45, overlap = 0.5, delete_audio: bool = True, starting_value: int = 0, transcript_overlap: int = 200):
         record_thread = threading.Thread(target=self.__conti_record_audio_overlap, args=(duration, overlap, starting_value))
         record_thread.daemon = True  
         record_thread.start()
@@ -352,7 +360,7 @@ class AudioRecorder:
 exporter = TranscriptExporter()
 refiner = TranscriptProcessor()
 
-audio = AudioRecorder(refiner=refiner, exporter=exporter, model_type="small")
+audio = AudioTranscriber(refiner=refiner, exporter=exporter, model_type="small")
 audio.start(delete_audio=False, overlap=0.5, duration=45, transcript_overlap=200)
 
 
