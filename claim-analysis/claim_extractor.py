@@ -8,6 +8,21 @@ import time
 from watchdog.observers.polling import PollingObserver
 from watchdog.events import FileSystemEventHandler
 
+
+nlp = spacy.load("en_core_web_sm")
+
+CLAIM_KEYWORDS = {"claims", "reports", "suggests", "announces", "confirms", 
+                  "alleges", "denies", "reveals", "predicts", "states", "argues",
+                  "proves", "disproves", "indicates", "demonstrates"}
+
+FILLER_PHRASES = [
+    "what would you like to ask", "whatever you feel like", "moving on to",
+    "let's go now to", "welcome to", "thank you very much", "next question",
+    "can you explain", "just to clarify", "let's begin", "?", "i'm wondering", 
+    "i'm questioning", "i'm curious", "i wonder", "i question", "thank you", 
+    "crack on", "move on", "moving on"
+]
+
 #method 2
 def check_with_claimbuster(batch):
     api_key = "bf030616698d448293cd6b87b68edf21"
@@ -16,7 +31,7 @@ def check_with_claimbuster(batch):
     api_response = requests.get(url=api_endpoint, headers=request_headers)
 
     response = api_response.json()
-    results = [text for text in response['results'] if text['score'] > 0.5]
+    results = [text for text in response['results'] if text['score'] > 0.45]
     if results:
         return (True, results) 
     else :
@@ -46,6 +61,25 @@ def is_claim_sentence(sentence):
 def json_parser(chunk):
     str = json.loads(chunk)
     analyse(str['chunk'], str['id'])
+
+def test_analysis(filepath):
+    content = ""
+    
+    # Read the file properly
+    with open(filepath, 'r', errors='ignore') as content_file:
+        content = content_file.read()
+
+    blob_object = TextBlob(content)
+    sentences = blob_object.sentences  # Get sentences from TextBlob
+    j = 0
+    for i in range(0, len(sentences), 8):  # Process sentences in chunks of 8
+         sentence_batch = " ".join(str(sent) for sent in sentences[i:i+8])
+         result = check_with_claimbuster(sentence_batch)  # Pass as a single string
+
+         if result and result[0]:  # Ensure result is valid
+            for text in result[1]:
+                j += 1
+                print(text['text'])
 
 def analyse(chunk, id):
     results = []
@@ -112,24 +146,11 @@ def monitor_json(file_path, interval=1):
             detect_insertions(prev_data, new_data)
             prev_data = new_data  # Update stored state
 
-jsonObjs = read_json("transcript_chunks.json")
-for obj in jsonObjs:
+# jsonObjs = read_json("transcript_chunks.json")
+# for obj in jsonObjs:
     json_parser(json.dumps(obj, indent=4))
 
 monitor_json("transcript_chunks.json")
 
 
 
-nlp = spacy.load("en_core_web_sm")
-
-CLAIM_KEYWORDS = {"claims", "reports", "suggests", "announces", "confirms", 
-                  "alleges", "denies", "reveals", "predicts", "states", "argues",
-                  "proves", "disproves", "indicates", "demonstrates"}
-
-FILLER_PHRASES = [
-    "what would you like to ask", "whatever you feel like", "moving on to",
-    "let's go now to", "welcome to", "thank you very much", "next question",
-    "can you explain", "just to clarify", "let's begin", "?", "i'm wondering", 
-    "i'm questioning", "i'm curious", "i wonder", "i question", "thank you", 
-    "crack on", "move on", "moving on"
-]
