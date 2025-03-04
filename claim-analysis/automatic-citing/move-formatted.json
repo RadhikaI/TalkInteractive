@@ -1,0 +1,548 @@
+[
+    {
+        "original_claim": "ctor was found alongside Betsy Arakawa and their dog at their home in New Mexico yesterday.",
+        "perplexity_response": "The claim is supported. Gene Hackman, his wife Betsy Arakawa, and one of their dogs were indeed found dead at their home in New Mexico. The bodies were discovered during a welfare check after a neighbor expressed concern about their well-being[1][2][3]. The investigation is ongoing, with no indication of foul play but the circumstances are considered suspicious enough to warrant a thorough investigation[3][4].",
+        "citations": [
+            {
+                "url": "https://www.cbsnews.com/news/gene-hackman-wife-dead-new-mexico-home-santa-fe-county/",
+                "evidence": "\"Legendary actor Gene Hackman, 95, and wife Betsy Arakawa, 65, and their dog were found dead in their home outside Santa Fe, authorities say.\""
+            },
+            {
+                "url": "https://abc7ny.com/post/gene-hackman-wife-betsy-arakawa-found-dead-new-mexico-home-sheriff-says/15958799/",
+                "evidence": "\"Legendary actor Gene Hackman and his wife, Betsy Arakawa, were found dead in their home in New Mexico Wednesday afternoon, ABC News has confirmed.\""
+            },
+            {
+                "url": "https://abcnews.go.com/US/actor-gene-hackman-wife-found-dead-home-sheriff/story?id=119242578",
+                "evidence": "\"An investigation is underway after actor Gene Hackman, 95, and his wife, Betsy Arakawa, 65, were mysteriously found dead alongside a dog in their Santa Fe, New Mexico, home, authorities said.\""
+            },
+            {
+                "url": "https://www.pbs.org/newshour/arts/gene-hackman-and-wife-betsy-arakawa-were-dead-for-some-time-before-being-discovered-warrant-shows",
+                "evidence": "\"Oscar-winner Gene Hackman, his wife and one of their dogs were apparently dead for some time before a maintenance worker discovered their bodies at the couple\u2019s home in Santa Fe, New Mexico, investigators said.\""
+            },
+            {
+                "url": "https://time.com/7262267/gene-hackman-actor-wife-betsy-arakawa-found-dead-at-home/",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Frost has told LBC they had been spotted out recently.",
+        "perplexity_response": "The claim that \"Frost has told LBC they had been spotted out recently\" is not supported by the provided search results. There is no mention of \"Frost\" making any statements to LBC in the context of recent sightings. The search results primarily discuss drone sightings in New Jersey and unrelated topics such as Nigel Farage's comments on Ukraine and a UFO sighting off Kuwait.",
+        "citations": [
+            {
+                "url": "https://www.lbc.co.uk/news/iran-mothership-not-behind-mystery-drone-sightings-pentagon/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.lbc.co.uk/news/exclusive/zelenskyy-needs-to-sign-a-deal-or-face-annihilation-nigel-farage-tells-lbc/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=fhn8VksdgHU",
+                "evidence": null
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=JcseqsBe98g",
+                "evidence": null
+            },
+            {
+                "url": "https://www.lbc.co.uk/news/concerns-grow-amid-multiple-sightings-of-unidentified-mysterious-drones-spotted/",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "In the city a short time ago the FTSE 100 was trading up 24 points at 87.56.",
+        "perplexity_response": "The claim is **not supported**. The FTSE 100 index values reported in recent sources do not match the claim of trading at 87.56. For instance, the FTSE 100 has been trading around values such as 8,809.74 to 8,871.32, which are significantly higher than the claimed value[1][3][5]. Additionally, the index typically fluctuates in points rather than being expressed in a decimal format like 87.56.",
+        "citations": [
+            {
+                "url": "https://markets.businessinsider.com/index/ftse_100",
+                "evidence": "\"FTSE 100 Key Figures ; Performance, 3.23 %, 6.30 % ; High, 8,820.93, 8,820.93 ; Low, 8,520.20, 8,002.34 ; Volatility, 9.32, 9.15 ...\""
+            },
+            {
+                "url": "https://www.sharesmagazine.co.uk/news/shares/ftse-100-closes-higher-in-early-christmas-eve-finish-windward-jumps-on-buyout",
+                "evidence": null
+            },
+            {
+                "url": "https://www.hl.co.uk/shares/stock-market-summary/ftse-100",
+                "evidence": "\"8,809.74 Day high ... 8,810.50 Day low 8,715.43\""
+            },
+            {
+                "url": "https://www.axi.com/int/blog/education/indices/ftse-100-index",
+                "evidence": null
+            },
+            {
+                "url": "https://www.tradingview.com/symbols/TVC-UKX/",
+                "evidence": "\"The current value of UK 100 Index is 8,871.32 GBP \u2014 it has risen by 0.61% in the past 24 hours.\""
+            }
+        ]
+    },
+    {
+        "original_claim": "The pound buys $1.26 and one year wrote 21.",
+        "perplexity_response": "The claim is partially supported but incorrect in its specifics. The British Pound Sterling to US Dollar exchange rate has been around $1.26 in recent times, but the specific rate of $1.26 is not consistently documented for the entire year 2021. As of March 3, 2025, the exchange rate was approximately $1.268 per GBP[1]. Historical data shows fluctuations around $1.26, but there is no evidence that this rate was constant throughout 2021.",
+        "citations": [
+            {
+                "url": "https://ycharts.com/indicators/british_pound_sterling_to_us_dollar_exchange_rate",
+                "evidence": "\"British Pound Sterling to US Dollar Exchange Rate is at a current level of 1.268, up from 1.260 the previous market day and up from 1.263 one year ago.\""
+            },
+            {
+                "url": "https://quizlet.com/97475769/international-finance-chapter-7-flash-cards/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.exchangerates.org.uk/GBP-USD-exchange-rate-history.html",
+                "evidence": "\"Friday 14 February 2025, 1 GBP = 1.2594 USD; Thursday 13 February 2025, 1 GBP = 1.2563 USD; Wednesday 12 February 2025, 1 GBP = 1.2448 USD.\" (These rates are close to $1.26 but do not directly support the claim for 2021.)"
+            },
+            {
+                "url": "https://www.washoeschools.net/cms/lib/NV01912265/Centricity/Domain/949/Math%207%20Module%204%20and%205%20Practice%20Worksheets.pdf",
+                "evidence": null
+            },
+            {
+                "url": "https://www.poundsterlinglive.com/history/USD-GBP-2025",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "LBC weather mostly dry tonight with some isolated showers in the far northwest, a low of minus three",
+        "perplexity_response": "The claim is not supported by the available evidence. The weather forecasts provided for various locations do not mention a low of minus three degrees or conditions that match the description of \"mostly dry tonight with some isolated showers in the far northwest\" for any specific area. For example, Long Beach, Mississippi, and Long Beach, California, have forecasts that do not align with these conditions[1][3][5]. Additionally, the weather forecast for Ireland mentions rain and drizzle but does not specify a low of minus three degrees[2]. Similarly, the forecast for Atlanta, GA, does not mention such conditions either[4].",
+        "citations": [
+            {
+                "url": "https://world-weather.info/forecast/usa/long_beach_2/march-2025/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.met.ie/forecasts/national-forecast",
+                "evidence": null
+            },
+            {
+                "url": "https://www.easeweather.com/north-america/united-states/california/los-angeles-county/long-beach/march",
+                "evidence": null
+            },
+            {
+                "url": "https://forecast.weather.gov/MapClick.php?lat=33.76&lon=-84.43",
+                "evidence": null
+            },
+            {
+                "url": "https://www.accuweather.com/en/us/long-beach/90802/march-weather/347631",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "ctor was found alongside Betsy Arakawa and their dog at their home in New Mexico yesterday.",
+        "perplexity_response": "The claim is supported. Gene Hackman, his wife Betsy Arakawa, and one of their dogs were indeed found dead at their home in New Mexico. The bodies were discovered during a welfare check after a neighbor expressed concern about their well-being[1][2][3]. The investigation is ongoing, with no signs of foul play initially reported, but the circumstances are considered suspicious enough to warrant further investigation[3][4].",
+        "citations": [
+            {
+                "url": "https://www.cbsnews.com/news/gene-hackman-wife-dead-new-mexico-home-santa-fe-county/",
+                "evidence": "\"Legendary actor Gene Hackman, 95, and wife Betsy Arakawa, 65, and their dog were found dead in their home outside Santa Fe, authorities say.\""
+            },
+            {
+                "url": "https://abc7ny.com/post/gene-hackman-wife-betsy-arakawa-found-dead-new-mexico-home-sheriff-says/15958799/",
+                "evidence": "\"Legendary actor Gene Hackman and his wife, Betsy Arakawa, were found dead in their home in New Mexico Wednesday afternoon, ABC News has confirmed.\""
+            },
+            {
+                "url": "https://abcnews.go.com/US/actor-gene-hackman-wife-found-dead-home-sheriff/story?id=119242578",
+                "evidence": "\"An investigation is underway after actor Gene Hackman, 95, and his wife, Betsy Arakawa, 65, were mysteriously found dead alongside a dog in their Santa Fe, New Mexico, home, authorities said.\""
+            },
+            {
+                "url": "https://www.pbs.org/newshour/arts/gene-hackman-and-wife-betsy-arakawa-were-dead-for-some-time-before-being-discovered-warrant-shows",
+                "evidence": "\"Oscar-winner Gene Hackman, his wife and one of their dogs were apparently dead for some time before a maintenance worker discovered their bodies at the couple\u2019s home in Santa Fe, New Mexico, investigators said.\""
+            },
+            {
+                "url": "https://time.com/7262267/gene-hackman-actor-wife-betsy-arakawa-found-dead-at-home/",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Frost has told LBC they had been spotted out recently.",
+        "perplexity_response": "The claim that \"Frost has told LBC they had been spotted out recently\" is not supported by the provided search results. There is no mention of \"Frost\" making any statements to LBC regarding recent sightings in the available information.",
+        "citations": [
+            {
+                "url": "https://www.lbc.co.uk/news/iran-mothership-not-behind-mystery-drone-sightings-pentagon/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.lbc.co.uk/news/exclusive/zelenskyy-needs-to-sign-a-deal-or-face-annihilation-nigel-farage-tells-lbc/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=fhn8VksdgHU",
+                "evidence": null
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=JcseqsBe98g",
+                "evidence": null
+            },
+            {
+                "url": "https://www.lbc.co.uk/news/concerns-grow-amid-multiple-sightings-of-unidentified-mysterious-drones-spotted/",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "In the city a short time ago the FTSE 100 was trading up 24 points at 87.56.",
+        "perplexity_response": "The claim is **not supported**. The FTSE 100 index values reported in recent sources are significantly higher than 87.56. For example, the index has been trading around values such as 8,809.74 and 8,871.32, which are far above the claimed value[1][3][5]. Additionally, there is no mention of the FTSE 100 trading at such a low value in the provided sources.",
+        "citations": [
+            {
+                "url": "https://markets.businessinsider.com/index/ftse_100",
+                "evidence": "\"The FTSE 100 is the British blue-chip index and consists of the 100 British companies with the highest market capitalization, the growth of which is reflected in the index.\""
+            },
+            {
+                "url": "https://www.axi.com/int/blog/education/indices/ftse-100-index",
+                "evidence": null
+            },
+            {
+                "url": "https://www.hl.co.uk/shares/stock-market-summary/ftse-100",
+                "evidence": "\"FTSE 100 delayed by at least 15 minutes | Market closed | Prices delayed by at least 15 minutes | 8,809.74 Day high.\""
+            },
+            {
+                "url": "https://www.proactiveinvestors.co.uk/companies/news/1060760/ftse-100-live-melrose-to-kick-off-proceedings-for-week-1060760.html",
+                "evidence": null
+            },
+            {
+                "url": "https://www.tradingview.com/symbols/TVC-UKX/",
+                "evidence": "\"The current value of UK 100 Index is 8,871.32 GBP \u2014 it has risen by 0.61% in the past 24 hours.\""
+            }
+        ]
+    },
+    {
+        "original_claim": "The pound buys $1.26 and one year wrote 21.",
+        "perplexity_response": "The claim is partially supported. The current exchange rate of approximately $1.26 to \u00a31 is supported by historical data showing rates around this figure in recent times, such as on February 28, 2025, when the rate was about $1.260[1][3]. However, the mention of \"one year wrote 21\" is unclear and lacks direct evidence from the provided sources. It might refer to a specific event or context not covered in the available data.",
+        "citations": [
+            {
+                "url": "https://ycharts.com/indicators/british_pound_sterling_to_us_dollar_exchange_rate",
+                "evidence": "\"The British Pound Sterling to US Dollar Exchange Rate is at a current level of 1.268, up from 1.260 the previous market day and up from 1.263 one year ago.\""
+            },
+            {
+                "url": "https://web.pdx.edu/~ito/Krugman-Obstfeld-Melitz/Manuscripts-second%20pass/M14_KRUG6654_09_SE_C14.pdf",
+                "evidence": null
+            },
+            {
+                "url": "https://www.exchangerates.org.uk/GBP-USD-exchange-rate-history.html",
+                "evidence": "\"Monday 24 February 2025, 1 GBP = 1.2617 USD; Sunday 23 February 2025, 1 GBP = 1.2649 USD; Saturday 22 February 2025, 1 GBP = 1.2631 USD.\""
+            },
+            {
+                "url": "https://quizlet.com/97475769/international-finance-chapter-7-flash-cards/",
+                "evidence": null
+            },
+            {
+                "url": "https://wise.com/us/currency-converter/usd-to-gbp-rate/history",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "LBC weather mostly dry tonight with some isolated showers in the far northwest, a low of minus three",
+        "perplexity_response": "The claim is not supported by the available information. The search results do not provide specific weather forecasts for LBC (which could refer to a location or a media outlet) that match the description of being \"mostly dry tonight with some isolated showers in the far northwest, a low of minus three.\" The weather forecasts provided for San Francisco and Ireland do not align with this description, as they mention different conditions and temperatures[1][2]. Additionally, there is no mention of temperatures reaching minus three in the provided forecasts.",
+        "citations": [
+            {
+                "url": "https://world-weather.info/forecast/usa/san_francisco/march-2025/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.met.ie/forecasts/national-forecast",
+                "evidence": null
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=UheICvDXE8A",
+                "evidence": null
+            },
+            {
+                "url": "https://www.climate.gov/news-features/understanding-climate/us-climate-outlook-november-2024",
+                "evidence": null
+            },
+            {
+                "url": "https://www.accuweather.com/en/us/long-beach/90802/march-weather/347631",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "The pound buys $1.26 and one year wrote 21.",
+        "perplexity_response": "The claim is partially supported. The current exchange rate of the British Pound to the US Dollar is around 1.268 USD per GBP as of March 3, 2025, which is close to the $1.26 mentioned in the claim[1]. However, the claim also mentions \"one year wrote 21,\" which does not directly relate to any specific financial data or context provided in the available sources. The historical data shows fluctuations in the exchange rate over the past year, but there is no clear reference to \"one year wrote 21\" in the context of financial data[1][3].",
+        "citations": [
+            {
+                "url": "https://ycharts.com/indicators/british_pound_sterling_to_us_dollar_exchange_rate",
+                "evidence": "\"British Pound Sterling to US Dollar Exchange Rate is at a current level of 1.268, up from 1.260 the previous market day and up from 1.263 one year ago.\""
+            },
+            {
+                "url": "https://quizlet.com/97475769/international-finance-chapter-7-flash-cards/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.exchangerates.org.uk/GBP-USD-exchange-rate-history.html",
+                "evidence": "\"Monday 24 February 2025, 1 GBP = 1.2617 USD\" (shows recent rates but does not directly support the \"one year wrote 21\" part)."
+            },
+            {
+                "url": "https://www.washoeschools.net/cms/lib/NV01912265/Centricity/Domain/949/Math%207%20Module%204%20and%205%20Practice%20Worksheets.pdf",
+                "evidence": null
+            },
+            {
+                "url": "https://www.poundsterlinglive.com/bank-of-england-spot/historical-spot-exchange-rates/gbp/GBP-to-USD",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "LBC weather mostly dry tonight with some isolated showers in the far northwest, a low of minus three largely dry tomorrow with sunny spells cloud building in the northwest later and light rain moving in overnight highs of 10 degrees from global's new dream for LBC I'm Amelia Cox.",
+        "perplexity_response": "The claim is **not supported** by the available evidence. The weather forecasts provided do not match the specific conditions described in the claim. For instance, the weather in Dublin is expected to be cold and dry with clear spells initially, turning cloudier with rain later, which does not align with the claim of mostly dry conditions with sunny spells and light rain moving in overnight[2][4]. Similarly, other locations like Long Beach and Washington, D.C., have different weather forecasts that do not match the claim[1][3][5].",
+        "citations": [
+            {
+                "url": "https://world-weather.info/forecast/usa/long_beach_2/march-2025/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.met.ie/forecasts/Dublin",
+                "evidence": null
+            },
+            {
+                "url": "https://weathershogun.com/weather/usa/dc/washington/897/march/2025-03-04",
+                "evidence": null
+            },
+            {
+                "url": "https://www.anglocelt.ie/2025/01/29/largely-dry-day-with-mix-of-cloud-and-sunny-spells-2/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.accuweather.com/en/us/long-beach/11561/march-weather/5550",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": " a so-called documentary on Gaza that wasn't wholly open about who was in it nor what they said will hear from an Israeli government spokesperson plus make broccoli great again just massive Brock news actually in the making of part of the campaign to sell 10,000 tons of broccoli a month and part of making it go viral we will have a serious player in making good food unbelievably good looking joining the campaign and what's up message now 0345 606 0973 text 84850 Tom Swalbrick on LBC very good afternoon to you first in the next 60 minutes the transatlantic alliance faces its stiffest",
+        "perplexity_response": "The claim that a documentary on Gaza wasn't wholly open about who was in it nor what they said is partially supported. The documentary, \"Gaza: How to Survive a Warzone,\" faced criticism for not disclosing that its narrator, Abdullah al-Yazouri, was the son of a senior Hamas official, which was only revealed after the broadcast[1][3]. However, the claim about an Israeli government spokesperson is not directly addressed in the provided sources. Additionally, there is no evidence linking this documentary to a campaign about broccoli.",
+        "citations": [
+            {
+                "url": "https://www.thejc.com/news/uk/bbc-could-face-terror-probe-after-admission-that-hamas-family-was-paid-during-making-of-gaza-film-j9himdgl",
+                "evidence": "\"The documentary was removed from iPlayer on February 21 after it was revealed by activist and freelance journalist David Collier that the film\u2019s narrator had close links to Hamas which were not disclosed to the audience.\""
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=GCoTggsvPt0",
+                "evidence": null
+            },
+            {
+                "url": "https://www.i24news.tv/en/news/international/europe/artc-uk-police-investigate-controversial-bbc-documentary-on-gaza",
+                "evidence": "\"The broadcast sparked a police review following numerous complaints that the documentary war marred by non-compliance with editorial standards\""
+            },
+            {
+                "url": "https://www.jpost.com/diaspora/antisemitism/article-844360",
+                "evidence": "\"A BBC spokesperson said that Hoyo Films had paid the mother of the boy that narrated the Gaza: How to Survive a Warzone documentary, but had acknowledged that there were serious flaws in the making of this program.\""
+            },
+            {
+                "url": "https://www.euronews.com/culture/2025/02/27/celebrities-and-media-figures-criticise-bbc-for-pulling-documentary-gaza-how-to-survive-a-",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "ve the potential to blow up this press conference and create a huge transatlantic round of course Donald Trump has been no stranger to causing a round the world stage in the last couple of weeks we've heard him get into that extremely high profile spat with President Zelensky of course the two are at odds over the Ukraine peace agreement exactly what it's going to look like those troops on the ground and of course defence spending too and of course Prime Minister Kiroslav hope to get ahead of that just a couple of days ago by announcing that we will be spending 2.5% of GDP on defence and just in the last few minutes we've been hearing from the White House a senior Trump spokesperson has told us that they are very pleased with Prime Minister Stammer's announcement to increase spending to 2.5% which is obviously good news however the president does continue to urge our NATO allies",
+        "perplexity_response": "The claim that Donald Trump has been involved in a high-profile spat with President Zelensky over the Ukraine peace agreement is **supported**. Recent reports indicate that Trump has criticized Zelensky for suggesting that the end of the Russia-Ukraine war is \"very, very far away,\" which Trump views as a negative statement[1][3]. Additionally, Trump has paused U.S. aid to Ukraine to pressure Zelensky into engaging in peace talks with Russia, further highlighting their disagreement[3][5].",
+        "citations": [
+            {
+                "url": "https://time.com/7263913/trump-slams-zelensky-russia-ukraine-war-end/",
+                "evidence": "\"Trump took issue with Zelensky suggesting it would take time to come to an agreement to end the war.\""
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=A-DSB13ZWtg",
+                "evidence": null
+            },
+            {
+                "url": "https://whyy.org/articles/trump-pauses-aid-ukraine-russia-war/",
+                "evidence": "\"Trump on Monday directed a \u201cpause\u201d to U.S. assistance to Ukraine after a disastrous Oval Office meeting as he seeks to pressure Ukrainian President Volodymyr Zelenskyy to engage in peace talks with Russia.\""
+            },
+            {
+                "url": "https://www.atlanticcouncil.org/blogs/new-atlanticist/donald-trump-just-won-the-presidency-our-experts-answer-the-big-questions-about-what-that-means-for-americas-role-in-the-world/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.nbcwashington.com/news/national-international/trump-us-pause-ukraine-aid/3857471/",
+                "evidence": "\"Trump earlier on Monday slammed Zelenskyy for suggesting that the end of Russia's war against Ukraine likely 'is still very, very far away.'\""
+            }
+        ]
+    },
+    {
+        "original_claim": " Minister Stammer's announcement to increase spending to 2.5% which is obviously good news however the president does continue to urge our NATO allies to increase spending to 2.5% it's nowhere near enough that's the message coming from the White House in the last few minutes Tom.",
+        "perplexity_response": "The claim is partially supported but contains inaccuracies. The U.K. has indeed announced an increase in defense spending to 2.5% of GDP by 2027, which is seen as a significant move[1][4]. However, the claim that President Trump urges NATO allies to increase spending to 2.5% is incorrect. Instead, the White House has expressed a desire for NATO allies to increase defense spending further, towards 5% of their respective national GDPs, which is more than what the U.S. currently spends[2].",
+        "citations": [
+            {
+                "url": "https://www.pbs.org/newshour/world/starmer-brings-uk-defense-spending-pledge-to-washington-to-help-sway-trump-on-ukraine",
+                "evidence": "\"Starmer announced Tuesday that the U.K. government will hike military spending to 2.5% of gross domestic product by 2027, years earlier than expected...\""
+            },
+            {
+                "url": "https://www.cbsnews.com/news/trump-uk-keir-starmer-ukraine-war-russia-europe-tariffs/",
+                "evidence": "\"A White House official said ahead of the meeting that the Trump administration was 'very pleased' with Starmer's announcement, but that it still wants to see America's NATO allies increase defense spending further, towards 5% of their respective national GDPs.\""
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=GzhyrKlsXd4",
+                "evidence": null
+            },
+            {
+                "url": "https://www.rferl.org/a/uk-starmer-spending-trump-us-defense-nato/33327959.html",
+                "evidence": "\"Starmer, speaking before parliament on February 25, said defense spending would rise to 2.5 percent of economic output by 2027 from 2.3 percent this year...\""
+            },
+            {
+                "url": "https://www.gov.uk/government/speeches/prime-ministers-oral-statement-to-the-house-of-commons-25-february-2025",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Test drive one of our award-winning models and you'll enjoy up to \u00a31,000 off your new CUPRA in addition to existing offers.",
+        "perplexity_response": "The claim is **supported**. Evidence from multiple sources confirms that test-driving a CUPRA model can result in a discount of up to \u00a31,000, in addition to existing offers. For instance, the CUPRA Drive Event offers up to \u00a31,000 off when you test drive and order a new CUPRA by March 31st, 2025[1][3]. Specific models like the CUPRA Formentor and CUPRA Leon receive an additional \u00a31,000 off during this event[1][5]. Additionally, booking a test drive for models like the CUPRA Born can also lead to similar discounts[2].",
+        "citations": [
+            {
+                "url": "https://www.group1auto.co.uk/cupra/events/the-cupra-drive-event/",
+                "evidence": "\"Test drive one of our captivating CUPRA models and you can enjoy up to \u00a31,000 off in addition to existing offers.\""
+            },
+            {
+                "url": "https://www.cupraofficial.co.uk/your-cupra-born-test-drive",
+                "evidence": "\"Book a test drive and get an additional \u00a31000 off your new CUPRA Born.\""
+            },
+            {
+                "url": "https://www.swanswaygarages.com/offers/cupra/drive-event/",
+                "evidence": "\"Get behind the wheel of a CUPRA with a test drive and receive up to an additional \u00a31,000 off the list price*\""
+            },
+            {
+                "url": "https://www.swanswaygarages.com/new-cars/cupra/formentor/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.cupraofficial.co.uk/event/cupra-drive",
+                "evidence": "\"Get \u00a34,000 towards your finance deposit at 4.9% APR Representative with Solutions PCP* on VZ trim plus until March 31st get an additional \u00a31,000 off as part of the CUPRA Drive Event^.\""
+            }
+        ]
+    },
+    {
+        "original_claim": "Tee's and see's and exclusion supply UK retail customers 18 plus.",
+        "perplexity_response": "The claim that Tee's and See's and exclusion supply UK retail customers 18 plus is not supported by the provided search results. There is no specific information about Tee's and See's or their policies regarding age restrictions in the UK. However, general age restrictions in the UK for various products and services are well-documented, with many items restricted to those 18 years old and over, such as alcohol, tobacco, and certain entertainment venues[1][3][5].",
+        "citations": [
+            {
+                "url": "https://noidnosale.com/age-restricted-products-and-services-in-the-uk",
+                "evidence": "\"All tobacco products, Alcohol, National Lottery and the Health Lottery, Scratch cards, Cigarette lighter refills, butane, e-Cigaretts or e-Liquids, Fireworks and sparklers, PEGI 18-rated games, 18/R18 rated videos (DVDs/Blu-Ray/streaming videos), Knives, axes, razor blades (except safety razors), Solvents, including glues and intoxicating substances, Crossbows, Imitation firearms and air weapons\" are restricted to those 18 years old and over."
+            },
+            {
+                "url": "https://boandtee.com/pages/size-guide",
+                "evidence": null
+            },
+            {
+                "url": "https://www.kent.gov.uk/__data/assets/pdf_file/0007/53278/Trading-Standards-life-skills-age-restricted-products.pdf",
+                "evidence": "\"It is illegal to buy alcohol if you are under 18. You can be stopped, fined or arrested by the Police if you are under 18 and drinking alcohol in public.\""
+            },
+            {
+                "url": "https://www.ftc.gov/business-guidance/resources/threading-your-way-through-labeling-requirements-under-textile-wool-acts",
+                "evidence": null
+            },
+            {
+                "url": "https://www.thurrock.gov.uk/underage-sales/age-restrictions",
+                "evidence": "\"Adult fireworks and sparklers, Alcohol, Axes, Blades, Butane, Crossbows, Electronic cigarettes, Knives, Lottery tickets, Scratch cards, Solvents, Sunbeds,"
+            }
+        ]
+    },
+    {
+        "original_claim": "Saving includes that apply to one the road or manufacturer's direct price.",
+        "perplexity_response": "The claim is **not supported**. The context of \"saving includes that apply to one the road\" is unclear, but it seems to mix concepts related to savings categories and pricing terms like MSRP. Savings categories, such as emergency funds or vacation funds, are unrelated to the concept of MSRP, which is a manufacturer's suggested retail price for products, often used in the automotive industry[1][2]. There is no direct connection between these savings categories and the MSRP or \"manufacturer's direct price,\" which refers to the price a manufacturer recommends for its products[2][4].",
+        "citations": [
+            {
+                "url": "https://www.jeniusbank.com/blog/articles/savings-categories-and-buckets",
+                "evidence": "\"Each savings category in your plan serves a distinct purpose and may help you stay organized and focused on your financial goals.\""
+            },
+            {
+                "url": "https://www.investopedia.com/terms/m/manufacturers-suggested-retail-price-msrp.asp",
+                "evidence": "\"The manufacturer\u2019s suggested retail price (MSRP) is the price that a product's manufacturer recommends it be sold for at the point of sale.\""
+            },
+            {
+                "url": "https://www.thrivent.com/insights/budgeting-saving/what-are-the-different-types-of-savings-accounts-which-makes-sense-for-you",
+                "evidence": null
+            },
+            {
+                "url": "https://www.trackstreet.com/msrp-pricing/",
+                "evidence": "\"A manufacturer\u2019s suggested retail price (MSRP) represents the actual price that a manufacturer recommends its retail partners sell its products.\""
+            },
+            {
+                "url": "https://www.capitalone.com/bank/money-management/banking-basics/what-is-a-savings-vehicle/?v=1706572800086",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "New vehicles are participating retailers only.",
+        "perplexity_response": "The claim is partially supported. Amazon Autos allows customers to purchase new Hyundai vehicles online, but only through participating local dealerships. This means that not all retailers are participating, as the service is limited to specific dealerships in 48 U.S. cities[1][2][3]. The claim implies that new vehicles are only available from participating retailers, which aligns with Amazon Autos' model but does not apply universally across all new vehicle sales.",
+        "citations": [
+            {
+                "url": "https://www.wusa9.com/article/news/nation-world/amazon-hyundai-sell-cars-online/507-fe828907-aa96-4985-880b-7c40dddbd797",
+                "evidence": "\"The new feature, called Amazon Autos, allows people across 48 U.S. cities to \u201cbrowse, order, finance and schedule pickup of a new Hyundai vehicle from their local participating dealer directly on Amazon.\u201d\""
+            },
+            {
+                "url": "https://www.retailtouchpoints.com/topics/retail-innovation/amazon-looks-to-modernize-automotive-retail-by-selling-cars-with-hyundai",
+                "evidence": "\"Customers in 48 U.S. cities can now browse, order, finance and schedule pickup of new Hyundai vehicles from local participating dealers directly via Amazon.\""
+            },
+            {
+                "url": "https://massmarketretailers.com/amazon-autos-launches-in-48-u-s-cities-simplifying-car-shopping-2/",
+                "evidence": "\"Amazon has introduced Amazon Autos, a new service enabling customers in 48 U.S. cities to purchase Hyundai vehicles online through participating local dealers.\""
+            },
+            {
+                "url": "https://consumer.ftc.gov/consumer-alerts/2023/12/new-cars-rule-what-you-need-know",
+                "evidence": null
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=Yxvo3EcSIh0",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "ncludes that apply to one the road or manufacturer's direct price.",
+        "perplexity_response": "The claim is **partially supported**. The Manufacturer's Suggested Retail Price (MSRP) is the price that manufacturers recommend retailers sell their products for, but it does not include additional costs like taxes and fees[2][4]. On the other hand, the \"out-the-door\" price includes all these extra costs, making it the total price paid for a vehicle[5]. The term \"on the road\" is not explicitly defined in the provided sources, but it generally refers to the total cost of a vehicle after adding taxes and fees, similar to the \"out-the-door\" price.",
+        "citations": [
+            {
+                "url": "https://www.consumerfinance.gov/ask-cfpb/what-factors-into-the-price-of-a-car-or-vehicle-en-723/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.investopedia.com/terms/m/manufacturers-suggested-retail-price-msrp.asp",
+                "evidence": "\"The MSRP is different from the invoice price, the price that the dealer pays the manufacturer for each car. This is typically lower than the MSRP, allowing the dealer to earn a profit on each sale.\""
+            },
+            {
+                "url": "https://www.investopedia.com/terms/i/inclusion-amount.asp",
+                "evidence": null
+            },
+            {
+                "url": "https://www.trackstreet.com/msrp-pricing/",
+                "evidence": "\"The key difference between MSRP pricing and MAP pricing and is how the two pricing policies are meant to be applied. Whereas MAP pricing addresses only how a reseller advertises a product, MSRP represents the amount a manufacturer recommends its retailers actually sell the product.\""
+            },
+            {
+                "url": "https://www.bankrate.com/loans/auto-loans/out-the-door-price/",
+                "evidence": "\"The out-the-door price is the sum of all the costs you\u2019ll pay for a car, including taxes and fees. The OTD price is higher than the manufacturer\u2019s suggested retail price (MSRP) because it includes those additional costs.\""
+            }
+        ]
+    },
+    {
+        "original_claim": "Call Tom Swarbrick 0345 6060 973 LBC scams crypto scams impersonation scams romance scams in the UK alone somebody is scammed every 10 seconds at CEL solicitors we've recovered over 100 million pounds for our clients so if you've lost money to a scam we may be able to help get it back waited excellent on trust pilot you know you're in safe hands start your claim today we listen we care we win I've got the new Samsung Galaxy S25 and so many brownie points you see now brief with Galaxy AI learns my schedule to keep me ahead of my day weather activity stats and diary updates like Jamie's birthday you remembered",
+        "perplexity_response": "The claim that \"somebody is scammed every 10 seconds in the UK\" is not supported by the provided search results. There is no specific data or evidence in the search results to confirm this frequency of scams in the UK. However, it is known that scams are prevalent, and companies like Refundee and Wealth Recovery Solicitors have helped numerous clients recover funds lost to scams, indicating a significant issue with scams in the UK[3][5].\n\nThe claim about CEL solicitors recovering over \u00a3100 million for clients is also not supported by the search results, as there is no mention of CEL solicitors or their recovery figures in the provided sources.",
+        "citations": [
+            {
+                "url": "https://www.duncanlewis.co.uk/Recovery-room-fraud.html",
+                "evidence": null
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=oKCZd5DlA8g",
+                "evidence": null
+            },
+            {
+                "url": "https://www.refundee.com",
+                "evidence": null
+            },
+            {
+                "url": "https://nlp.biu.ac.il/~ravfogs/resources/embeddings-alignment/glove_vocab.250k.txt",
+                "evidence": null
+            },
+            {
+                "url": "https://wealthrecovery.co.uk",
+                "evidence": null
+            }
+        ]
+    }
+]

@@ -3,13 +3,19 @@ import json
 import time
 import os
 
-INPUT_FILE = "./claim-analysis/automatic-citing/sample.json"
-PROCESSED_FILE = "./claim-analysis/automatic-citing/sample-processed.json"
+# INPUT_FILE = "./claim-analysis/automatic-citing/sample.json"
+# PROCESSED_FILE = "./claim-analysis/automatic-citing/sample-processed.json"
+
+INPUT_FILE = "./claim-analysis/extracted_claims.json"
+PROCESSED_FILE = "claim-analysis/automatic-citing/sample-processed.json"
+
+
 
 class ExtractedProcessor:
     def __init__(self, input_file):
         self.input_file = input_file
         self.processed_file = PROCESSED_FILE
+        
         self.latest_modified = os.path.getmtime(input_file)
         self.latest_segment_id = 0
         
@@ -42,9 +48,9 @@ class ExtractedProcessor:
         objects_to_keep = []
         
         for obj in segment_data:
-            segment_id = obj.get("segment_id")
+            segment_id = obj.get("id")
             if segment_id > self.latest_segment_id:
-                for claim in obj.get("claims_found", []):
+                for claim in obj.get("claims", []):
                     claims_found.append((claim, segment_id))
             else:
                 objects_to_keep.append(obj)
@@ -64,7 +70,7 @@ class ExtractedProcessor:
                     
                     # TODO: Add segment transcript back too
                     self.write_processed_segment({
-                        "segment_id": segment_id,
+                        "id": segment_id,
                         "processed_claim": [claim],
                     })
                     
