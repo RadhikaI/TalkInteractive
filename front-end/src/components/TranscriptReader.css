@@ -1,0 +1,283 @@
+/* keyframe for fact check panel slide in */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* colour and font variables */
+:root {
+  /* gradient background colours */
+  --bg-gradient-start: #2f3136;
+  --bg-gradient-end: #232428;
+
+  /* panel and section background colours */
+  --section-bg: #35363b;
+  --panel-bg: #3c3f45;
+
+  /* text and highlight colours */
+  --text-color: #f1f1f1;
+  --highlight-color: #e0e0e0;
+  --primary-color: #1da1f2;
+
+  /* layout and styling */
+  --border-radius: 10px;
+  --transition-duration: 0.5s;
+  --font-family: "Inter", sans-serif;
+
+  /* layouot dimensions */
+  --right-panel-width: 400px; 
+}
+
+/* global body style */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* keyframe for animated gradient */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* background stuff */
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #232428, #2f3136, #3c3f45, #2f3136);
+  background-size: 400% 400%;
+  animation: gradient 1s ease infinte;
+  background-attachment: fixed;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  overflow-x: hidden;
+}
+
+/* transcript container stuff */
+.transcript-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; 
+  gap: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  align-items: flex-start;
+  padding: 2rem;
+  transition: all var(--transition-duration) ease;
+  justify-content: flex-start;
+}
+
+/* transcript box */
+.transcript-box {
+  flex: 1;
+  max-width: 1100px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+/* right panel */
+.right-panel {
+  width: var(--right-panel-width);
+  flex-shrink: 0; 
+  box-sizing: border-box;
+}
+
+/* fact check panel with slide in animation */
+.factcheck-panel {
+  position: relative;
+  width: 100%;
+  background: var(--panel-bg);
+  padding: 1.5rem 2rem 1.5rem 1.5rem;
+  border: 1px solid #424549;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateX(100%);
+  pointer-events: none;
+  transition: opacity var(--transition-duration) ease, transform var(--transition-duration) ease;
+  animation: slideIn var(--transition-duration) ease forwards;
+}
+
+/* make sure fact check panel is visible after animation */
+.factcheck-panel {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* sidebar for when nothing is clicked on */
+.sidebar {
+  width: 100%;
+  background: var(--panel-bg);
+  padding: 1.5rem 2rem;
+  border: 1px solid #424549;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: var(--highlight-color);
+}
+
+/* typography stuff */
+.transcript-box h2,
+.factcheck-panel h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  font-size: 2.5rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.transcript-box p,
+.factcheck-panel p,
+.sidebar p {
+  margin: 0 0 1.25rem;
+  line-height: 1.6;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+/* fact check content block*/
+.fact-check-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.fact-check-claim,
+.fact-check-response,
+.fact-check-sources {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.fact-check-claim h4,
+.fact-check-response h4,
+.fact-check-sources h4 {
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+}
+
+/* make sure source list is in a numbered list */
+.source-list {
+  padding-left: 1.25rem;
+  list-style-type: decimal;
+}
+
+/* handle links */
+.link {
+  color: var(--primary-color);
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #58b1ff;
+}
+
+/* claim highlight stuff, make bold and underline */
+.claim-highlight {
+  color: var(--highlight-color);
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.claim-highlight:hover {
+  color: #8d99ae;
+}
+
+/* overrides typography in fact check panel for a smaller font */
+.factcheck-panel p {
+  font-size: 1rem;
+}
+.factcheck-panel h3 {
+  font-size: 1.5rem;
+  text-align: center; /* centre the fact check header */
+}
+.factcheck-panel h4 {
+  font-size: 1.25rem;
+}
+
+/* stack vertically on small screens */
+@media (max-width: 768px) {
+  .transcript-container {
+    flex-direction: column;
+  }
+  
+  .right-panel {
+    width: 100%;
+  }
+}
+
+.fact-check-claim p:last-child,
+.fact-check-response p:last-child,
+.fact-check-sources p:last-child {
+  margin-bottom: 0;
+}
+
+.source-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.source-list li {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.source-number {
+  background: #444;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.link.truncated {
+  display: inline-block;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
