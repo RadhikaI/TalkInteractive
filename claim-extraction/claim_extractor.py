@@ -5,8 +5,6 @@ import requests
 import json
 import os
 import time
-from watchdog.observers.polling import PollingObserver
-from watchdog.events import FileSystemEventHandler
 
 # nlp library for named entity recognition
 nlp = spacy.load("en_core_web_sm")
