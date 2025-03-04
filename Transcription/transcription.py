@@ -109,7 +109,6 @@ class TranscriptProcessor:
         self.__removed = removed
         self.__final_transcripts.append(final)
 
-        # TODO: check size 
         chunk = self.__whole_transcript[-overlap:] + final
 
         self.__whole_transcript += final
@@ -188,6 +187,8 @@ class AudioTranscriber:
         self.__exporter = exporter
 
         self.__to_transcribe = queue.Queue()
+
+        self.__model_type = model_type
 
         # base < small < medium < large
         if model_type in ["base", "small", "medium", "large", "large-v2"]:
