@@ -40,7 +40,6 @@ class ExtractedProcessor:
             json.dump(processed_segments, f)
 
     def process(self):
-        # Read current input file
         with open(self.input_file, 'r') as f:
             segment_data = json.load(f)
         
@@ -49,9 +48,10 @@ class ExtractedProcessor:
         
         for obj in segment_data:
             segment_id = obj.get("id")
+            context = obj.get("chunk")
             if segment_id > self.latest_segment_id:
                 for claim in obj.get("claims", []):
-                    claims_found.append((claim, segment_id))
+                    claims_found.append((context, claim, segment_id))
             else:
                 objects_to_keep.append(obj)
         
@@ -65,12 +65,12 @@ class ExtractedProcessor:
             if self.check_for_change():
                 claims_found = self.process()
                 
-                for claim, segment_id in claims_found:
+                for context, claim, segment_id in claims_found:
                     run_perplexity(claim, "./claim-analysis/automatic-citing/move-formatted.json")
                     
-                    # TODO: Add segment transcript back too
                     self.write_processed_segment({
                         "id": segment_id,
+                        "context": context,
                         "processed_claim": [claim],
                     })
                     
