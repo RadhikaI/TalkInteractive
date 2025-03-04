@@ -284,30 +284,5 @@
                 "evidence": "\"Until March 31st 2025, get between \u00a3500 and \u00a31,000 off a new CUPRA^.\""
             }
         ]
-    },
-    {
-        "original_claim": "Tee's and see's and exclusion supply UK retail customers 18 plus.",
-        "perplexity_response": "The claim that Tee's and See's exclude UK retail customers under 18 is not supported by the provided search results. There is no specific information about Tee's and See's having age restrictions for their products or services in the UK. However, age restrictions are common for certain products and services in the UK, such as alcohol, tobacco, and adult entertainment, which are restricted to those 18 and over[1][3][5].",
-        "citations": [
-            {
-                "url": "https://noidnosale.com/age-restricted-products-and-services-in-the-uk",
-                "evidence": "\"All tobacco products, Alcohol, National Lottery and the Health Lottery, Scratch cards, Cigarette lighter refills, butane, e-Cigaretts or e-Liquids, Fireworks and sparklers, PEGI 18-rated games, 18/R18 rated videos (DVDs/Blu-Ray/streaming videos), Knives, axes, razor blades (except safety razors), Newspapers/magazines with any R18/R18 videos/games attached, Solvents, including glues and intoxicating substances, Crossbows, Imitation firearms and air weapons.\""
-            },
-            {
-                "url": "https://boandtee.com/pages/size-guide",
-                "evidence": null
-            },
-            {
-                "url": "https://www.kent.gov.uk/__data/assets/pdf_file/0007/53278/Trading-Standards-life-skills-age-restricted-products.pdf",
-                "evidence": "\"It is illegal to buy alcohol if you are under 18. You can be stopped, fined or arrested by the Police if you are under 18 and drinking alcohol in public.\""
-            },
-            {
-                "url": "https://www.ftc.gov/business-guidance/resources/threading-your-way-through-labeling-requirements-under-textile-wool-acts",
-                "evidence": null
-            },
-            {
-                "url": "https://www.devonsomersettradingstandards.gov.uk/business/age-restricted-products/",
-                "evidence": "\"Adult fireworks and sparklers (category F2 and category F3 fireworks), Alcohol, Botulinum toxin (Botox) and cosmetic fillers (England only), Corrosive substances, Cross"
-            }
-        ]
-    }]
+    }
+]
