@@ -20,7 +20,7 @@ def list_get(l, i):
 def is_float(s):
     try:
        float(s)
-    except ValueError:
+    except (ValueError, TypeError):
         return False
     else:
         return True
