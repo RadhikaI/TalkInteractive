@@ -43,7 +43,7 @@ class TranscriptExporter:
         self.__whole_path = whole_path
 
         if delete_previous:
-            self.delete_records()
+            self.delete_and_save_records()
 
 
     def update_chunks(self, chunk: str):
@@ -78,12 +78,35 @@ class TranscriptExporter:
             json.dump(data, f)
 
 
-    def delete_records(self):
+    def delete_and_save_records(self):
+        timestamp = time.strftime("%Y%m%d_%H%M%S")
+        
         if os.path.exists(self.__chunk_path):
-            os.remove(self.__chunk_path)
+            with open(self.__chunk_path, "r") as f:
+                content = json.load(f)
 
+            if content:
+                backup_path = "./transcript-files/chunks_" + timestamp + ".json"
+                with open(backup_path, "w") as f:
+                    json.dump(content, f)
+
+            with open(self.__chunk_path, "w") as f:
+                json.dump([], f, indent=4)
+
+        
         if os.path.exists(self.__whole_path):
-            os.remove(self.__whole_path)
+            with open(self.__whole_path, "r") as f:
+                content = json.load(f)
+
+            if content:
+                backup_path = "./transcript-files/whole_" + timestamp + ".json"
+                with open(backup_path, "w") as f:
+                    json.dump(content, f)
+
+            with open(self.__whole_path, "w") as f:
+                json.dump("", f, indent=4)
+    
+
 
 
 
@@ -207,6 +230,12 @@ class AudioTranscriber:
             print("Defaulting to http://media-ice.musicradio.com/LBCUK")
             self.__URL = "http://media-ice.musicradio.com/LBCUK"
 
+
+    def check_speed(self):
+        if len(self.__to_transcribe) > 3:
+            # downgarde model
+            pass
+            
 
 
     def __check_URL(self, URL = None) -> bool:
