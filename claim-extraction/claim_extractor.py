@@ -90,7 +90,6 @@ def analyse(chunk, id):
     result = check_with_claimbuster(chunk)
   # if claimbuster flags a chunk as containing one or more claims, print the chunk
     if result[0]:
-        print(chunk)
         claimsArr = []
       # for every sentence flagged as a claim in the chunk, append the text to an array and create a json object containing the original chunk along with this array
         for text in result[1]:
@@ -141,7 +140,10 @@ def detect_insertions(old_data, new_data):
 
 # continuously monitors a file for changes with an infinite loop
 def monitor_json(file_path, interval=10):
-    prev_data = read_json(file_path)
+
+    delete_and_save_records("extracted_claims.json")
+    # so will process all the data if the file starts full
+    prev_data = []
 
     print(f"Monitoring JSON file: {file_path}")
 
@@ -155,6 +157,32 @@ def monitor_json(file_path, interval=10):
             prev_data = new_data  
 
 time.sleep(90) # Takes at least a minute till transcription starts
+
+def delete_and_save_records(file_path):
+        
+    timestamp = time.strftime("%Y%m%d_%H%M%S")
+        
+    if os.path.exists(file_path):
+        try:
+            with open(file_path, "r") as f:
+                content = json.load(f)
+                    
+            if content:
+                backup_path = "./claim-extraction/claims/claim_" + timestamp + ".json"
+                with open(backup_path, "w") as f:
+                    json.dump(content, f)
+
+        except (json.JSONDecodeError, FileNotFoundError):
+            content = []
+                
+        with open(file_path, "w") as f:
+                json.dump([], f, indent=4)
+    else:
+        with open(file_path, "w") as f:
+            json.dump([], f, indent=4)
+        
+
+
 monitor_json("./transcript_chunks.json")
 
 
