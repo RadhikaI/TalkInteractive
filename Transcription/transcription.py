@@ -9,6 +9,7 @@ import json
 
 os.makedirs("./audio-files", exist_ok=True)
 os.makedirs("./transcript-files", exist_ok=True)
+os.makedirs("./saved-files", exist_ok=True)
 
 
 class RecordingException(Exception):
@@ -108,7 +109,7 @@ class TranscriptExporter:
                     content = json.load(f)
                     
                 if content:
-                    backup_path = "./transcript-files/chunks_" + timestamp + ".json"
+                    backup_path = "./saved-files/chunks_" + timestamp + ".json"
                     with open(backup_path, "w") as f:
                         json.dump(content, f)
             except (json.JSONDecodeError, FileNotFoundError):
@@ -126,7 +127,7 @@ class TranscriptExporter:
                     content = json.load(f)
                     
                 if content:
-                    backup_path = "./transcript-files/whole_" + timestamp + ".json"
+                    backup_path = "./saved-files/whole_" + timestamp + ".json"
                     with open(backup_path, "w") as f:
                         json.dump(content, f)
             except (json.JSONDecodeError, FileNotFoundError):
