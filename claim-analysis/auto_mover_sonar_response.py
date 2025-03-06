@@ -3,13 +3,19 @@ import json
 import time
 import os
 
-INPUT_FILE = "./claim-analysis/automatic-citing/sample.json"
-PROCESSED_FILE = "./claim-analysis/automatic-citing/sample-processed.json"
+# INPUT_FILE = "./claim-analysis/automatic-citing/sample.json"
+# PROCESSED_FILE = "./claim-analysis/automatic-citing/sample-processed.json"
+
+INPUT_FILE = "./claim-analysis/extracted_claims.json"
+PROCESSED_FILE = "claim-analysis/automatic-citing/sample-processed.json"
+
+
 
 class ExtractedProcessor:
     def __init__(self, input_file):
         self.input_file = input_file
         self.processed_file = PROCESSED_FILE
+        
         self.latest_modified = os.path.getmtime(input_file)
         self.latest_segment_id = 0
         
@@ -34,7 +40,6 @@ class ExtractedProcessor:
             json.dump(processed_segments, f)
 
     def process(self):
-        # Read current input file
         with open(self.input_file, 'r') as f:
             segment_data = json.load(f)
         
@@ -42,10 +47,11 @@ class ExtractedProcessor:
         objects_to_keep = []
         
         for obj in segment_data:
-            segment_id = obj.get("segment_id")
+            segment_id = obj.get("id")
+            context = obj.get("chunk")
             if segment_id > self.latest_segment_id:
-                for claim in obj.get("claims_found", []):
-                    claims_found.append((claim, segment_id))
+                for claim in obj.get("claims", []):
+                    claims_found.append((context, claim, segment_id))
             else:
                 objects_to_keep.append(obj)
         
@@ -59,12 +65,12 @@ class ExtractedProcessor:
             if self.check_for_change():
                 claims_found = self.process()
                 
-                for claim, segment_id in claims_found:
+                for context, claim, segment_id in claims_found:
                     run_perplexity(claim, "./claim-analysis/automatic-citing/move-formatted.json")
                     
-                    # TODO: Add segment transcript back too
                     self.write_processed_segment({
-                        "segment_id": segment_id,
+                        "id": segment_id,
+                        "context": context,
                         "processed_claim": [claim],
                     })
                     

@@ -1,0 +1,313 @@
+[
+    {
+        "original_claim": "ctor was found alongside Betsy Arakawa and their dog at their home in New Mexico yesterday.",
+        "perplexity_response": "The claim is **partially supported**. Gene Hackman and his wife, Betsy Arakawa, were indeed found dead at their home in New Mexico, along with one of their dogs. However, the claim specifies that this occurred \"yesterday,\" which may not align with the actual timeline of the discovery, as the bodies were found on Wednesday, February 27, 2025, during a welfare check[1][3][4]. The investigation is ongoing, and foul play is not suspected at this time[1][2].",
+        "citations": [
+            {
+                "url": "https://www.cbsnews.com/news/gene-hackman-wife-dead-new-mexico-home-santa-fe-county/",
+                "evidence": "\"Legendary actor Gene Hackman, 95, and his wife, Betsy Arakawa, 64, and their dog were found dead in their home outside Santa Fe, authorities say.\""
+            },
+            {
+                "url": "https://www.voanews.com/a/investigation-into-deaths-of-gene-hackman-wife-continues-in-new-mexico/7993040.html",
+                "evidence": "\"The couple were found dead, along with one of their dogs, Wednesday in their home in the southwestern U.S. state of New Mexico.\""
+            },
+            {
+                "url": "https://abc7.com/post/gene-hackman-wife-betsy-arakawa-found-dead-new-mexico-home-sheriff-says/15958799/",
+                "evidence": "\"Legendary actor Gene Hackman and his wife, Betsy Arakawa, were found dead in their home in New Mexico Wednesday afternoon, ABC News has confirmed.\""
+            },
+            {
+                "url": "https://abcnews.go.com/US/actor-gene-hackman-wife-found-dead-home-sheriff/story?id=119242578",
+                "evidence": "\"An investigation is underway after actor Gene Hackman, 95, and his wife, Betsy Arakawa, 65, were mysteriously found dead alongside a dog in their Santa Fe, New Mexico, home, authorities said.\""
+            },
+            {
+                "url": "https://www.pbs.org/newshour/arts/gene-hackman-and-wife-betsy-arakawa-were-dead-for-some-time-before-being-discovered-warrant-shows",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Frost has told LBC they had been spotted out recently.",
+        "perplexity_response": "The claim that \"Frost has told LBC they had been spotted out recently\" is not supported by the provided search results. There is no mention of \"Frost\" or any related context in the available sources.",
+        "citations": [
+            {
+                "url": "https://www.lbc.co.uk/news/iran-mothership-not-behind-mystery-drone-sightings-pentagon/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.theringer.com/2021/07/30/music/sublime-self-titled-anniversary-bradley-nowell-death",
+                "evidence": null
+            },
+            {
+                "url": "https://www.lbc.co.uk/news/concerns-grow-amid-multiple-sightings-of-unidentified-mysterious-drones-spotted/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=JcseqsBe98g",
+                "evidence": null
+            },
+            {
+                "url": "https://lloydcenter.org/extended-fall-drought-impacts-lloyd-centers-december-2024-waterfowl-count/",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "In the city a short time ago the FTSE 100 was trading up 24 points at 87.56.",
+        "perplexity_response": "The claim is **not supported**. The FTSE 100 index values reported in recent sources do not match the claim of trading at 87.56. Typically, the FTSE 100 index values are in the thousands, not below 100. For example, recent reports show the FTSE 100 trading around 8,800 points[1][3][5]. There is no evidence to suggest that the FTSE 100 has ever traded at such a low value as 87.56.",
+        "citations": [
+            {
+                "url": "https://markets.businessinsider.com/index/ftse_100",
+                "evidence": "\"High, 8,820.93, 8,820.93\" - This indicates typical high values for the FTSE 100."
+            },
+            {
+                "url": "https://www.cityindex.com/en-uk/indices-trading/trading-the-ftse/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.hl.co.uk/shares/stock-market-summary/ftse-100",
+                "evidence": "\"8,809.74 Day high\" - This shows a recent high value for the FTSE 100."
+            },
+            {
+                "url": "https://www.proactiveinvestors.co.uk/companies/news/1060760/ftse-100-live-melrose-to-kick-off-proceedings-for-week-1060760.html",
+                "evidence": null
+            },
+            {
+                "url": "https://www.londonstockexchange.com/indices/ftse-100",
+                "evidence": "\"Index value. 8,809.74\" - This confirms the current index value is around 8,800 points."
+            }
+        ]
+    },
+    {
+        "original_claim": "The pound buys $1.26 and one year wrote 21.",
+        "perplexity_response": "The claim is partially supported. The exchange rate of approximately $1.26 per pound is consistent with recent rates, as seen in early March 2025, where the pound was valued around $1.26 to $1.27 USD[1][3]. However, the mention of \"one year wrote 21\" is unclear and lacks direct relevance to the exchange rate data provided.",
+        "citations": [
+            {
+                "url": "https://www.exchangerates.org.uk/GBP-USD-spot-exchange-rates-history-2025.html",
+                "evidence": "\"Sunday 2 March 2025, 1 GBP = 1.2603 USD\" and \"Saturday 1 March 2025, 1 GBP = 1.2573 USD\" provide evidence of the exchange rate being around $1.26."
+            },
+            {
+                "url": "https://web.pdx.edu/~ito/Krugman-Obstfeld-Melitz/Manuscripts-second%20pass/M14_KRUG6654_09_SE_C14.pdf",
+                "evidence": null
+            },
+            {
+                "url": "https://www.exchangerates.org.uk/GBP-USD-exchange-rate-history.html",
+                "evidence": "\"Sunday 2 March 2025, 1 GBP = 1.2603 USD\" and \"Saturday 1 March 2025, 1 GBP = 1.2573 USD\" further support the exchange rate being near $1.26."
+            },
+            {
+                "url": "https://www.investopedia.com/terms/forex/g/gbp-usd-british-pound-us-dollar-currency-pair.asp",
+                "evidence": null
+            },
+            {
+                "url": "https://www.exchange-rates.org/exchange-rate-history/gbp-usd-2025-03-03",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "LBC weather mostly dry tonight with some isolated showers in the far northwest, a low of minus three",
+        "perplexity_response": "The claim is not supported by the provided search results. The weather forecasts for various locations do not mention a low of minus three or conditions specifically for \"LBC,\" which could refer to a different location or context not covered in the search results. The forecasts for Long Beach, Mississippi, and other areas like Bronx County and New England do not align with the claim of a low of minus three or isolated showers in the far northwest[1][2][3].",
+        "citations": [
+            {
+                "url": "https://world-weather.info/forecast/usa/long_beach_2/march-2025/",
+                "evidence": null
+            },
+            {
+                "url": "https://forecast.weather.gov/MapClick.php?textField1=42.35866&textField2=-71.05674",
+                "evidence": null
+            },
+            {
+                "url": "https://www.easeweather.com/north-america/united-states/new-york/bronx-county/march",
+                "evidence": null
+            },
+            {
+                "url": "https://forecast.weather.gov/product.php?site=BOX&issuedby=BOX&product=AFD&format=CI&version=1&highlight=on",
+                "evidence": null
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=Pikx5r3Ajz0",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "The pound buys $1.26 and one year wrote 21.",
+        "perplexity_response": "The claim is partially supported. The exchange rate of the British pound to the US dollar has indeed been around $1.26 in recent times. For instance, on Sunday, March 2, 2025, the exchange rate was approximately $1.2603 per pound[3]. However, the mention of \"one year wrote 21\" is unclear and lacks context, making it difficult to assess its relevance or accuracy.",
+        "citations": [
+            {
+                "url": "https://www.exchangerates.org.uk/GBP-USD-spot-exchange-rates-history-2025.html",
+                "evidence": "No specific evidence related to the claim is found in this source."
+            },
+            {
+                "url": "https://www.investopedia.com/terms/forex/g/gbp-usd-british-pound-us-dollar-currency-pair.asp",
+                "evidence": "No specific evidence related to the claim is found in this source."
+            },
+            {
+                "url": "https://www.exchangerates.org.uk/GBP-USD-exchange-rate-history.html",
+                "evidence": "\"Sunday 2 March 2025, 1 GBP = 1.2603 USD\" supports the exchange rate part of the claim."
+            },
+            {
+                "url": "https://quizlet.com/293877837/international-ch-7-flash-cards/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.exchange-rates.org/exchange-rate-history/gbp-usd-2025-03-03",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "LBC weather mostly dry tonight with some isolated showers in the far northwest, a low of minus three largely dry tomorrow with sunny spells cloud building in the northwest later and light rain moving in overnight highs of 10 degrees from global's new dream for LBC I'm Amelia Cox.",
+        "perplexity_response": "The claim is **not supported** by the provided search results. The claim mentions weather conditions for a location referred to as \"LBC,\" which could stand for a specific location or media outlet, but the details provided do not match any specific weather forecast in the search results. The forecasts for Long Beach, Mississippi, and Oklahoma City do not mention temperatures as low as minus three or highs of 10 degrees Celsius, which are key elements of the claim[1][3]. Additionally, the weather in Ireland, mentioned in another result, does include cold temperatures and some rain, but it does not specifically match the claim's details[2].",
+        "citations": [
+            {
+                "url": "https://world-weather.info/forecast/usa/long_beach_2/march-2025/",
+                "evidence": null
+            },
+            {
+                "url": "https://www.anglocelt.ie/2025/01/29/largely-dry-day-with-mix-of-cloud-and-sunny-spells-2/",
+                "evidence": null
+            },
+            {
+                "url": "https://world-weather.info/forecast/usa/oklahoma_city/march-2025/",
+                "evidence": null
+            },
+            {
+                "url": "https://forecast.weather.gov/zipcity.php?inputstring=96744",
+                "evidence": null
+            },
+            {
+                "url": "https://weathershogun.com/weather/usa/ok/oklahoma-city/3670/march/2025-03-04",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": " a so-called documentary on Gaza that wasn't wholly open about who was in it nor what they said will hear from an Israeli government spokesperson plus make broccoli great again just massive Brock news actually in the making of part of the campaign to sell 10,000 tons of broccoli a month and part of making it go viral we will have a serious player in making good food unbelievably good looking joining the campaign and what's up message now 0345 606 0973 text 84850 Tom Swalbrick on LBC very good afternoon to you first in the next 60 minutes the transatlantic alliance faces its stiffest",
+        "perplexity_response": "The claim that a documentary on Gaza was not wholly open about who was in it nor what they said is partially supported. The documentary, \"Gaza: How to Survive a War Zone,\" was criticized for featuring a narrator who is the son of a Hamas official, which was not initially disclosed by the BBC[1][2][4]. However, the documentary itself does provide context about the narrator's family background and includes official Israeli Army justifications for their actions, suggesting some level of transparency within the film[1]. The controversy surrounding the documentary's removal from the BBC's streaming service highlights concerns about its content and presentation[2][3].",
+        "citations": [
+            {
+                "url": "https://www.youtube.com/watch?v=GCoTggsvPt0",
+                "evidence": "\"The BBC claimed it had been made aware only after the broadcast that its narrator who you can see on screen here a 13-year-old Palestinian boy Abdullah yzui that he was the son of a former agricultural minister of the Palestinian government in Gaza... Abdullah the child narrator repeatedly reads Out official Israeli Army justifications every time there's an act of Israeli violence shown on screen.\""
+            },
+            {
+                "url": "https://www.euronews.com/culture/2025/02/27/celebrities-and-media-figures-criticise-bbc-for-pulling-documentary-gaza-how-to-survive-a-",
+                "evidence": "\"The film was removed after the BBC said it discovered the film's 14-year-old narrator was the son of an official for Palestinian organisation Hamas.\""
+            },
+            {
+                "url": "https://www.spectator.co.uk/article/the-bbcs-gaza-farce-takes-another-sinister-turn/",
+                "evidence": "\"The storm over its Gaza documentary just got a whole lot worse. As if it wasn\u2019t bad enough that this Israel-mauling hour of TV was fronted by the son of a leading member of Hamas.\""
+            },
+            {
+                "url": "https://www.youtube.com/watch?v=DAXVgreTHYQ",
+                "evidence": "\""
+            },
+            {
+                "url": "https://www.timesofisrael.com/bbc-apologizes-for-serious-flaws-in-documentary-narrated-by-hamas-officials-son/",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "ve the potential to blow up this press conference and create a huge transatlantic round of course Donald Trump has been no stranger to causing a round the world stage in the last couple of weeks we've heard him get into that extremely high profile spat with President Zelensky of course the two are at odds over the Ukraine peace agreement exactly what it's going to look like those troops on the ground and of course defence spending too and of course Prime Minister Kiroslav hope to get ahead of that just a couple of days ago by announcing that we will be spending 2.5% of GDP on defence and just in the last few minutes we've been hearing from the White House a senior Trump spokesperson has told us that they are very pleased with Prime Minister Stammer's announcement to increase spending to 2.5% which is obviously good news however the president does continue to urge our NATO allies",
+        "perplexity_response": "The claim that Donald Trump has the potential to blow up this press conference and create a huge transatlantic round is **partially supported**. There is evidence that Trump has been involved in high-profile spats, particularly with President Zelenskyy over Ukraine peace agreements, which could escalate tensions on the world stage[2][4]. Additionally, Trump's history of causing controversy and his unpredictable behavior in international settings support the notion that he could create significant transatlantic tension[1]. However, the specific context of a press conference is not detailed in the provided sources.",
+        "citations": [
+            {
+                "url": "https://ecfr.eu/publication/imagining-trump-2-0-six-scary-policy-scenarios-for-a-second-term/",
+                "evidence": "\"The prospect is certainly real. As of May 2024, Trump leads in the polls nationally and in five out of the six key swing states. And so is the European trauma. Europeans are still licking their wounds from Trump\u2019s first term: they have not forgotten the former president\u2019s tariffs, his deep antagonism towards the European Union and Germany, or the US withdrawal from the Paris climate accords and the Iran nuclear deal.\""
+            },
+            {
+                "url": "https://6abc.com/post/trump-slams-zelenskyy-saying-end-russia-war-is-far-away/15973973/",
+                "evidence": "\"Trump took issue with Zelenskyy suggesting it would take time to come to an agreement to end the war. The Ukrainian leader also tried to offer a positive take on the U.S.-Ukraine relationship in the aftermath of last week's White House meeting.\""
+            },
+            {
+                "url": "https://therealnews.com/trumps-billionaires-will-accelerate-american-decline",
+                "evidence": null
+            },
+            {
+                "url": "https://www.cbsnews.com/news/ukraine-rare-earth-minerals-trump-zelenskyy/",
+                "evidence": "\"The contentious meeting exposed severe rifts between the U.S. and Ukraine, upending the planned signing of a rare minerals deal between"
+            },
+            {
+                "url": "https://www.whitehouse.gov/remarks/2025/01/remarks-by-president-trump-at-the-world-economic-forum/",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": " Minister Stammer's announcement to increase spending to 2.5% which is obviously good news however the president does continue to urge our NATO allies to increase spending to 2.5% it's nowhere near enough that's the message coming from the White House in the last few minutes Tom.",
+        "perplexity_response": "The claim is partially supported. It is accurate that Prime Minister Keir Starmer has announced an increase in UK defense spending to 2.5% of GDP by 2027, which aligns with NATO's spending targets[1][2][3]. However, the assertion that this is \"nowhere near enough\" according to the White House is not explicitly supported by the provided sources. While it is true that President Trump has urged NATO allies to increase their defense spending, there is no direct quote or statement from the White House in the sources indicating that 2.5% is insufficient[1][2].",
+        "citations": [
+            {
+                "url": "https://www.pbs.org/newshour/world/starmer-brings-uk-defense-spending-pledge-to-washington-to-help-sway-trump-on-ukraine",
+                "evidence": "\"Starmer announced Tuesday that the U.K. government will hike military spending to 2.5% of gross domestic product by 2027, years earlier than expected, and will aim to hit 3% by 2035.\""
+            },
+            {
+                "url": "https://globalnews.ca/video/11049511/starmer-to-boost-u-k-s-defence-spending-to-2-5-by-2027/",
+                "evidence": "\"Starmer to boost U.K.\u2019s defence spending to 2.5% by 2027\""
+            },
+            {
+                "url": "https://aeralis.com/2025/02/26/pm-announces-defence-spending-increase/",
+                "evidence": "\"AERALIS welcomes Prime Minister Sir Keir Starmer\u2019s announcement that UK defence spending will rise to 2.5% of GDP by 2027.\""
+            },
+            {
+                "url": "https://www.gov.uk/government/speeches/prime-ministers-oral-statement-to-the-house-of-commons-25-february-2025",
+                "evidence": null
+            },
+            {
+                "url": "https://foreignpolicy.com/2025/02/25/uk-starmer-defense-spending-nato-foreign-aid-trump/",
+                "evidence": null
+            }
+        ]
+    },
+    {
+        "original_claim": "Test drive one of our award-winning models and you'll enjoy up to \u00a31,000 off your new CUPRA in addition to existing offers.",
+        "perplexity_response": "The claim is **partially supported**. The CUPRA Drive Event indeed offers discounts of up to \u00a31,000 on new CUPRA models when ordered by March 31st, 2025, and delivered by June 30th, 2025, in addition to existing offers[1][3][5]. However, the specific discount amount varies by model, with some models like the CUPRA Born and Tavascan receiving an additional \u00a3500 off, while others like the Formentor, Leon, and Ateca receive an additional \u00a31,000 off[1][3][5].",
+        "citations": [
+            {
+                "url": "https://www.group1auto.co.uk/cupra/events/the-cupra-drive-event/",
+                "evidence": "\"Test drive one of our captivating CUPRA models and you can enjoy up to \u00a31,000 off in addition to existing offers.\""
+            },
+            {
+                "url": "https://www.cupraofficial.co.uk/your-cupra-born-test-drive",
+                "evidence": null
+            },
+            {
+                "url": "https://www.cupraofficial.co.uk/event/cupra-drive",
+                "evidence": "\"Until March 31st 2025, get between \u00a3500 and \u00a31,000 off a new CUPRA.\""
+            },
+            {
+                "url": "https://www.cupraofficial.com/faqs/cupra-for-business/test-drive",
+                "evidence": null
+            },
+            {
+                "url": "https://www.riversidemotors.co.uk/cupra/offers/the-cupra-drive-event/",
+                "evidence": "\"Until March 31st 2025, get between \u00a3500 and \u00a31,000 off a new CUPRA^.\""
+            }
+        ]
+    },
+    {
+        "original_claim": "Tee's and see's and exclusion supply UK retail customers 18 plus.",
+        "perplexity_response": "The claim that Tee's and See's exclude UK retail customers under 18 is not supported by the provided search results. There is no specific information about Tee's and See's having age restrictions for their products or services in the UK. However, age restrictions are common for certain products and services in the UK, such as alcohol, tobacco, and adult entertainment, which are restricted to those 18 and over[1][3][5].",
+        "citations": [
+            {
+                "url": "https://noidnosale.com/age-restricted-products-and-services-in-the-uk",
+                "evidence": "\"All tobacco products, Alcohol, National Lottery and the Health Lottery, Scratch cards, Cigarette lighter refills, butane, e-Cigaretts or e-Liquids, Fireworks and sparklers, PEGI 18-rated games, 18/R18 rated videos (DVDs/Blu-Ray/streaming videos), Knives, axes, razor blades (except safety razors), Newspapers/magazines with any R18/R18 videos/games attached, Solvents, including glues and intoxicating substances, Crossbows, Imitation firearms and air weapons.\""
+            },
+            {
+                "url": "https://boandtee.com/pages/size-guide",
+                "evidence": null
+            },
+            {
+                "url": "https://www.kent.gov.uk/__data/assets/pdf_file/0007/53278/Trading-Standards-life-skills-age-restricted-products.pdf",
+                "evidence": "\"It is illegal to buy alcohol if you are under 18. You can be stopped, fined or arrested by the Police if you are under 18 and drinking alcohol in public.\""
+            },
+            {
+                "url": "https://www.ftc.gov/business-guidance/resources/threading-your-way-through-labeling-requirements-under-textile-wool-acts",
+                "evidence": null
+            },
+            {
+                "url": "https://www.devonsomersettradingstandards.gov.uk/business/age-restricted-products/",
+                "evidence": "\"Adult fireworks and sparklers (category F2 and category F3 fireworks), Alcohol, Botulinum toxin (Botox) and cosmetic fillers (England only), Corrosive substances, Cross"
+            }
+        ]
+    }]

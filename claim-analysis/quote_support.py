@@ -4,12 +4,16 @@ def perplexity_prompt_printer(instruction_message, content_message):
     print(f"{instruction_message}\n{content_message}\n")
 
 def query_support(claim, evidence):
+    if claim is None or evidence is None:
+        return None
     return perplexity_prompt(
         instruction_message = "You are provided with a claim followed by an evidence statement that may agree with or disagree with the claim, or it may be completely unrelated. Ignoring all other possible evidence for the claim, provide a 'support score' in the range [-1, +1] denoting the degree of support for the claim of the statement. -1 stands for complete disagreement, 0 for neutral, and +1 for complete agreement. You can provide any value in between. Be concise: simply provide the single number. If the evidence statement has nothing to do with the claim, say 'Irrelevant' instead.",
         content_message = "Claim: '" + claim + "', Evidence: '" + evidence + "'"
     )
 
 def query_reliability(source):
+    if source is None:
+        return None
     return perplexity_prompt(
         instruction_message = "You are provided with the url of an online source from which information has been taken. Provide a 'reliability score' in the range [0, 1] denoting the reliability of the source. 0 stands for completely unknown and unreliable, 1 stands for completely reliable. You can provide any value in between. Be concise: simply provide the single number.",
         content_message = source
@@ -22,8 +26,8 @@ def generate_support_reliability_pairs(claim, evidence_pairs):
     support_scores = []
     for evidence_pair in evidence_pairs:
         response_json = query_support(claim, evidence_pair["evidence"])
-        print(response_json)
-        print()
+        # print(response_json)
+        # print()
 
         if isinstance(response_json, dict):
             support_scores.append(list_get(response_json.get("choices"), 0).get("message").get("content"))
@@ -34,8 +38,8 @@ def generate_support_reliability_pairs(claim, evidence_pairs):
     reliability_scores = []
     for evidence_pair in evidence_pairs:
         response_json = query_reliability(evidence_pair["source"])
-        print(response_json)
-        print()
+        # print(response_json)
+        # print()
         
         # print(response_json)
         if isinstance(response_json, dict):

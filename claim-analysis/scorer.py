@@ -54,6 +54,8 @@ def score(evidence: List[Dict[str, int]]) -> Tuple[int, int]:
 
             values.append(x)
             weights.append(w)
+    if not values:
+        return 0
     return int(100 * roundDown(uniteVerdict(*weightedMeanAndVariance(values, weights))))
 
 

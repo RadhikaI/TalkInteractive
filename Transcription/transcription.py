@@ -9,17 +9,23 @@ import json
 
 
 class RecordingException(Exception):
+    """Exception for errors with audio recording"""
     pass
 
 class FileException(Exception):
+    """Exception for when files are missing"""
     pass
 
 class InvalidURL(Exception):
+    """Exception for when an invalid URL is provided"""
     pass
 
 
 
-def remove_trailing_punc(transcript):
+def remove_trailing_punc(transcript: str):
+    """
+    Function to remove punctuation at the end of a string, and returns result and string removed.
+    """
     i = 1
     while not transcript[-i].isalnum():
         i += 1
@@ -38,22 +44,29 @@ def remove_trailing_punc(transcript):
 
 
 class TranscriptExporter:
+    """Handles exporting transcripts to JSON files"""
+
     def __init__(self, delete_previous: bool = True, chunk_path: str = "transcript_chunks.json", whole_path: str = "transcript_whole.json"):
+
         self.__chunk_path = chunk_path
         self.__whole_path = whole_path
 
+        # should the new transcript be added to fresh files (previous saved).
         if delete_previous:
-            self.delete_records()
+            self.delete_and_save_records()
 
 
     def update_chunks(self, chunk: str):
+        """ Update the file containing chunks"""
         data = []
         
         if os.path.exists(self.__chunk_path):
             with open(self.__chunk_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
+        # ensure the next id is one more than previous
         if len(data) > 0:
+            # TODO: error handle if data[-1]["id"] is invalid
             id = data[-1]["id"] + 1
         else:
             id = 0
@@ -65,7 +78,9 @@ class TranscriptExporter:
             json.dump(data, f, indent=4)
 
 
+
     def update_whole_transcript(self, extra_transcript):
+        """Update the file containing whole transcript"""
         data = ""
         
         if os.path.exists(self.__whole_path):
@@ -78,16 +93,41 @@ class TranscriptExporter:
             json.dump(data, f)
 
 
-    def delete_records(self):
+
+    def delete_and_save_records(self):
+        """To save previous record, and clear working files"""
+
+        timestamp = time.strftime("%Y%m%d_%H%M%S")
+        
         if os.path.exists(self.__chunk_path):
-            os.remove(self.__chunk_path)
+            with open(self.__chunk_path, "r") as f:
+                content = json.load(f)
 
+            if content:
+                backup_path = "./transcript-files/chunks_" + timestamp + ".json"
+                with open(backup_path, "w") as f:
+                    json.dump(content, f)
+
+            with open(self.__chunk_path, "w") as f:
+                json.dump([], f, indent=4)
+
+        
         if os.path.exists(self.__whole_path):
-            os.remove(self.__whole_path)
+            with open(self.__whole_path, "r") as f:
+                content = json.load(f)
 
+            if content:
+                backup_path = "./transcript-files/whole_" + timestamp + ".json"
+                with open(backup_path, "w") as f:
+                    json.dump(content, f)
+
+            with open(self.__whole_path, "w") as f:
+                json.dump("", f, indent=4)
+    
 
 
 class TranscriptProcessor:
+    """Processes raw transcript files"""
     
     def __init__(self):
         self.__raw_transcripts = []
@@ -97,7 +137,10 @@ class TranscriptProcessor:
         self.__overlapping = []
 
 
+
     def new_transcript(self, transcript: str, overlap: int = 200):
+        """Called when a new transcript is produced, and returns the chunk and no overlapping section (to be added to whole)."""
+
         self.__raw_transcripts.append(transcript)
 
         if self.__final_transcripts:
@@ -105,25 +148,30 @@ class TranscriptProcessor:
         else:
             text2 = transcript
 
-        final, removed = remove_trailing_punc(text2)
+        non_overlapping, removed = remove_trailing_punc(text2)
         self.__removed = removed
-        self.__final_transcripts.append(final)
+        self.__final_transcripts.append(non_overlapping)
 
-        # TODO: check size 
-        chunk = self.__whole_transcript[-overlap:] + final
+        chunk = self.__whole_transcript[-overlap:] + non_overlapping
 
-        self.__whole_transcript += final
+        self.__whole_transcript += non_overlapping
 
         self.__overlapping.append(chunk)
 
-        return chunk, final
+        return chunk, non_overlapping
 
 
-    def clean_text(self, text):
+
+    def clean_text(self, text: str) -> str:
+        """Clean punctuation, whitespace etc, for word matching at the join (returns result)."""
+
         return re.sub(r'[^\w\s]', '', text).lower()
 
 
-    def __merge_transcripts(self, transcript):
+
+    def __merge_transcripts(self, transcript: str) -> str:
+        """Remove duplicates from the end of the last transcript (returns result)."""
+
         common_letters = self.__find_overlap(self.__final_transcripts[-1], transcript)
 
         if common_letters:
@@ -140,7 +188,9 @@ class TranscriptProcessor:
         return transcript
 
 
-    def __find_overlap(self, text1, text2):
+
+    def __find_overlap(self, text1: str, text2: str) -> str:
+        """Find the overlap between two cleaned transcripts, and return alphanumeric letters to be removed."""
 
         clean0, clean1 = self.clean_text(text1).split(' '), self.clean_text(text2).split(' ')
 
@@ -164,7 +214,10 @@ class TranscriptProcessor:
             return "".join(clean1[:max_found])
         
 
-    def __remove_overlap(self, transcript, letters):
+
+    def __remove_overlap(self, transcript: str, letters: str) -> str:
+        """Given alphanumeric characters in overlap, remove and return result."""
+
         i = 0
         j = 0
 
@@ -177,8 +230,8 @@ class TranscriptProcessor:
 
 
 
-
 class AudioTranscriber:
+    """Manages audio recording and transcription."""
 
     def __init__(self, refiner, exporter, URL: str ="http://media-ice.musicradio.com/LBCUK", model_type: str = "base"):
         self.__URL = URL
@@ -188,6 +241,8 @@ class AudioTranscriber:
         self.__exporter = exporter
 
         self.__to_transcribe = queue.Queue()
+
+        self.__model_type = model_type
 
         # base < small < medium < large
         if model_type in ["base", "small", "medium", "large", "large-v2"]:
@@ -208,8 +263,21 @@ class AudioTranscriber:
 
 
 
-    def __check_URL(self, URL = None) -> bool:
+    def check_speed(self):
+        """Check size of queue, and downgrades if transcription thread is not keeping up."""
+        if self.__to_transcribe.qsize() > 3:
+            possible_types = ["base", "small", "medium", "large", "large-v2"]
+            position = possible_types.find(self.__model_type)
+            
+            if position > 0:
+                print('Downgrading model...')
+                self.__model_type = possible_types[position]
+                self.model = whisper.load_model(self.__model_type)
+            
 
+
+    def __check_URL(self, URL = None) -> bool:
+        """Ensure the URL is valid (returns boolean)."""
         if URL == None:
             URL = self.__URL
 
@@ -223,6 +291,7 @@ class AudioTranscriber:
 
 
     def set_URL(self, URL: str):
+        """Change URL after the object is created."""
 
         try:
             self.__check_URL(URL)
@@ -235,6 +304,8 @@ class AudioTranscriber:
         
 
     def __record_audio_syncronous(self, output_path: str = "./audio-files/temp.aac", duration: int = 30, identifier: str = "temp.aac"):
+        """Record the audio (blockign)."""
+
         if duration <= 0:
             duration = 30
 
@@ -247,8 +318,8 @@ class AudioTranscriber:
 
 
 
- 
     def __transcribe_audio(self, WAV_path : str = "./audio-files/temp.wav", num: int = 0) -> str:
+        """ Transcribe audio from WAV file, and text file of previous."""
 
         if os.path.exists(WAV_path):
 
@@ -285,6 +356,8 @@ class AudioTranscriber:
 
 
     def __conti_record_audio_overlap(self, duration: int = 45, overlap = 0.5, starting_val: int = 0):
+        """Continously record overlapping audio clips."""
+
         num_file = starting_val
 
         while True:
@@ -305,8 +378,11 @@ class AudioTranscriber:
 
 
     def __conti_transcribe_audio(self, delete_audio: bool = True, transcript_overlap: int = 200):
+        """COntinously checks queue for audio clips, then transcribes, writes to txt, refines, and exports."""
 
         while True:
+            self.check_speed()
+
             if not self.__to_transcribe.empty():
                 name = self.__to_transcribe.get()
                 AAC_path = "./audio-files/" + name + ".aac"
@@ -343,6 +419,8 @@ class AudioTranscriber:
 
 
     def start(self, duration: int = 45, overlap = 0.5, delete_audio: bool = True, starting_value: int = 0, transcript_overlap: int = 200):
+        """Starts both the recording and transcribing threads."""
+
         record_thread = threading.Thread(target=self.__conti_record_audio_overlap, args=(duration, overlap, starting_value))
         record_thread.daemon = True  
         record_thread.start()
