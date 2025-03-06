@@ -23,10 +23,19 @@ function formatUrl(url) {
 }
 
 // memoised TranscriptBox to avoid unnecessary re-renders
-const TranscriptBox = React.memo(({ typedLines }) => (
+const TranscriptBox = React.memo(({ typedLines, isStarted, handleStartClick }) => (
   <div className="transcript-box">
     <h2>Radio Transcript</h2>
-    {typedLines}
+    {/* if transcript hasn't started, show the "Start Transcript" button below the header */}
+    {!isStarted ? (
+      <div style={{ width: "100%", textAlign: "center", marginTop: "2rem" }}>
+        <button className="start-btn" onClick={handleStartClick}>
+          Start Transcript
+        </button>
+      </div>
+    ) : (
+      typedLines
+    )}
   </div>
 ));
 
@@ -35,6 +44,9 @@ function TranscriptReader() {
   const [displayedText, setDisplayedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedClaim, setSelectedClaim] = useState(null);
+
+  // track if user has clicked the "Start Transcript" button
+  const [isStarted, setIsStarted] = useState(false);
 
   // fetch and combine transcripts
   useEffect(() => {
@@ -53,15 +65,17 @@ function TranscriptReader() {
 
   // reset typewriter effect if transcript changes
   useEffect(() => {
-    if (combinedTranscript) {
+    // nly reset if user has clicked the start transcript button
+    if (combinedTranscript && isStarted) {
       setDisplayedText("");
       setCurrentIndex(0);
     }
-  }, [combinedTranscript]);
+  }, [combinedTranscript, isStarted]);
 
   // typewriter effect
   useEffect(() => {
-    if (!combinedTranscript) return;
+    //only run if button is pressed (isStarted state)
+    if (!combinedTranscript || !isStarted) return;
     if (currentIndex < combinedTranscript.length) {
       const timer = setTimeout(() => {
         setDisplayedText((prev) => prev + combinedTranscript[currentIndex]);
@@ -69,7 +83,7 @@ function TranscriptReader() {
       }, 2); // change this number to change ms per character
       return () => clearTimeout(timer);
     }
-  }, [combinedTranscript, currentIndex]);
+  }, [combinedTranscript, currentIndex, isStarted]);
 
   // split displayed text into lines
   const lines = displayedText.split("\n");
@@ -136,14 +150,26 @@ function TranscriptReader() {
     [lines, renderLineWithHighlights]
   );
 
+  // handle click for the "Start Transcript" button
+  const handleStartClick = () => {
+    setIsStarted(true);
+  };
+
   return (
     <div className="transcript-container">
-      <TranscriptBox typedLines={typedLines} />
+      <TranscriptBox
+        typedLines={typedLines}
+        isStarted={isStarted}
+        handleStartClick={handleStartClick}
+      />
 
       <div className="right-panel">
         {selectedClaim ? (
           <div className="factcheck-panel">
-            <button className="close-btn" onClick={() => setSelectedClaim(null)}>
+            <button
+              className="close-btn"
+              onClick={() => setSelectedClaim(null)}
+            >
               X
             </button>
             <h3>Fact Check</h3>
@@ -176,9 +202,10 @@ function TranscriptReader() {
               </div>
             </div>
           </div>
-        ) : ( // this updates what it says in that right panel
+        ) : (
+          // this updates what it says in that right panel
           <div className="sidebar">
-            <h3>Talk Interactive</h3> 
+            <h3>Talk Interactive</h3>
             <p>
               Click on any{" "}
               <span style={{ color: "var(--highlight-color)" }}>
@@ -186,9 +213,7 @@ function TranscriptReader() {
               </span>{" "}
               to view more details.
             </p>
-            <p>
-              Fact checks are carried out by Perplexity AI.
-            </p>
+            <p>Fact checks are carried out by Perplexity AI.</p>
           </div>
         )}
       </div>
