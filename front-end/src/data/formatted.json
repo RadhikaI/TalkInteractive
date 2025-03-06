@@ -828,32 +828,6 @@
         ]
     },
     {
-        "original_claim": "Frost has told LBC they had been spotted out recently.",
-        "perplexity_response": "The claim that \"Frost has told LBC they had been spotted out recently\" is not supported by the provided search results. There is no mention of \"Frost\" or any related context in the available sources.",
-        "citations": [
-            {
-                "url": "https://www.lbc.co.uk/news/iran-mothership-not-behind-mystery-drone-sightings-pentagon/",
-                "evidence": null
-            },
-            {
-                "url": "https://www.theringer.com/2021/07/30/music/sublime-self-titled-anniversary-bradley-nowell-death",
-                "evidence": null
-            },
-            {
-                "url": "https://www.lbc.co.uk/news/concerns-grow-amid-multiple-sightings-of-unidentified-mysterious-drones-spotted/",
-                "evidence": null
-            },
-            {
-                "url": "https://www.youtube.com/watch?v=JcseqsBe98g",
-                "evidence": null
-            },
-            {
-                "url": "https://lloydcenter.org/extended-fall-drought-impacts-lloyd-centers-december-2024-waterfowl-count/",
-                "evidence": null
-            }
-        ]
-    },
-    {
         "original_claim": "the FTSE 100 was trading up 24 points at 87.56.",
         "perplexity_response": "The claim is **not supported**. The FTSE 100 index values reported in recent sources do not match the claim of trading at 87.56. Typically, the FTSE 100 index values are in the thousands, not below 100. For example, recent reports show the FTSE 100 trading around 8,800 points[1][3][5]. There is no evidence to suggest that the FTSE 100 has ever traded at such a low value as 87.56.",
         "citations": [
@@ -1036,7 +1010,7 @@
         ]
     },
     {
-        "original_claim": " Minister Stammer's announcement to increase spending to 2.5% which is obviously good news however the president does continue to urge our NATO allies to increase spending to 2.5% it's nowhere near enough that's the message coming from the White House in the last few minutes Tom.",
+        "original_claim": " Minister Starmer's announcement to increase spending to 2.5% which is obviously good news however the president does continue to urge our NATO allies to increase spending to 2.5% it's nowhere near enough that's the message coming from the White House in the last few minutes Tom.",
         "perplexity_response": "The claim is partially supported. It is accurate that Prime Minister Keir Starmer has announced an increase in UK defense spending to 2.5% of GDP by 2027, which aligns with NATO's spending targets[1][2][3]. However, the assertion that this is \"nowhere near enough\" according to the White House is not explicitly supported by the provided sources. While it is true that President Trump has urged NATO allies to increase their defense spending, there is no direct quote or statement from the White House in the sources indicating that 2.5% is insufficient[1][2].",
         "citations": [
             {
