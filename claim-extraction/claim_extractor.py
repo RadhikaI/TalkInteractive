@@ -168,7 +168,7 @@ def delete_and_save_records(file_path):
                 content = json.load(f)
                     
             if content:
-                backup_path = "./claim-extraction/claims/claim_" + timestamp + ".json"
+                backup_path = "./saved-files/claims_" + timestamp + ".json"
                 with open(backup_path, "w") as f:
                     json.dump(content, f)
 
