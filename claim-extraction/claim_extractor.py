@@ -1,6 +1,5 @@
 from textblob import TextBlob
 import spacy
-from transformers import pipeline
 import requests
 import json
 import os
@@ -141,7 +140,7 @@ def detect_insertions(old_data, new_data):
                 json_parser(json.dumps(obj, indent=4))
 
 # continuously monitors a file for changes with an infinite loop
-def monitor_json(file_path, interval=1):
+def monitor_json(file_path, interval=10):
     prev_data = read_json(file_path)
 
     print(f"Monitoring JSON file: {file_path}")
@@ -155,7 +154,7 @@ def monitor_json(file_path, interval=1):
             detect_insertions(prev_data, new_data)
             prev_data = new_data  
 
-monitor_json("transcript_chunks.json")
+monitor_json("./transcript_chunks.json")
 
 
 
