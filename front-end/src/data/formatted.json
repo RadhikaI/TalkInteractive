@@ -854,7 +854,7 @@
         ]
     },
     {
-        "original_claim": "In the city a short time ago the FTSE 100 was trading up 24 points at 87.56.",
+        "original_claim": "the FTSE 100 was trading up 24 points at 87.56.",
         "perplexity_response": "The claim is **not supported**. The FTSE 100 index values reported in recent sources do not match the claim of trading at 87.56. Typically, the FTSE 100 index values are in the thousands, not below 100. For example, recent reports show the FTSE 100 trading around 8,800 points[1][3][5]. There is no evidence to suggest that the FTSE 100 has ever traded at such a low value as 87.56.",
         "citations": [
             {
@@ -1010,7 +1010,7 @@
         ]
     },
     {
-        "original_claim": "ve the potential to blow up this press conference and create a huge transatlantic round of course Donald Trump has been no stranger to causing a round the world stage in the last couple of weeks we've heard him get into that extremely high profile spat with President Zelensky of course the two are at odds over the Ukraine peace agreement exactly what it's going to look like those troops on the ground and of course defence spending too and of course Prime Minister Kiroslav hope to get ahead of that just a couple of days ago by announcing that we will be spending 2.5% of GDP on defence and just in the last few minutes we've been hearing from the White House a senior Trump spokesperson has told us that they are very pleased with Prime Minister Stammer's announcement to increase spending to 2.5% which is obviously good news however the president does continue to urge our NATO allies",
+        "original_claim": "the potential to blow up this press conference and create a huge transatlantic round of course Donald Trump has been no stranger to causing a round the world stage in the last couple of weeks we've heard him get into that extremely high profile spat with President Zelensky of course the two are at odds over the Ukraine peace agreement",
         "perplexity_response": "The claim that Donald Trump has the potential to blow up this press conference and create a huge transatlantic round is **partially supported**. There is evidence that Trump has been involved in high-profile spats, particularly with President Zelenskyy over Ukraine peace agreements, which could escalate tensions on the world stage[2][4]. Additionally, Trump's history of causing controversy and his unpredictable behavior in international settings support the notion that he could create significant transatlantic tension[1]. However, the specific context of a press conference is not detailed in the provided sources.",
         "citations": [
             {
