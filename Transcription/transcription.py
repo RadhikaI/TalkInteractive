@@ -7,6 +7,9 @@ import threading
 import re
 import json
 
+os.makedirs("./audio-files", exist_ok=True)
+os.makedirs("./transcript-files", exist_ok=True)
+
 
 class RecordingException(Exception):
     """Exception for errors with audio recording"""
@@ -96,35 +99,44 @@ class TranscriptExporter:
 
     def delete_and_save_records(self):
         """To save previous record, and clear working files"""
-
+        
         timestamp = time.strftime("%Y%m%d_%H%M%S")
         
         if os.path.exists(self.__chunk_path):
-            with open(self.__chunk_path, "r") as f:
-                content = json.load(f)
-
-            if content:
-                backup_path = "./transcript-files/chunks_" + timestamp + ".json"
-                with open(backup_path, "w") as f:
-                    json.dump(content, f)
-
+            try:
+                with open(self.__chunk_path, "r") as f:
+                    content = json.load(f)
+                    
+                if content:
+                    backup_path = "./transcript-files/chunks_" + timestamp + ".json"
+                    with open(backup_path, "w") as f:
+                        json.dump(content, f)
+            except (json.JSONDecodeError, FileNotFoundError):
+                content = []
+                
             with open(self.__chunk_path, "w") as f:
                 json.dump([], f, indent=4)
-
+        else:
+            with open(self.__chunk_path, "w") as f:
+                json.dump([], f, indent=4)
         
         if os.path.exists(self.__whole_path):
-            with open(self.__whole_path, "r") as f:
-                content = json.load(f)
-
-            if content:
-                backup_path = "./transcript-files/whole_" + timestamp + ".json"
-                with open(backup_path, "w") as f:
-                    json.dump(content, f)
-
+            try:
+                with open(self.__whole_path, "r") as f:
+                    content = json.load(f)
+                    
+                if content:
+                    backup_path = "./transcript-files/whole_" + timestamp + ".json"
+                    with open(backup_path, "w") as f:
+                        json.dump(content, f)
+            except (json.JSONDecodeError, FileNotFoundError):
+                content = ""
+                
             with open(self.__whole_path, "w") as f:
                 json.dump("", f, indent=4)
-    
-
+        else:
+            with open(self.__whole_path, "w") as f:
+                json.dump("", f, indent=4)
 
 class TranscriptProcessor:
     """Processes raw transcript files"""
@@ -215,18 +227,42 @@ class TranscriptProcessor:
         
 
 
+    # def __remove_overlap(self, transcript: str, letters: str) -> str:
+    #     """Given alphanumeric characters in overlap, remove and return result."""
+
+    #     i = 0
+    #     j = 0
+
+    #     while i < len(transcript) and j < len(letters):
+    #         if transcript[i].lower() == letters[j]:
+    #             j += 1
+    #         i += 1
+
+    #     return transcript[i:]
+
     def __remove_overlap(self, transcript: str, letters: str) -> str:
         """Given alphanumeric characters in overlap, remove and return result."""
-
+        if not letters: 
+            return transcript
+            
         i = 0
         j = 0
-
+        start = None
+        
         while i < len(transcript) and j < len(letters):
             if transcript[i].lower() == letters[j]:
+                if start is None:
+                    start = i
                 j += 1
+            else:
+                j = 0
+                start = None
             i += 1
-
-        return transcript[i:]
+        
+        if j == len(letters):
+            return transcript[i:] #Need complete match to splice
+        else:
+            return transcript
 
 
 
@@ -312,7 +348,6 @@ class AudioTranscriber:
 
         subprocess.Popen(["ffmpeg", "-y", "-reconnect", "1", "-reconnect_streamed", "1", "-reconnect_delay_max", "5",
             "-i", self.__URL, "-t", str(duration), "-c:a", "aac", "-b:a", "128k", output_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    
         time.sleep(duration)
         self.__to_transcribe.put(identifier)
 
@@ -392,7 +427,6 @@ class AudioTranscriber:
                     time.sleep(1)
 
                 try:
-
                     self.__AAC_to_WAV(AAC_path, WAV_path)
 
                     if os.path.exists(AAC_path):
