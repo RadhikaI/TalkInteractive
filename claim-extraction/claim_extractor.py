@@ -154,6 +154,7 @@ def monitor_json(file_path, interval=10):
             detect_insertions(prev_data, new_data)
             prev_data = new_data  
 
+time.sleep(90) # Takes at least a minute till transcription starts
 monitor_json("./transcript_chunks.json")
 
 
