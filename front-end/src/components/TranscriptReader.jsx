@@ -3,6 +3,7 @@ import "./TranscriptReader.css";
 import transcriptA from "../data/TestTranscript-A.txt";
 import transcriptB from "../data/TestTranscript-B.txt";
 import transcriptC from "../data/TestTranscript-C.txt";
+import transcriptD from "../data/RecentTranscript.txt";
 import factChecks from "../data/formatted.json";
 
 // function that cleans up URLs by removing the "www." at the start
@@ -41,9 +42,10 @@ function TranscriptReader() {
       fetch(transcriptA).then((res) => res.text()),
       fetch(transcriptB).then((res) => res.text()),
       fetch(transcriptC).then((res) => res.text()),
+      fetch(transcriptD).then((res) => res.text()),
     ])
-      .then(([textA, textB, textC]) => {
-        const combined = textA + "\n\n" + textB + "\n\n" + textC;
+      .then(([textA, textB, textC, textD]) => {
+        const combined = textA + "\n\n" + textB + "\n\n" + textC + "\n\n" + textD;
         setCombinedTranscript(combined);
       })
       .catch((err) => console.error("Error fetching transcripts:", err));
@@ -64,7 +66,7 @@ function TranscriptReader() {
       const timer = setTimeout(() => {
         setDisplayedText((prev) => prev + combinedTranscript[currentIndex]);
         setCurrentIndex((prev) => prev + 1);
-      }, 5); // change this number to change ms per character
+      }, 2); // change this number to change ms per character
       return () => clearTimeout(timer);
     }
   }, [combinedTranscript, currentIndex]);
