@@ -236,7 +236,7 @@ class TranscriptProcessor:
         
 
 
-    # TODO: error handling, ensure characters skipped arn't alphanumeric
+    # TODO: error handling, ensure characters skipped arn't alphanumeric and fully matched
     def __remove_overlap(self, transcript: str, letters: str) -> str:
         """Given alphanumeric characters in overlap, remove and return result."""
 

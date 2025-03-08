@@ -178,3 +178,6 @@ audio-files/
 Transcription/audio-files/
 Transcription/transcript-files/
 transcript-files/
+transcript_chunks.json/
+transcript_whole.json/
+extracted_claims.json/
