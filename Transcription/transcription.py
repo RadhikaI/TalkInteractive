@@ -228,42 +228,42 @@ class TranscriptProcessor:
         
 
 
-    # def __remove_overlap(self, transcript: str, letters: str) -> str:
-    #     """Given alphanumeric characters in overlap, remove and return result."""
-
-    #     i = 0
-    #     j = 0
-
-    #     while i < len(transcript) and j < len(letters):
-    #         if transcript[i].lower() == letters[j]:
-    #             j += 1
-    #         i += 1
-
-    #     return transcript[i:]
-
     def __remove_overlap(self, transcript: str, letters: str) -> str:
         """Given alphanumeric characters in overlap, remove and return result."""
-        if not letters: 
-            return transcript
-            
+
         i = 0
         j = 0
-        start = None
-        
+
         while i < len(transcript) and j < len(letters):
             if transcript[i].lower() == letters[j]:
-                if start is None:
-                    start = i
                 j += 1
-            else:
-                j = 0
-                start = None
             i += 1
+
+        return transcript[i:]
+
+    # def __remove_overlap(self, transcript: str, letters: str) -> str:
+    #     """Given alphanumeric characters in overlap, remove and return result."""
+    #     if not letters: 
+    #         return transcript
+            
+    #     i = 0
+    #     j = 0
+    #     start = None
         
-        if j == len(letters):
-            return transcript[i:] #Need complete match to splice
-        else:
-            return transcript
+    #     while i < len(transcript) and j < len(letters):
+    #         if transcript[i].lower() == letters[j]:
+    #             if start is None:
+    #                 start = i
+    #             j += 1
+    #         else:
+    #             j = 0
+    #             start = None
+    #         i += 1
+        
+    #     if j == len(letters):
+    #         return transcript[i:] #Need complete match to splice
+    #     else:
+    #         return transcript
 
 
 
