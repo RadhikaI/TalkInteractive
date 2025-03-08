@@ -11,6 +11,14 @@ os.makedirs("./audio-files", exist_ok=True)
 os.makedirs("./transcript-files", exist_ok=True)
 os.makedirs("./saved-files", exist_ok=True)
 
+"""
+Overall TODO:
+- Logging
+- Testing
+"""
+
+
+
 
 class RecordingException(Exception):
     """Exception for errors with audio recording"""
@@ -27,9 +35,7 @@ class InvalidURL(Exception):
 
 
 def remove_trailing_punc(transcript: str):
-    """
-    Function to remove punctuation at the end of a string, and returns result and string removed.
-    """
+    """Function to remove punctuation at the end of a string, and returns result and string removed."""
     i = 1
     while not transcript[-i].isalnum():
         i += 1
@@ -38,6 +44,7 @@ def remove_trailing_punc(transcript: str):
         final = transcript
     else:
         final = transcript[:-i + 1]
+
     if i > 1:
         removed = transcript[-i + 1:]
     else:
@@ -60,6 +67,7 @@ class TranscriptExporter:
             self.delete_and_save_records()
 
 
+    # TODO: check error handling
     def update_chunks(self, chunk: str):
         """ Update the file containing chunks"""
         data = []
@@ -82,7 +90,7 @@ class TranscriptExporter:
             json.dump(data, f, indent=4)
 
 
-
+    # TODO: check error handling
     def update_whole_transcript(self, extra_transcript):
         """Update the file containing whole transcript"""
         data = ""
@@ -201,7 +209,7 @@ class TranscriptProcessor:
         return transcript
 
 
-
+    # TODO: make more readable and check
     def __find_overlap(self, text1: str, text2: str) -> str:
         """Find the overlap between two cleaned transcripts, and return alphanumeric letters to be removed."""
 
@@ -228,6 +236,7 @@ class TranscriptProcessor:
         
 
 
+    # TODO: error handling, ensure characters skipped arn't alphanumeric
     def __remove_overlap(self, transcript: str, letters: str) -> str:
         """Given alphanumeric characters in overlap, remove and return result."""
 
@@ -299,7 +308,7 @@ class AudioTranscriber:
             self.__URL = "http://media-ice.musicradio.com/LBCUK"
 
 
-
+    # TODO: test
     def check_speed(self):
         """Check size of queue, and downgrades if transcription thread is not keeping up."""
         if self.__to_transcribe.qsize() > 3:
