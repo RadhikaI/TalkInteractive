@@ -6,31 +6,30 @@ import time
 import threading
 import re
 import json
+import logging
+
+
+logging.basicConfig(
+    filename="transcription.log", 
+    level=logging.INFO,  
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+)
+
+logging.info("transcription.py started.")
+
 
 os.makedirs("./audio-files", exist_ok=True)
 os.makedirs("./transcript-files", exist_ok=True)
 os.makedirs("./saved-files", exist_ok=True)
 
+
+
 """
 Overall TODO:
-- Logging
 - Testing
 """
 
-
-
-
-class RecordingException(Exception):
-    """Exception for errors with audio recording"""
-    pass
-
-class FileException(Exception):
-    """Exception for when files are missing"""
-    pass
-
-class InvalidURL(Exception):
-    """Exception for when an invalid URL is provided"""
-    pass
 
 
 
@@ -54,10 +53,13 @@ def remove_trailing_punc(transcript: str):
 
 
 
+
 class TranscriptExporter:
     """Handles exporting transcripts to JSON files"""
 
     def __init__(self, delete_previous: bool = True, chunk_path: str = "transcript_chunks.json", whole_path: str = "transcript_whole.json"):
+
+        logging.info(f"TranscriptExporter initialized with delete_previous={delete_previous}.")
 
         self.__chunk_path = chunk_path
         self.__whole_path = whole_path
@@ -70,18 +72,30 @@ class TranscriptExporter:
     # TODO: check error handling
     def update_chunks(self, chunk: str):
         """ Update the file containing chunks"""
+        logging.info(f"update_chunks called with chunk={chunk}.")
+
         data = []
         
         if os.path.exists(self.__chunk_path):
             with open(self.__chunk_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
+        else:
+            logging.error(f"{self.__chunk_path} is not found, creating file.")
+
         # ensure the next id is one more than previous
         if len(data) > 0:
-            # TODO: error handle if data[-1]["id"] is invalid
-            id = data[-1]["id"] + 1
+
+            if data and isinstance(data[-1], dict) and "id" in data[-1] and isinstance(data[-1]["id"], int):
+                id = data[-1]["id"] + 1
+
+            else:
+                logging.error(f"{self.__chunk_path} in unexpected format, clearing and saving records.")
+                self.delete_and_save_records()
+
         else:
             id = 0
+
 
         data.append({"id": id, "chunk": chunk})
 
@@ -93,13 +107,26 @@ class TranscriptExporter:
     # TODO: check error handling
     def update_whole_transcript(self, extra_transcript):
         """Update the file containing whole transcript"""
+
+        logging.info(f"update_whole_transcript called with extra_transcript={extra_transcript}.")
+
+
         data = ""
-        
+
         if os.path.exists(self.__whole_path):
             with open(self.__whole_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
-        data += extra_transcript
+        else:
+            logging.error(f"{self.__whole_path} not found, creating file.")
+
+        if isinstance(data, str):
+            data += extra_transcript
+
+        else:
+            logging.error(f"{self.__whole_path} in unexpected format, clearing and saving records.")
+            self.delete_and_save_records()
+
 
         with open(self.__whole_path, "w", encoding="utf-8") as f:
             json.dump(data, f)
@@ -111,6 +138,8 @@ class TranscriptExporter:
         
         timestamp = time.strftime("%Y%m%d_%H%M%S")
         
+        logging.info(f"Clearing and saving records with timestamp {timestamp}.")
+
         if os.path.exists(self.__chunk_path):
             try:
                 with open(self.__chunk_path, "r") as f:
@@ -120,12 +149,16 @@ class TranscriptExporter:
                     backup_path = "./saved-files/chunks_" + timestamp + ".json"
                     with open(backup_path, "w") as f:
                         json.dump(content, f)
+
             except (json.JSONDecodeError, FileNotFoundError):
                 content = []
                 
             with open(self.__chunk_path, "w") as f:
                 json.dump([], f, indent=4)
+
         else:
+            logging.error(f"No file found under {self.__chunk_path}, creating new file.")
+
             with open(self.__chunk_path, "w") as f:
                 json.dump([], f, indent=4)
         
@@ -138,14 +171,21 @@ class TranscriptExporter:
                     backup_path = "./saved-files/whole_" + timestamp + ".json"
                     with open(backup_path, "w") as f:
                         json.dump(content, f)
+
             except (json.JSONDecodeError, FileNotFoundError):
                 content = ""
                 
             with open(self.__whole_path, "w") as f:
                 json.dump("", f, indent=4)
+
         else:
             with open(self.__whole_path, "w") as f:
                 json.dump("", f, indent=4)
+            logging.error(f"No file found under {self.__whole_path}, creating new file.")
+
+
+
+
 
 class TranscriptProcessor:
     """Processes raw transcript files"""
@@ -157,17 +197,24 @@ class TranscriptProcessor:
         self.__removed = ""
         self.__overlapping = []
 
+        logging.info("TranscriptProcessor file instanciated.")
+
 
 
     def new_transcript(self, transcript: str, overlap: int = 200):
         """Called when a new transcript is produced, and returns the chunk and no overlapping section (to be added to whole)."""
+        
+        logging.info(f"new_transcript called with transcript={transcript}, overlap={overlap}.")
+
 
         self.__raw_transcripts.append(transcript)
 
         if self.__final_transcripts:
             text2 = self.__merge_transcripts(transcript)
+
         else:
             text2 = transcript
+
 
         non_overlapping, removed = remove_trailing_punc(text2)
         self.__removed = removed
@@ -209,6 +256,7 @@ class TranscriptProcessor:
         return transcript
 
 
+
     # TODO: make more readable and check
     def __find_overlap(self, text1: str, text2: str) -> str:
         """Find the overlap between two cleaned transcripts, and return alphanumeric letters to be removed."""
@@ -236,19 +284,29 @@ class TranscriptProcessor:
         
 
 
-    # TODO: error handling, ensure characters skipped arn't alphanumeric and fully matched
+
     def __remove_overlap(self, transcript: str, letters: str) -> str:
         """Given alphanumeric characters in overlap, remove and return result."""
 
         i = 0
         j = 0
 
+        consistent = True
+
         while i < len(transcript) and j < len(letters):
             if transcript[i].lower() == letters[j]:
                 j += 1
+
+            elif transcript.isalnum():
+                consistent = False
+                break
+
             i += 1
 
-        return transcript[i:]
+        if consistent:
+            return transcript[i:]
+        
+        return transcript
 
     # def __remove_overlap(self, transcript: str, letters: str) -> str:
     #     """Given alphanumeric characters in overlap, remove and return result."""
@@ -280,6 +338,9 @@ class AudioTranscriber:
     """Manages audio recording and transcription."""
 
     def __init__(self, refiner, exporter, URL: str ="http://media-ice.musicradio.com/LBCUK", model_type: str = "base"):
+
+        logging.info(f"AudioTranscriber object initalised with URL={URL}, model_type={model_type}.")
+
         self.__URL = URL
 
         self.__refiner = refiner
@@ -295,28 +356,24 @@ class AudioTranscriber:
             self.model = whisper.load_model(model_type)
 
         else:
-            print('Incorrect model type parameter, using the base type')
-            self.model = whisper.load_model("base")
+            logging.error(f"Model type not reconised, defaulting to small.")
+            self.model = whisper.load_model("small")
 
-        try:
-            self.__check_URL()
+        self.__check_URL()
 
-
-        except InvalidURL as e:
-            print(str(e))
-            print("Defaulting to http://media-ice.musicradio.com/LBCUK")
-            self.__URL = "http://media-ice.musicradio.com/LBCUK"
 
 
     # TODO: test
     def check_speed(self):
         """Check size of queue, and downgrades if transcription thread is not keeping up."""
+
         if self.__to_transcribe.qsize() > 3:
             possible_types = ["base", "small", "medium", "large", "large-v2"]
             position = possible_types.find(self.__model_type)
             
             if position > 0:
-                print('Downgrading model...')
+                logging.info(f"Transcribe queue has length {self.__to_transcribe.qsize()}, downgrading model from {self.__model_type} to {possible_types[position]}.")
+
                 self.__model_type = possible_types[position]
                 self.model = whisper.load_model(self.__model_type)
             
@@ -326,39 +383,33 @@ class AudioTranscriber:
         """Ensure the URL is valid (returns boolean)."""
         if URL == None:
             URL = self.__URL
+            logging.info(f"check_URL called with the object's URL={self.__URL}.")
 
-        print("Checking URL...")
 
         process = subprocess.run(["ffmpeg", "-y", "-i", URL, "-t", "1", "-f", "null", "-"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         if process.returncode != 0:
-            raise InvalidURL("The URL stream appears to be invalid.")
+            logging.error("The URL stream appears to be invalid, defaulting to http://media-ice.musicradio.com/LBCUK")
+            self.__URL = "http://media-ice.musicradio.com/LBCUK"
         
-
-
-    def set_URL(self, URL: str):
-        """Change URL after the object is created."""
-
-        try:
-            self.__check_URL(URL)
-            self.__URL = URL
-        
-        except InvalidURL as e:
-            print('No change has been applied:')
-            print(str(e))
         
         
 
-    def __record_audio_syncronous(self, output_path: str = "./audio-files/temp.aac", duration: int = 30, identifier: str = "temp.aac"):
+    def __record_audio_syncronous(self, output_path: str = "./audio-files/temp.aac", duration: int = 45, identifier: str = "temp.aac"):
         """Record the audio (blockign)."""
 
         if duration <= 0:
-            duration = 30
+            logging.error(f"duration={duration}, defaulting to 45.")
+            duration = 45
 
+        logging.info(f"Recording to {output_path} starting...")
 
         subprocess.Popen(["ffmpeg", "-y", "-reconnect", "1", "-reconnect_streamed", "1", "-reconnect_delay_max", "5",
             "-i", self.__URL, "-t", str(duration), "-c:a", "aac", "-b:a", "128k", output_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        
         time.sleep(duration)
+        logging.info(f"Recording to {output_path} finished.")
+
         self.__to_transcribe.put(identifier)
 
 
@@ -366,13 +417,20 @@ class AudioTranscriber:
     def __transcribe_audio(self, WAV_path : str = "./audio-files/temp.wav", num: int = 0) -> str:
         """ Transcribe audio from WAV file, and text file of previous."""
 
+        logging.info(f"transcribe_audio called with WAV_path={WAV_path}, num={num}")
+
         if os.path.exists(WAV_path):
 
             if num > 0:
-                with open("./transcript-files/audio" + str(num - 1) + "_transcript.txt", "r", encoding="utf-8") as f:
-                            previous = " ".join(f.read().split()[-50:])
+                try:
+                    with open("./transcript-files/audio" + str(num - 1) + "_transcript.txt", "r", encoding="utf-8") as f:
+                        previous = " ".join(f.read().split()[-50:])
+                        previous, _ = remove_trailing_punc(previous)
 
-                previous, _ = remove_trailing_punc(previous)
+                except:
+                    logging.error(f"Error in opening previous transcription, transcribing without.")
+                    previous = ""
+
      
                 result = self.model.transcribe(WAV_path, temperature=0.1, initial_prompt=previous)
 
@@ -380,22 +438,23 @@ class AudioTranscriber:
                 result = self.model.transcribe(WAV_path, temperature=0.1)
 
 
- 
             return result["text"]
         
         else:
-            raise FileException("No WAV file found, " + WAV_path)
+            logging.error(f"No WAV file found called {WAV_path} found to transcribe.")
     
 
 
 
     def __AAC_to_WAV(self, AAC_path : str = "./audio-files/temp.aac", WAV_path : str = "./audio-files/temp.wav"):
 
+        logging.info(f"Converting AAC file {AAC_path} to WAV.")
+
         if os.path.exists(AAC_path):
             subprocess.run(["ffmpeg", "-y", "-i", AAC_path, "-ac", "1", "-ar", "16000", "-f", "wav", WAV_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         else:
-            raise FileException("No AAC file found, " + AAC_path)
+            logging.error(f"No AAC file {AAC_path} found")
 
 
 
@@ -403,20 +462,18 @@ class AudioTranscriber:
     def __conti_record_audio_overlap(self, duration: int = 45, overlap = 0.5, starting_val: int = 0):
         """Continously record overlapping audio clips."""
 
+        logging.info(f"conti_record_audio_overlap called with duration={duration}, overlap={overlap}, starting_val={starting_val}.")
+
         num_file = starting_val
 
         while True:
+            identifier = "audio" + str(num_file) 
 
-            try:
-                identifier = "audio" + str(num_file) 
-                thread0 = threading.Thread(target=self.__record_audio_syncronous, args=("./audio-files/" + identifier + ".aac", duration, identifier))
-                thread0.start()
-                num_file += 1
-                num_file %= 100
+            thread0 = threading.Thread(target=self.__record_audio_syncronous, args=("./audio-files/" + identifier + ".aac", duration, identifier))
+            thread0.start()
 
-
-            except RecordingException as e:
-                print("A recording has been skipped:\n" + str(e))
+            num_file += 1
+            num_file %= 100
 
             time.sleep(duration - overlap)
 
@@ -424,6 +481,8 @@ class AudioTranscriber:
 
     def __conti_transcribe_audio(self, delete_audio: bool = True, transcript_overlap: int = 200):
         """COntinously checks queue for audio clips, then transcribes, writes to txt, refines, and exports."""
+
+        logging.info(f"conti_transcribe_audio called with delete_audio={delete_audio}, transcript_overlap={transcript_overlap}.")
 
         while True:
             self.check_speed()
@@ -433,37 +492,33 @@ class AudioTranscriber:
                 AAC_path = "./audio-files/" + name + ".aac"
                 WAV_path = "./audio-files/" + name + ".wav"
 
-                while not os.path.exists(AAC_path):
-                    time.sleep(1)
+                self.__AAC_to_WAV(AAC_path, WAV_path)
 
-                try:
-                    self.__AAC_to_WAV(AAC_path, WAV_path)
+                if os.path.exists(AAC_path):
+                    os.remove(AAC_path)
+                    logging.info(f"AAC file {WAV_path} removed.")
 
-                    if os.path.exists(AAC_path):
-                        os.remove(AAC_path)
+                transcript = self.__transcribe_audio(WAV_path, int(name[-1]))
 
-                    transcript = self.__transcribe_audio(WAV_path, int(name[-1]))
-
-                    with open("./transcript-files/" + name + "_transcript.txt", "w", encoding="utf-8") as f:
-                        f.write(transcript)
+                with open("./transcript-files/" + name + "_transcript.txt", "w", encoding="utf-8") as f:
+                    f.write(transcript)
                     
 
-                    chunk, extra_transcript = self.__refiner.new_transcript(transcript, transcript_overlap)
+                chunk, extra_transcript = self.__refiner.new_transcript(transcript, transcript_overlap)
 
-                    self.__exporter.update_chunks(chunk)
-                    self.__exporter.update_whole_transcript(extra_transcript)
+                self.__exporter.update_chunks(chunk)
+                self.__exporter.update_whole_transcript(extra_transcript)
 
-                    if delete_audio:
-                        os.remove(WAV_path)
+                if delete_audio:
+                    logging.info(f"WAV file {WAV_path} removed.")
+                    os.remove(WAV_path)
                 
-                except FileException as e:
-                    print('Failed to transcribe a recording: \n' + str(e))
                 
-
-
 
     def start(self, duration: int = 45, overlap = 0.5, delete_audio: bool = True, starting_value: int = 0, transcript_overlap: int = 200):
         """Starts both the recording and transcribing threads."""
+
+        logging.info(f"start called with duration={duration}, overlap={overlap}, delete_audio={delete_audio}, starting_value={starting_value}, transcript_overlap={transcript_overlap}.")
 
         record_thread = threading.Thread(target=self.__conti_record_audio_overlap, args=(duration, overlap, starting_value))
         record_thread.daemon = True  
