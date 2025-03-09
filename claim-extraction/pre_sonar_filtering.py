@@ -32,15 +32,16 @@ def together_function(claim):
         stop=["<|eot_id|>"],
         stream=False
     )
-    logging.info(f"Together API response for {claim}: {response}")
+    # logging.info(f"Together API response for {claim}: {response}")
+    # TODO: Error handling here: Unsuccessful call will be considered the same as claim removal 
     return response.choices[0].message.content.strip() == "1"
 
-def process_json_and_check_claims(json_file_path, output_file_path):
-    with open(json_file_path, 'r') as f:
+def process_json_and_check_claims(INPUT_FILE, OUTPUT_FILE):
+    with open(INPUT_FILE, 'r') as f:
         data = json.load(f)
 
     filtered_data = []
-    remaining_data = []  # Claims not processed in this cycle
+    remaining_data = []  
 
     for entry in data:
         checkable = []
@@ -55,22 +56,22 @@ def process_json_and_check_claims(json_file_path, output_file_path):
         else:
             remaining_data.append(entry)
     
-    with open(output_file_path, 'w') as f:
+    with open(OUTPUT_FILE, 'w') as f:
         json.dump(filtered_data, f, indent=4)
     
-    with open(json_file_path, 'w') as f:
+    with open(INPUT_FILE, 'w') as f:
         json.dump(remaining_data, f, indent=4)
 
-def monitor_extracted_claims(input_file, output_file, interval=10):
-    last_modified = os.path.getmtime(input_file)
-    print("Monitoring", input_file)
+def monitor_extracted_claims(INPUT_FILE, OUTPUT_FILE, interval=10):
+    last_modified = os.path.getmtime(INPUT_FILE)
+    print("Monitoring", INPUT_FILE)
     while True:
         time.sleep(interval)
-        current_modified = os.path.getmtime(input_file)
+        current_modified = os.path.getmtime(INPUT_FILE)
         if current_modified > last_modified:
-            print("Change detected in", input_file)
-            process_json_and_check_claims(input_file, output_file)
-            last_modified = os.path.getmtime(input_file)
+            print("Change detected in", INPUT_FILE)
+            process_json_and_check_claims(INPUT_FILE, OUTPUT_FILE)
+            last_modified = os.path.getmtime(INPUT_FILE)
 
 if __name__ == "__main__":
     extracted_claims_file = 'extracted_claims.json'
