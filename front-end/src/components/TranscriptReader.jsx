@@ -69,6 +69,20 @@ function getScoreColor(score) {
   }
 }
 
+// helper function to get the score label based on the score range
+function getScoreLabel(score) {
+  if (score >= -15 && score <= 15) return "Unsure";
+  else if (score < -15) {
+    if (score >= -49) return "Partly False";
+    else if (score >= -74) return "Mostly False";
+    else return "False";
+  } else {
+    if (score <= 49) return "Partly True";
+    else if (score <= 74) return "Mostly True";
+    else return "True";
+  }
+}
+
 // memoised TranscriptBox to avoid unnecessary re-renders
 const TranscriptBox = React.memo(({ typedLines, isStarted, handleStartClick }) => (
   <div className="transcript-box">
@@ -259,18 +273,16 @@ function TranscriptReader() {
                 <h4>Response</h4>
                 <p>{selectedClaim.perplexity_response}</p>
               </div>
-              {/* SCORE BOX STUFF (colour coded) */}
+              {/* New Score Box */}
               <div className="fact-check-score">
-                <h4>Score</h4>
                 <p
                   className="score-value"
                   style={{
                     color: getScoreColor(selectedClaim.score),
-                    fontWeight: "bold",
-                    textShadow: `0 0 8px ${getScoreColor(selectedClaim.score)}`
+                    fontWeight: "bold"
                   }}
                 >
-                  {selectedClaim.score}
+                  {getScoreLabel(selectedClaim.score)} ({selectedClaim.score})
                 </p>
               </div>
               <div className="fact-check-sources">
