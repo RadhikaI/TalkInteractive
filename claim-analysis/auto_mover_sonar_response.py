@@ -3,13 +3,8 @@ import json
 import time
 import os
 
-# INPUT_FILE = "./claim-analysis/automatic-citing/sample.json"
-# PROCESSED_FILE = "./claim-analysis/automatic-citing/sample-processed.json"
-
-INPUT_FILE = "./claim-analysis/extracted_claims.json"
+INPUT_FILE = "./extracted_claims.json"
 PROCESSED_FILE = "claim-analysis/automatic-citing/sample-processed.json"
-
-
 
 class ExtractedProcessor:
     def __init__(self, input_file):
@@ -21,12 +16,21 @@ class ExtractedProcessor:
         
         if not os.path.exists(self.processed_file):
             with open(self.processed_file, 'w') as f:
-                json.dump([], f)
+                json.dump([], f, indent=4)
 
     def check_for_change(self):
+
+        try:
+            with open(self.input_file, 'r') as f:
+                data = json.load(f)
+        except json.JSONDecodeError:
+            data = []
+            
+        if not data:
+            return False 
+
         current_modified = os.path.getmtime(self.input_file)
         print("LATEST", self.latest_modified, "CURRENT", current_modified)
-
         if self.latest_modified < current_modified:
             self.latest_modified = current_modified
             return True
@@ -37,7 +41,7 @@ class ExtractedProcessor:
             processed_segments = json.load(f)
         processed_segments.append(segment)
         with open(self.processed_file, 'w') as f:
-            json.dump(processed_segments, f)
+            json.dump(processed_segments, f, indent=4)
 
     def process(self):
         with open(self.input_file, 'r') as f:
@@ -56,17 +60,17 @@ class ExtractedProcessor:
                 objects_to_keep.append(obj)
         
         with open(self.input_file, 'w') as f:
-            json.dump(objects_to_keep, f)
+            json.dump(objects_to_keep, f, indent=4)
         
         return claims_found
-
+    
     def run(self):
         while True:
             if self.check_for_change():
                 claims_found = self.process()
                 
                 for context, claim, segment_id in claims_found:
-                    run_perplexity(claim, "./claim-analysis/automatic-citing/move-formatted.json")
+                    run_perplexity(claim, "./claim-analysis/move-formatted.json")
                     
                     self.write_processed_segment({
                         "id": segment_id,
@@ -77,10 +81,9 @@ class ExtractedProcessor:
                     if segment_id > self.latest_segment_id:
                         self.latest_segment_id = segment_id
 
-                    # TODO : Add failures to different file to be reprocessed. 
-
             time.sleep(10)
 
 if __name__ == "__main__":
+    time.sleep(100)
     processor = ExtractedProcessor(INPUT_FILE)
     processor.run()
