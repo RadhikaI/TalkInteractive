@@ -47,7 +47,6 @@ function TranscriptReader() {
 
   // track if user has clicked the "Start Transcript" button
   const [isStarted, setIsStarted] = useState(false);
-
   // state to hold the vertical offset of the clicked claim (relative to transcript container)
   const [claimOffset, setClaimOffset] = useState(0);
   // state to hold the final top value for factcheck-panel
@@ -73,7 +72,7 @@ function TranscriptReader() {
 
   // reset typewriter effect if transcript changes
   useEffect(() => {
-    // nly reset if user has clicked the start transcript button
+    // only reset if user has clicked the start transcript button
     if (combinedTranscript && isStarted) {
       setDisplayedText("");
       setCurrentIndex(0);
