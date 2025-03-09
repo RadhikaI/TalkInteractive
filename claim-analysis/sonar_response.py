@@ -12,7 +12,7 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S"
 )
 
-# Second logging file for timing
+# TODO: Utilise this log file
 timing_log = logging.getLogger("timing_log")
 handler = logging.FileHandler("timing.log")
 handler.setLevel(logging.INFO)
@@ -30,7 +30,6 @@ def save_claim(claim, ERROR_FILE):
     with open(ERROR_FILE, "w", encoding="utf-8") as f:
             json.dump(current_claims, f, indent=4)
     return 
-
 
 def perplexity_context_prompt(claim, attempt):
     url = "https://api.perplexity.ai/chat/completions"
@@ -95,7 +94,6 @@ def format_response(original_claim, response_json, output_filename):
         
         evidence = assistant_response.split("## Evidence Mapping")[-1].strip()
         evidence_mapping = {}
-
         for idx, citation in enumerate(citations):
             citation_key = f"[{idx+1}]:"
             if citation_key in evidence:
@@ -114,42 +112,39 @@ def format_response(original_claim, response_json, output_filename):
             ]
         }
 
-        with open(output_filename, 'r', encoding='utf-8') as f:
-            try:
+        try:
+            with open(output_filename, 'r', encoding='utf-8') as f:
                 current_data = json.load(f)
-                # print(type(current_data))
-            except json.JSONDecodeError:
-                current_data = []  
+        except (json.JSONDecodeError, FileNotFoundError):
+            current_data = []
 
         current_data.append(formatted_output)
-        # print(current_data)
-
         with open(output_filename, "w", encoding="utf-8") as f:
             json.dump(current_data, f, indent=4)
 
         logging.info(f"Formatted response written to {output_filename}")
 
-    # TODO: Error handling here.
-    except Exception as e:
+    except Exception as e: # Save raw response for later
+
         logging.error(f"Error formatting Perplexity response: {e}")
+        error_record = {
+            "original_claim": original_claim,
+            "perplexity_response": response_json,
+            "error": str(e)
+        }
+        error_file = "./claim-analysis/perplexity_unformatted_responses.json"
+        try:
+            if os.path.exists(error_file):
+                with open(error_file, 'r', encoding='utf-8') as f:
+                    error_data = json.load(f)
+            else:
+                error_data = []
+        except json.JSONDecodeError:
+            error_data = []
+        error_data.append(error_record)
+        with open(error_file, 'w', encoding='utf-8') as f:
+            json.dump(error_data, f, indent=4)
 
-
-test_claims = [
-    "Nigel Farage has stood for a re-election in the UK Parliament three times.",
-    "The top three selling UK artists are Cliff Richard, The Beatles and David Bowie.", 
-    "In the current UK Parliament there are 400 Labour MPs and 121 Conservative MPs.", 
-    "My father is 3 years old",
-    "10 people died in Munich today.",
-    "More than half of UK undergraduates say they use AI to help with essays."]
-
-test_claim = """
-Claim: Yes, 98% of members of the Anglican community who are regular churchgoers are not in England.
-Context: But, I'm wondering what you can do to help people be more aware of the church around the world, because it does seem a bit like…most people think when they think if Anglicans, or Christians in general, they think of some upper middle class guy, you know. JW: Thanks Anthea! A: Well, you can't change who you are, that's not your fault, but I know your heart, I know a little bit about it. JW: Well, Anthea, you're really great, and I'm so pleased you asked the question. Yes, 98% of members of the Anglican community who are regular churchgoers are not in England. The average Anglian is an African woman in her thirties; a sub-Saharan African woman in her thirties. And we need to remember that, and I've spent my life being reminded of that. I came to faith in Christ myself partly as a result of the witness of the church in Africa, when I was living in Kenya in 1974.
-"""
-
-
-# response_json = perplexity_prompt(test_claims[5])
-# format_response(test_claims[5],response_json,  "./claim-analysis/formatted.json")
 
 def run_perplexity(claim, OUTPUT_FILE):
     ERROR_FILE = "./claim-analysis/perplexity_request_failures.json"
@@ -159,14 +154,12 @@ def run_perplexity(claim, OUTPUT_FILE):
     while attempt <= max_retries:
         response_json = perplexity_context_prompt(claim, attempt)
         if response_json in ["Error", "HTTP error", "Request error", "Connection error"]:
-             attempt += 1
-             time.sleep(3)
+            attempt += 1
+            time.sleep(3)
         else:
-             break 
+            break 
         
     if response_json in ["Error", "HTTP error", "Request error", "Connection error"]:
         save_claim(claim, ERROR_FILE)
-    else:    
+    else:
         format_response(claim, response_json, OUTPUT_FILE)
-
-# run_perplexity(test_claim, "./claim-analysis/context_formatted.json")
