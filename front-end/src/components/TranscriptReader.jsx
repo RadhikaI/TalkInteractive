@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, useCallback } from "react";
+import React, { useEffect, useState, useMemo, useCallback, useRef } from "react";
 import "./TranscriptReader.css";
 import transcriptA from "../data/TestTranscript-A.txt";
 import transcriptB from "../data/TestTranscript-B.txt";
@@ -47,6 +47,14 @@ function TranscriptReader() {
 
   // track if user has clicked the "Start Transcript" button
   const [isStarted, setIsStarted] = useState(false);
+
+  // state to hold the vertical offset of the clicked claim (relative to transcript container)
+  const [claimOffset, setClaimOffset] = useState(0);
+  // state to hold the final top value for factcheck-panel
+  const [factCheckTop, setFactCheckTop] = useState(0);
+  
+  const transcriptContainerRef = useRef(null);
+  const factcheckPanelRef = useRef(null);
 
   // fetch and combine transcripts
   useEffect(() => {
@@ -132,7 +140,15 @@ function TranscriptReader() {
               <span
                 key={i}
                 className="claim-highlight"
-                onClick={() => setSelectedClaim(factChecks[seg.claimIndex])}
+                onClick={(e) => {
+                  // get bounding rectangles of the clicked claim and transcript container
+                  const claimRect = e.target.getBoundingClientRect();
+                  const containerRect = transcriptContainerRef.current.getBoundingClientRect();
+                  // store the offset of the claim relative to the container
+                  const offset = claimRect.top - containerRect.top;
+                  setClaimOffset(offset);
+                  setSelectedClaim(factChecks[seg.claimIndex]);
+                }}
               >
                 {seg.text}
               </span>
@@ -150,13 +166,24 @@ function TranscriptReader() {
     [lines, renderLineWithHighlights]
   );
 
+  // when a claim is selected, calculate the new top offset for the factcheck-panel
+  // so its center aligns with the clicked claim
+  useEffect(() => {
+    if (selectedClaim && factcheckPanelRef.current) {
+      const panelHeight = factcheckPanelRef.current.offsetHeight;
+      let newTop = (claimOffset - panelHeight / 2) - 25; // ADJUST THE VALUE AFTER THE MINUS (more minus means higher) to adjust box offset
+      if (newTop < 0) newTop = 0; // make sure it doesn't go off the top of the screen
+      setFactCheckTop(newTop);
+    }
+  }, [selectedClaim, claimOffset]);
+
   // handle click for the "Start Transcript" button
   const handleStartClick = () => {
     setIsStarted(true);
   };
 
   return (
-    <div className="transcript-container">
+    <div className="transcript-container" ref={transcriptContainerRef}>
       <TranscriptBox
         typedLines={typedLines}
         isStarted={isStarted}
@@ -165,7 +192,11 @@ function TranscriptReader() {
 
       <div className="right-panel">
         {selectedClaim ? (
-          <div className="factcheck-panel">
+          <div
+            className="factcheck-panel"
+            ref={factcheckPanelRef}
+            style={{ top: factCheckTop }}
+          >
             <button
               className="close-btn"
               onClick={() => setSelectedClaim(null)}
