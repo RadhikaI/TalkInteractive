@@ -1,0 +1,7 @@
+2025-03-09 10:15:02 - INFO - transcription.py started.
+2025-03-09 10:15:02 - INFO - TranscriptExporter initialized with delete_previous=True.
+2025-03-09 10:15:02 - INFO - Clearing and saving records with timestamp 20250309_101502.
+2025-03-09 10:15:02 - ERROR - No file found under transcript_chunks.json, creating new file.
+2025-03-09 10:15:02 - ERROR - No file found under transcript_whole.json, creating new file.
+2025-03-09 10:15:02 - INFO - TranscriptProcessor file instanciated.
+2025-03-09 10:15:02 - INFO - AudioTranscriber object initalised with URL=http://media-ice.musicradio.com/LBCUK, model_type=small.
