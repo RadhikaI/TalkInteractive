@@ -4,6 +4,7 @@ import os
 import time
 from together import Together
 key = os.getenv("TOGETHER_KEY")
+
 together_client  = Together(api_key = key)
 
 
@@ -14,15 +15,15 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S"
 )
 
-def together_function(claim):
-    system_message = """Is the following claim fact-checkable? Claims about the time, sentences from claims, etc. should be ignored. Respond with 1 for fact-checkable or 0 for not fact-checkable."""
-    user_message = f"""Claim:{claim}"""
+def together_function(claim, context):
+    system_message = """Is the following claim fact-checkable? You are given both a claim and the surrounding context in which it was spoken. Claims about the time, sentences from claims, etc. should be ignored. Respond with 1 for fact-checkable or 0 for not fact-checkable."""
+    user_message = f"""Claim:{claim}. Context:{context}"""
     messages = [
         {"role": "system", "content": system_message},
         {"role": "user", "content": user_message}
     ]    
     response = together_client.chat.completions.create(
-        model= "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
+        model= "meta-llama/Llama-3.2-3B-Instruct-Turbo",
         messages=messages,
         max_tokens=1,
         temperature=0,
@@ -41,12 +42,12 @@ def process_json_and_check_claims(INPUT_FILE, OUTPUT_FILE):
         data = json.load(f)
 
     filtered_data = []
-    remaining_data = []  
+    remaining_data = []  # Unprocessed claims
 
     for entry in data:
         checkable = []
         for claim in entry["claims"]:
-            if together_function(claim):
+            if together_function(claim, entry["chunk"]):
                 checkable.append(claim)
             else:
                 logging.info(f"Chunk number {entry.get('id')} - Claim '{claim}' was removed")

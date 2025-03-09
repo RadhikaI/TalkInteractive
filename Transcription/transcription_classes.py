@@ -199,7 +199,6 @@ class TranscriptProcessor:
             return transcript
 
         if transcript[i].isalnum() and transcript[i].isupper():
-            print('hellooo')
             transcript = self.__removed + transcript
 
 

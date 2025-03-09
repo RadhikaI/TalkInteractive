@@ -15,7 +15,9 @@ app.register_blueprint(sonar_response_blueprint, url_prefix='/')
 def run_scripts():
     subprocess.Popen(["python3", "Transcription/transcription.py"])
     subprocess.Popen(["python3", "claim-extraction/claim_extractor.py"])
+    subprocess.Popen(["python3", "claim-extraction/pre_sonar_filtering.py"])
     subprocess.Popen(["python3", "claim-analysis/auto_mover_sonar_response.py"])
+    subprocess.Popen(["python3", "claim-analysis/copy_files_ui.py"])
 
 @app.route("/")
 def home():
@@ -24,3 +26,24 @@ def home():
 if __name__ == "__main__":
     run_scripts()
     app.run(host="0.0.0.0", port=5000, debug=False)
+
+# from flask import Flask, jsonify
+# from flask_cors import CORS
+# import subprocess
+
+# app = Flask(__name__)
+# CORS(app) 
+
+# def run_scripts():
+#     subprocess.Popen(["python3", "Transcription/transcription.py"])
+#     subprocess.Popen(["python3", "claim-extraction/claim_extractor.py"])
+#     subprocess.Popen(["python3", "claim-extraction/pre_sonar_filtering.py"])
+#     subprocess.Popen(["python3", "claim-analysis/auto_mover_sonar_response.py"])
+
+# @app.route("/start", methods=["POST"])
+# def start_scripts():
+#     run_scripts()
+#     return jsonify({"message": "Python scripts running."}), 200
+
+# if __name__ == "__main__":
+#     app.run(host="0.0.0.0", port=5000, debug=False)
