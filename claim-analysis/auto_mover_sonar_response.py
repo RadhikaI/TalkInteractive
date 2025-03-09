@@ -3,7 +3,7 @@ import json
 import time
 import os
 
-INPUT_FILE = "./extracted_claims.json"
+INPUT_FILE = "./filtered_claims.json"
 PROCESSED_FILE = "claim-analysis/automatic-citing/sample-processed.json"
 
 class ExtractedProcessor:
