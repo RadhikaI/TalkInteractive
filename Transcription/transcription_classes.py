@@ -464,3 +464,25 @@ class AudioTranscriber:
 
         while True:
             time.sleep(1)
+
+
+    def from_wav_test(self, WAV_path: str, output_path_chunk: str, output_path_whole: str):
+
+        if os.path.exists(WAV_path):
+                transcript = self.model.transcribe(WAV_path, temperature=0.1)
+        
+        
+        chunk_data = ({"id": id, "chunk": transcript})
+
+
+        with open(output_path_chunk, "w", encoding="utf-8") as f:
+            json.dump(chunk_data, f, indent=4)
+
+
+        with open(output_path_whole, "w", encoding="utf-8") as f:
+            json.dump(transcript, f, indent=4)
+
+
+
+
+        
