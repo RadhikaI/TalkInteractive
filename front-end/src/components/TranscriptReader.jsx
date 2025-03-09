@@ -52,7 +52,7 @@ function TranscriptReader() {
   const [claimOffset, setClaimOffset] = useState(0);
   // state to hold the final top value for factcheck-panel
   const [factCheckTop, setFactCheckTop] = useState(0);
-  
+
   const transcriptContainerRef = useRef(null);
   const factcheckPanelRef = useRef(null);
 
