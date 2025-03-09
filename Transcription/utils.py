@@ -8,6 +8,7 @@ import re
 import json
 import logging
 
+
 logging.basicConfig(
     filename="transcription.log", 
     level=logging.INFO,  
@@ -15,12 +16,6 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S"
 )
 
-logging.info("transcription.py started.")
-
-
-os.makedirs("./audio-files", exist_ok=True)
-os.makedirs("./transcript-files", exist_ok=True)
-os.makedirs("./saved-files", exist_ok=True)
 
 
 def remove_trailing_punc(transcript: str):

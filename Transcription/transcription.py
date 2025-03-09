@@ -2,6 +2,12 @@ from utils import *
 from transcription_classes import *
 
 if __name__ == "__main__":
+    logging.info("transcription.py started.")
+    
+    os.makedirs("./audio-files", exist_ok=True)
+    os.makedirs("./transcript-files", exist_ok=True)
+    os.makedirs("./saved-files", exist_ok=True)
+
     exporter = TranscriptExporter()
     refiner = TranscriptProcessor()
 
