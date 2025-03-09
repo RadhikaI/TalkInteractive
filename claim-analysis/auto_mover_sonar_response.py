@@ -70,7 +70,7 @@ class ExtractedProcessor:
                 claims_found = self.process()
                 
                 for context, claim, segment_id in claims_found:
-                    run_perplexity(claim, "./claim-analysis/move-formatted.json")
+                    run_perplexity(claim, "./claim-analysis/cited_claims.json")
                     
                     self.write_processed_segment({
                         "id": segment_id,
