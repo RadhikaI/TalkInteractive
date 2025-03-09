@@ -37,6 +37,4 @@ def remove_trailing_punc(transcript: str):
         final = transcript[:-i + 1]
         removed = transcript[-i + 1:]
 
-    print('helloooo')
-
     return final, removed
