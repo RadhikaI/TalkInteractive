@@ -188,6 +188,30 @@ body {
   font-weight: 600;
 }
 
+/* score box styled similar to other fact-check boxes */
+.fact-check-score {
+  background: rgba(255, 255, 255, 0.04); /* this adjusts the background */
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.fact-check-score h4 {
+  text-align: left;
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding-bottom: 0.25rem;
+  border-bottom : 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.score-value {
+  margin: 0;
+  font-size: 2rem !important;
+  font-weight: bold;
+  text-align: center !important;
+}
+
 /* make sure source list is in a numbered list */
 .source-list {
   padding-left: 1.25rem;

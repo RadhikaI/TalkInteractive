@@ -23,8 +23,7 @@
                 "url": "https://www.pbs.org/wgbh/buildingbig/wonder/structure/eiffel_tower.html",
                 "evidence": null
             }
-        ],
-        "score": -67
+        ]
     },
     {
         "original_claim": "Google Chrome is a browser",
@@ -50,8 +49,7 @@
                 "url": "https://support.google.com/chrome/answer/95346?hl=en&co=GENIE.Platform%3DAndroid",
                 "evidence": null
             }
-        ],
-        "score": 30
+        ]
     },
     {
         "original_claim": "Apple is a fruit.",
@@ -77,8 +75,7 @@
                 "url": "https://reallifegoodfood.umn.edu/fruits/apples",
                 "evidence": null
             }
-        ],
-        "score": 22
+        ]
     },
     {
         "original_claim": "Donald Trump is the current President of the United States.",
@@ -104,8 +101,7 @@
                 "url": "https://www.youtube.com/watch?v=L0f-ZAVOoPk",
                 "evidence": null
             }
-        ],
-        "score": -38
+        ]
     },
     {
         "original_claim": "The atmosphere is 80% nitrogen.",
@@ -131,8 +127,7 @@
                 "url": "https://scied.ucar.edu/learning-zone/air-quality/whats-in-the-air",
                 "evidence": null
             }
-        ],
-        "score": 92
+        ]
     },
     {
         "original_claim": "The capital of France is Paris.",
@@ -158,8 +153,7 @@
                 "url": "https://www.iroamly.com/france-travel/what-is-the-capital-of-france.html",
                 "evidence": null
             }
-        ],
-        "score": -74
+        ]
     },
     {
         "original_claim": "2025 is the lunar new year of the snake.",
@@ -185,8 +179,7 @@
                 "url": "https://www.travelchinaguide.com/essential/holidays/new-year/dates.htm",
                 "evidence": null
             }
-        ],
-        "score": -89
+        ]
     },
     {
         "original_claim": "NATO is the North Atlantic Treaty Organization.",
@@ -212,8 +205,7 @@
                 "url": "https://www.nti.org/education-center/treaties-and-regimes/north-atlantic-treaty-organization-nato/",
                 "evidence": null
             }
-        ],
-        "score": 68
+        ]
     },
     {
         "original_claim": "The last general election in the UK was held in 2024.",
@@ -239,8 +231,7 @@
                 "url": "https://www.statista.com/topics/11880/uk-general-election-2024/",
                 "evidence": "\"The Labour Party won a landslide victory in the UK general election, held on July 4, 2024, winning 412 seats, with Keir Starmer becoming British Prime Minister.\""
             }
-        ],
-        "score": 28
+        ]
     },
     {
         "original_claim": "Norway is a member of the European Union.",
@@ -266,8 +257,7 @@
                 "url": "https://www.gov.uk/eu-eea",
                 "evidence": null
             }
-        ],
-        "score": -74
+        ]
     },
     {
         "original_claim": "Kamala Harris won the 2024 presidential election in the United States.",
@@ -293,8 +283,7 @@
                 "url": "https://en.wikipedia.org/wiki/2024_United_States_presidential_election",
                 "evidence": "\"The Republican Party's ticket\u2014Donald Trump, who was the 45th president of the United States from 2017 to 2021, and JD Vance, the junior U.S. senator from Ohio\u2014defeated the Democratic Party's ticket\u2014Kamala Harris, the incumbent vice president, and Tim Walz, the 41st governor of Minnesota.\""
             }
-        ],
-        "score": 82
+        ]
     },
     {
         "original_claim": "High Speed 2 is a railway line in Germany.",
@@ -320,8 +309,7 @@
                 "url": "https://www.youtube.com/watch?v=fNWfrb_Mz5M",
                 "evidence": null
             }
-        ],
-        "score": 14
+        ]
     },
     {
         "original_claim": "It's currently the year 2032.",
@@ -347,8 +335,7 @@
                 "url": "https://www.cbsnews.com/news/key-facts-asteroid-could-hit-earth-2032-european-space-agency-expert/",
                 "evidence": null
             }
-        ],
-        "score": 36
+        ]
     },
     {
         "original_claim": "The capital of England is Birmingham.",
@@ -374,8 +361,7 @@
                 "url": "https://en.wikipedia.org/wiki/History_of_Birmingham",
                 "evidence": null
             }
-        ],
-        "score": -11
+        ]
     },
     {
         "original_claim": "Princess Diana died in 1999.",
@@ -397,8 +383,7 @@
                 "url": "https://www.youtube.com/watch?v=qF4jxj_ut-o",
                 "evidence": null
             }
-        ],
-        "score": 33
+        ]
     },
     {
         "original_claim": "UK interest rates are set by the nationwide building society.",
@@ -424,8 +409,7 @@
                 "url": "https://www.uswitch.com/mortgages/guides/bank-of-england-base-rate/",
                 "evidence": null
             }
-        ],
-        "score": 98
+        ]
     },
     {
         "original_claim": "2025 is a leap year.",
@@ -451,8 +435,7 @@
                 "url": "https://www.calendar-365.com/leap-years.html",
                 "evidence": null
             }
-        ],
-        "score": 21
+        ]
     },
     {
         "original_claim": "The channel tunnel links Italy and Sweden.",
@@ -478,8 +461,7 @@
                 "url": "https://thebeautyoftransport.com/2015/07/15/the-bridge-oresund-link-denmarksweden/",
                 "evidence": null
             }
-        ],
-        "score": 81
+        ]
     },
     {
         "original_claim": "The capital of Australia is Sydney.",
@@ -505,8 +487,7 @@
                 "url": "https://sydneycitytour.com.au/blog/was-sydney-ever-australias-capital/",
                 "evidence": "\"Sydney is not the capital of the country and never has been. However, it was the oldest and one of the largest settlements in the continent.\""
             }
-        ],
-        "score": -62
+        ]
     },
     {
         "original_claim": "In the current UK Parliament there are 400 Labour MPs and 121 Conservative MPs.",
@@ -532,8 +513,7 @@
                 "url": "https://www.parallelparliament.co.uk/MPs",
                 "evidence": "\"404 Labour MPs\""
             }
-        ],
-        "score": 19
+        ]
     },
     {
         "original_claim": "The leader of the Liberal Democrats is Sir Ed Davie.",
@@ -559,8 +539,7 @@
                 "url": "https://www.youtube.com/watch?v=5ECam_-7Hww",
                 "evidence": null
             }
-        ],
-        "score": 66
+        ]
     },
     {
         "original_claim": "Nigel Farage has stood for a re-election in the UK Parliament three times.",
@@ -586,8 +565,7 @@
                 "url": "https://en.wikipedia.org/wiki/Nigel_Farage",
                 "evidence": null
             }
-        ],
-        "score": 14
+        ]
     },
     {
         "original_claim": "The European Union has its headquarters in Brussels.",
@@ -613,8 +591,7 @@
                 "url": "https://www.britannica.com/video/Scenes-Brussels-headquarters-European-Union-Groote-Markt/-16418",
                 "evidence": null
             }
-        ],
-        "score": -85
+        ]
     },
     {
         "original_claim": "The top three selling UK artists are Cliff Richard, The Beatles and David Bowie.",
@@ -640,8 +617,7 @@
                 "url": "https://www.ukmix.org/forum/chart-discussion/chart-analysis/112652-best-selling-artists-in-the-uk-albums",
                 "evidence": "\"1. The Beatles - 28"
             }
-        ],
-        "score": 40
+        ]
     },
     {
         "original_claim": "Ostrich's knees tend to bend backwards.",
@@ -667,8 +643,7 @@
                 "url": "https://www.ecoevoblog.com/2015/02/20/ostrich-knees/",
                 "evidence": null
             }
-        ],
-        "score": -67
+        ]
     },
     {
         "original_claim": "There is no word for blue in Welsh.",
@@ -694,8 +669,7 @@
                 "url": "https://www.youtube.com/watch?v=lFU3vqRwWU0",
                 "evidence": null
             }
-        ],
-        "score": -90
+        ]
     },
     {
         "original_claim": "Cannabis is the recommended treatment for rabies.",
@@ -721,8 +695,7 @@
                 "url": "https://www.cdc.gov/rabies/hcp/prevention-recommendations/post-exposure-prophylaxis.html",
                 "evidence": null
             }
-        ],
-        "score": -100
+        ]
     },
     {
         "original_claim": "More than half of UK undergraduates say they use AI to help with essays.",
@@ -748,8 +721,7 @@
                 "url": "https://www.hepi.ac.uk/wp-content/uploads/2024/01/HEPI-Policy-Note-51.pdf",
                 "evidence": null
             }
-        ],
-        "score": -4
+        ]
     },
     {
         "original_claim": "Lego produced more than 1,000 bricks per second.",
@@ -775,8 +747,7 @@
                 "url": "https://playitgreen.com/a-small-brick-with-a-big-footprint/",
                 "evidence": "\"The annual production of Lego bricks averages approximately 36 billion, or about 1140 pieces per second.\""
             }
-        ],
-        "score": 23
+        ]
     },
     {
         "original_claim": "The Paris Accord of 2015 agrees that countries will try and limit the warming of the earth to three degrees.",
@@ -802,8 +773,7 @@
                 "url": "https://climateanalytics.org/comment/understanding-the-paris-agreements-long-term-temperature-goal",
                 "evidence": null
             }
-        ],
-        "score": -17
+        ]
     },
     {
         "original_claim": "Schwarzfeller Kirschtauter is the German word for library.",
@@ -829,8 +799,7 @@
                 "url": "https://www.online-translator.com/translation/english-german/library",
                 "evidence": "\"Translate 'library' from English to German, Bibliothek\""
             }
-        ],
-        "score": 90
+        ]
     },
     {
         "original_claim": "Actor was found alongside Betsy Arakawa and their dog at their home in New Mexico yesterday.",
@@ -856,8 +825,7 @@
                 "url": "https://www.pbs.org/newshour/arts/gene-hackman-and-wife-betsy-arakawa-were-dead-for-some-time-before-being-discovered-warrant-shows",
                 "evidence": null
             }
-        ],
-        "score": 91
+        ]
     },
     {
         "original_claim": "the FTSE 100 was trading up 24 points at 87.56.",
@@ -883,8 +851,7 @@
                 "url": "https://www.londonstockexchange.com/indices/ftse-100",
                 "evidence": "\"Index value. 8,809.74\" - This confirms the current index value is around 8,800 points."
             }
-        ],
-        "score": 46
+        ]
     },
     {
         "original_claim": "The pound buys $1.26 and one year wrote 21.",
@@ -910,8 +877,7 @@
                 "url": "https://www.exchange-rates.org/exchange-rate-history/gbp-usd-2025-03-03",
                 "evidence": null
             }
-        ],
-        "score": 9
+        ]
     },
     {
         "original_claim": "LBC weather mostly dry tonight with some isolated showers in the far northwest, a low of minus three",
@@ -937,8 +903,7 @@
                 "url": "https://www.youtube.com/watch?v=Pikx5r3Ajz0",
                 "evidence": null
             }
-        ],
-        "score": 19
+        ]
     },
     {
         "original_claim": "The pound buys $1.26 and one year wrote 21.",
@@ -964,8 +929,7 @@
                 "url": "https://www.exchange-rates.org/exchange-rate-history/gbp-usd-2025-03-03",
                 "evidence": null
             }
-        ],
-        "score": -90
+        ]
     },
     {
         "original_claim": "LBC weather mostly dry tonight with some isolated showers in the far northwest, a low of minus three largely dry tomorrow with sunny spells cloud building in the northwest later and light rain moving in overnight highs of 10 degrees from global's new dream for LBC I'm Amelia Cox.",
@@ -991,8 +955,7 @@
                 "url": "https://weathershogun.com/weather/usa/ok/oklahoma-city/3670/march/2025-03-04",
                 "evidence": null
             }
-        ],
-        "score": 6
+        ]
     },
     {
         "original_claim": " a so-called documentary on Gaza that wasn't wholly open about who was in it nor what they said will hear from an Israeli government spokesperson plus make broccoli great again just massive Brock news actually in the making of part of the campaign to sell 10,000 tons of broccoli a month and part of making it go viral we will have a serious player in making good food unbelievably good looking joining the campaign and what's up message now 0345 606 0973 text 84850 Tom Swalbrick on LBC very good afternoon to you first in the next 60 minutes the transatlantic alliance faces its stiffest",
@@ -1018,8 +981,7 @@
                 "url": "https://www.timesofisrael.com/bbc-apologizes-for-serious-flaws-in-documentary-narrated-by-hamas-officials-son/",
                 "evidence": null
             }
-        ],
-        "score": -94
+        ]
     },
     {
         "original_claim": "the potential to blow up this press conference and create a huge transatlantic round of course Donald Trump has been no stranger to causing a round the world stage in the last couple of weeks we've heard him get into that extremely high profile spat with President Zelensky of course the two are at odds over the Ukraine peace agreement",
@@ -1045,8 +1007,7 @@
                 "url": "https://www.whitehouse.gov/remarks/2025/01/remarks-by-president-trump-at-the-world-economic-forum/",
                 "evidence": null
             }
-        ],
-        "score": -8
+        ]
     },
     {
         "original_claim": " Minister Starmer's announcement to increase spending to 2.5% which is obviously good news however the president does continue to urge our NATO allies to increase spending to 2.5% it's nowhere near enough that's the message coming from the White House in the last few minutes Tom.",
@@ -1072,8 +1033,7 @@
                 "url": "https://foreignpolicy.com/2025/02/25/uk-starmer-defense-spending-nato-foreign-aid-trump/",
                 "evidence": null
             }
-        ],
-        "score": -84
+        ]
     },
     {
         "original_claim": "Test drive one of our award-winning models and you'll enjoy up to \u00a31,000 off your new CUPRA in addition to existing offers.",
@@ -1099,7 +1059,6 @@
                 "url": "https://www.riversidemotors.co.uk/cupra/offers/the-cupra-drive-event/",
                 "evidence": "\"Until March 31st 2025, get between \u00a3500 and \u00a31,000 off a new CUPRA^.\""
             }
-        ],
-        "score": 4
+        ]
     }
 ]

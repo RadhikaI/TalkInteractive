@@ -22,6 +22,53 @@ function formatUrl(url) {
   }
 }
 
+// helper functions for color interpolation
+function hexToRgb(hex) {
+  hex = hex.replace("#", "");
+  if (hex.length === 3) {
+    hex = hex.split("").map((c) => c + c).join("");
+  }
+  const bigint = parseInt(hex, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return { r, g, b };
+}
+
+function rgbToHex(r, g, b) {
+  return (
+    "#" +
+    [r, g, b]
+      .map((x) => {
+        const hex = x.toString(16);
+        return hex.length === 1 ? "0" + hex : hex;
+      })
+      .join("")
+  );
+}
+
+function interpolateColor(color1, color2, factor) {
+  const c1 = hexToRgb(color1);
+  const c2 = hexToRgb(color2);
+  const r = Math.round(c1.r + (c2.r - c1.r) * factor);
+  const g = Math.round(c1.g + (c2.g - c1.g) * factor);
+  const b = Math.round(c1.b + (c2.b - c1.b) * factor);
+  return rgbToHex(r, g, b);
+}
+
+// function to compute a background color based on score (-100 to 100)
+function getScoreColor(score) {
+  if (score <= 0) {
+    // for negative scores, interpolate between dark red and grey (-100 = dark red, 0 = grey)
+    const factor = (score + 100) / 100; // 0 for -100, 1 for 0
+    return interpolateColor("#8B0000", "#808080", factor);
+  } else {
+    // for positive scores, interpolate between grey and bright minty green (0 = grey, 100 = turquoise)
+    const factor = score / 100; // 0 for 0, 1 for 100
+    return interpolateColor("#808080", "#00FF7F", factor);
+  }
+}
+
 // memoised TranscriptBox to avoid unnecessary re-renders
 const TranscriptBox = React.memo(({ typedLines, isStarted, handleStartClick }) => (
   <div className="transcript-box">
@@ -170,8 +217,8 @@ function TranscriptReader() {
   useEffect(() => {
     if (selectedClaim && factcheckPanelRef.current) {
       const panelHeight = factcheckPanelRef.current.offsetHeight;
-      let newTop = (claimOffset - panelHeight / 2) - 25; // ADJUST THE VALUE AFTER THE MINUS (more minus means higher) to adjust box offset
-      if (newTop < 0) newTop = 0; // make sure it doesn't go off the top of the screen
+      let newTop = (claimOffset - panelHeight / 2) - 25; // adjust this value to move the box higher or lower
+      if (newTop < 0) newTop = 0; // ensure it doesn't go off the top
       setFactCheckTop(newTop);
     }
   }, [selectedClaim, claimOffset]);
@@ -211,6 +258,20 @@ function TranscriptReader() {
               <div className="fact-check-response">
                 <h4>Response</h4>
                 <p>{selectedClaim.perplexity_response}</p>
+              </div>
+              {/* SCORE BOX STUFF (colour coded) */}
+              <div className="fact-check-score">
+                <h4>Score</h4>
+                <p
+                  className="score-value"
+                  style={{
+                    color: getScoreColor(selectedClaim.score),
+                    fontWeight: "bold",
+                    textShadow: `0 0 8px ${getScoreColor(selectedClaim.score)}`
+                  }}
+                >
+                  {selectedClaim.score}
+                </p>
               </div>
               <div className="fact-check-sources">
                 <h4>Sources</h4>
