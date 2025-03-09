@@ -18,6 +18,11 @@ def score_from_first_query(query_json):
     evidence_pairs = [{"source": x.get("url"), "evidence": x.get("evidence")} for x in evidence_pairs]
     return score_claim(claim, evidence_pairs)
 
+def add_score_to_JSON(query_json):
+    score = score_from_first_query(query_json)
+    query_json["score"] = score
+    return query_json
+
 # claim = "Nigel Farage has stood for a re-election in the UK Parliament three times."
 # evidence_pairs = [
 #     {
@@ -42,9 +47,15 @@ def score_from_first_query(query_json):
 
 import json
 
-with open('./claim-analysis/automatic-citing/move-formatted.json', 'r') as file:
+with open('./claim-analysis/move-formatted.json', 'r') as file:
     data = json.load(file)
 print(data)
 for x in data:
     print(f"NEW CLAIM")
-    score_from_first_query(x)
+    # score_from_first_query(x)
+    # json2 = add_score_to_JSON(x)
+    x = add_score_to_JSON(x)
+    # with open("scorer_output.json", 'w', encoding='utf-8') as f:
+    #     json.dump(json2, f, indent=4)
+with open("./claim-analysis/scorer_output.json", 'w', encoding='utf-8') as f:
+    json.dump(data, f, indent=4)
