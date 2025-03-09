@@ -24,30 +24,20 @@ os.makedirs("./transcript-files", exist_ok=True)
 os.makedirs("./saved-files", exist_ok=True)
 
 
-
-"""
-Overall TODO:
-- Testing
-"""
-
-
-
-
 def remove_trailing_punc(transcript: str):
     """Function to remove punctuation at the end of a string, and returns result and string removed."""
     i = 1
-    while not transcript[-i].isalnum():
+
+    while i < len(transcript) and (not transcript[-i].isalnum()):
         i += 1
 
     if i == 1:
         final = transcript
+        removed = ""
     else:
         final = transcript[:-i + 1]
-
-    if i > 1:
         removed = transcript[-i + 1:]
-    else:
-        removed = ""
+
 
     return final, removed
 
@@ -230,7 +220,7 @@ class TranscriptProcessor:
 
 
 
-    def clean_text(self, text: str) -> str:
+    def __clean_text(self, text: str) -> str:
         """Clean punctuation, whitespace etc, for word matching at the join (returns result)."""
 
         return re.sub(r'[^\w\s]', '', text).lower()
@@ -246,12 +236,17 @@ class TranscriptProcessor:
             transcript = self.__remove_overlap(transcript, common_letters)
         
         i = 0
-        while i < len(transcript) and not transcript[i].isalpha():
+        while i < len(transcript) and transcript[i].isspace():
             i += 1
-        
-        if i < len(transcript):
-            if transcript[i].isupper():
-                transcript = self.__removed + transcript
+
+        if i >= len(transcript):
+            return transcript
+
+        if transcript[i].isalnum() and transcript[i].isupper():
+            print('hellooo')
+            transcript = self.__removed + transcript
+
+
 
         return transcript
 
@@ -261,7 +256,7 @@ class TranscriptProcessor:
     def __find_overlap(self, text1: str, text2: str) -> str:
         """Find the overlap between two cleaned transcripts, and return alphanumeric letters to be removed."""
 
-        clean0, clean1 = self.clean_text(text1).split(' '), self.clean_text(text2).split(' ')
+        clean0, clean1 = self.__clean_text(text1).split(' '), self.__clean_text(text2).split(' ')
 
         
         clean0 = [x for x in clean0 if x.strip()]
@@ -383,14 +378,22 @@ class AudioTranscriber:
         """Ensure the URL is valid (returns boolean)."""
         if URL == None:
             URL = self.__URL
-            logging.info(f"check_URL called with the object's URL={self.__URL}.")
+            # logging.info(f"check_URL called with the object's URL={self.__URL}.")
 
 
         process = subprocess.run(["ffmpeg", "-y", "-i", URL, "-t", "1", "-f", "null", "-"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         if process.returncode != 0:
-            logging.error("The URL stream appears to be invalid, defaulting to http://media-ice.musicradio.com/LBCUK")
-            self.__URL = "http://media-ice.musicradio.com/LBCUK"
+
+            # check if known stream works
+            test_process = subprocess.run(["ffmpeg", "-y", "-i", "http://media-ice.musicradio.com/LBCUK", "-t", "1", "-f", "null", "-"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+            if test_process.returncode != 0:
+                logging.error("Can't reach the audio streams, check internet.")
+
+            else:
+                logging.error("The URL stream appears to be invalid, defaulting to http://media-ice.musicradio.com/LBCUK")
+                self.__URL = "http://media-ice.musicradio.com/LBCUK"
         
         
         
@@ -533,11 +536,11 @@ class AudioTranscriber:
         while True:
             time.sleep(1)
 
+if __name__ == "__main__":
+    exporter = TranscriptExporter()
+    refiner = TranscriptProcessor()
 
-exporter = TranscriptExporter()
-refiner = TranscriptProcessor()
-
-audio = AudioTranscriber(refiner=refiner, exporter=exporter, model_type="small")
-audio.start(delete_audio=False, overlap=0.5, duration=45, transcript_overlap=200)
+    audio = AudioTranscriber(refiner=refiner, exporter=exporter, model_type="small")
+    audio.start(delete_audio=False, overlap=0.5, duration=45, transcript_overlap=200)
 
 
