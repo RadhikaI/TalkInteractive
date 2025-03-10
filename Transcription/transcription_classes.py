@@ -163,7 +163,7 @@ class TranscriptProcessor:
 
 
 
-    def new_transcript(self, transcript: str, overlap: int = 200):
+    def new_transcript(self, transcript: str, overlap: int = 40):
         """Called when a new transcript is produced, and returns the chunk and no overlapping section (to be added to whole)."""
         
         logging.info(f"new_transcript called with transcript={transcript}, overlap={overlap}.")
@@ -182,7 +182,7 @@ class TranscriptProcessor:
         self.__removed = removed
         self.__final_transcripts.append(non_overlapping)
 
-        chunk = self.__whole_transcript[-overlap:] + non_overlapping
+        chunk = self.__add_overlap(non_overlapping, overlap)
 
         self.__whole_transcript += non_overlapping
 
@@ -191,6 +191,11 @@ class TranscriptProcessor:
         return chunk, non_overlapping
 
 
+    def __add_overlap(self, transcript: str, overlap: int = 40):
+        words = self.__whole_transcript.split(" ")
+        words = words[-overlap:]
+        return " ".join(words) + transcript
+    
 
     def __clean_text(self, text: str) -> str:
         """Clean punctuation, whitespace etc, for word matching at the join (returns result)."""
@@ -222,7 +227,6 @@ class TranscriptProcessor:
 
 
 
-    # TODO: make more readable and check
     def __find_overlap(self, text1: str, text2: str) -> str:
         """Find the overlap between two cleaned transcripts, and return alphanumeric letters to be removed."""
 
@@ -426,7 +430,7 @@ class AudioTranscriber:
 
 
 
-    def __conti_transcribe_audio(self, delete_audio: bool = True, transcript_overlap: int = 200):
+    def __conti_transcribe_audio(self, delete_audio: bool = True, transcript_overlap: int = 40):
         """COntinously checks queue for audio clips, then transcribes, writes to txt, refines, and exports."""
 
         logging.info(f"conti_transcribe_audio called with delete_audio={delete_audio}, transcript_overlap={transcript_overlap}.")
@@ -462,7 +466,7 @@ class AudioTranscriber:
                 
                 
 
-    def start(self, duration: int = 45, overlap = 0.5, delete_audio: bool = True, starting_value: int = 0, transcript_overlap: int = 200):
+    def start(self, duration: int = 45, overlap = 0.5, delete_audio: bool = True, starting_value: int = 0, transcript_overlap: int = 40):
         """Starts both the recording and transcribing threads."""
 
         logging.info(f"start called with duration={duration}, overlap={overlap}, delete_audio={delete_audio}, starting_value={starting_value}, transcript_overlap={transcript_overlap}.")
