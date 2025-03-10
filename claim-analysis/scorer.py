@@ -56,44 +56,55 @@ def score(evidence: List[Dict[str, int]]) -> Tuple[int, int]:
             weights.append(w)
     if not values:
         return 0
-    return int(100 * roundDown(uniteVerdict(*weightedMeanAndVariance(values, weights))))
+    
+    s = uniteVerdict(*weightedMeanAndVariance(values, weights))
+    return int(100 * roundDown(s))
+    # return int(100 * roundDown(uniteVerdict(len(values), *weightedMeanAndVariance(values, weights))))
 
 
 def test_scoring():
-    data1 = [
-        {"reliability": 1, "support": 0},
-        {"reliability": 0, "support": 1},
-        {"reliability": 1, "support": 1},
-        {"reliability": 1, "support": 1},
-        {"reliability": 1, "support": 0},
-    ]
-    data2 = [
-        {"reliability": 1, "support": +1},
-        {"reliability": 1, "support": -1},
-        {"reliability": 1, "support": -1},
-        {"reliability": 1, "support": -1},
-        {"reliability": 1, "support": +1},
-    ]
-    data3 = [
-        {"reliability": 1, "support": +1},
-        {"reliability": 1, "support": -1}
-    ]
-    data4 = [
-        {"reliability": 1, "support": 0},
-        {"reliability": 0, "support": 1},
-        {"reliability": 1, "support": 1},
-        {"reliability": 1, "support": 1},
-        {"reliability": 1, "support": 1},
-        {"reliability": 1, "support": 0},
-    ]
-    data5 = [
-        {"reliability": 1, "support": +1},
-        {"reliability": 1, "support": +1}
+    def testOn(data):
+        print(score(data))
+    data_list = [
+        [
+            {"reliability": 1, "support": 0},
+            {"reliability": 0, "support": 1},
+            {"reliability": 1, "support": 1},
+            {"reliability": 1, "support": 1},
+            {"reliability": 1, "support": 0},
+        ],
+        [
+            {"reliability": 1, "support": +1},
+            {"reliability": 1, "support": -1},
+            {"reliability": 1, "support": -1},
+            {"reliability": 1, "support": -1},
+            {"reliability": 1, "support": +1},
+        ],
+        [
+            {"reliability": 1, "support": +1},
+            {"reliability": 1, "support": -1}
+        ],
+        [
+            {"reliability": 1, "support": 0},
+            {"reliability": 0, "support": 1},
+            {"reliability": 1, "support": 1},
+            {"reliability": 1, "support": 1},
+            {"reliability": 1, "support": 1},
+            {"reliability": 1, "support": 0},
+        ],
+        [
+            {"reliability": 1, "support": +1},
+            {"reliability": 1, "support": +1}
+        ],
+        [
+            {"reliability": 1, "support": +1},
+            {"reliability": 1, "support": +1},
+            {"reliability": 0.1, "support": +0.8}
+        ]
     ]
 
-    print(score(data1))
-    print(score(data2))
-    print(score(data3))
-    print(score(data4))
-    print(score(data5))
-    plotShiftZ()
+    for x in data_list:
+        testOn(x)
+    # plotShiftZ()
+
+# test_scoring()

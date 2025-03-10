@@ -17,6 +17,13 @@ def list_get(l, i):
   except IndexError:
     return None
 
+def is_JSON(filename):
+    try:
+        data = json.load(open(filename))
+        return True
+    except:
+        return False
+
 def is_float(s):
     try:
        float(s)
