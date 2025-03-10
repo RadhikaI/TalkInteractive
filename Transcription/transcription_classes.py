@@ -312,8 +312,12 @@ class AudioTranscriber:
 
         if self.__to_transcribe.qsize() > 3:
             possible_types = ["base", "small", "medium", "large", "large-v2"]
-            position = possible_types.find(self.__model_type)
             
+            try:
+                position = possible_types.index(self.__model_type)
+            except ValueError:
+                position = 0
+                
             if position > 0:
                 logging.info(f"Transcribe queue has length {self.__to_transcribe.qsize()}, downgrading model from {self.__model_type} to {possible_types[position]}.")
 
