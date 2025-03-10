@@ -50,7 +50,7 @@ class TranscriptExporter:
             json.dump(data, f, indent=4)
 
 
-    def update_whole_transcript(self, extra_transcript):
+    def update_whole_transcript(self, extra_transcript, split_paragraph=True):
         """Update the file containing whole transcript"""
 
         logging.info(f"update_whole_transcript called with extra_transcript={extra_transcript}.")
@@ -66,7 +66,23 @@ class TranscriptExporter:
             logging.error(f"{self.__whole_path} not found, creating file.")
 
         if isinstance(data, str):
-            data += extra_transcript
+            # Arbitrary break based on full stops - paragraphing to benefit reader.
+            if split_paragraph:
+                first_full_stop = extra_transcript.find('.')
+                if first_full_stop != -1:
+                    pre_break = extra_transcript[:first_full_stop+1]
+                    post_break = extra_transcript[first_full_stop+1:].strip()
+                    
+                    if pre_break and pre_break not in data:
+                        data += pre_break       
+
+                    if post_break and post_break not in data:
+                        data += "\n\n" + post_break
+                else:
+                    if extra_transcript not in data:
+                        data += extra_transcript
+
+            # data += extra_transcript
 
         else:
             logging.error(f"{self.__whole_path} in unexpected format, clearing and saving records.")
