@@ -47,7 +47,7 @@ def start_transcript_thread(source, dest, interval=5):
     return copy_thread
 
 if __name__ == "__main__":
-    CLAIM_INPUT_FILE = "claim-analysis/cited_claims.json"
+    CLAIM_INPUT_FILE = "claim-analysis/scorer_output.json"
     CLAIM_OUTPUT_FILE = "front-end/src/data"
     
     TRANSCRIPT_INPUT_FILE = "transcript_whole.json"

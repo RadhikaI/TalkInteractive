@@ -5,7 +5,7 @@ import json
 import re
 
 logging.basicConfig(
-    filename="./claim-analysis/sonar_test.log", 
+    filename="./claim-analysis/scoring.log", 
     level=logging.INFO,  
     format="%(asctime)s - %(levelname)s - %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S"

@@ -64,8 +64,12 @@ import json
 import time
 import os
 
-INPUT_FILE = "./claim-analysis/test2.json" # "./claim-analysis/cited_claims.json"
-OUTPUT_FILE = "./claim-analysis/test3.json" # "./claim-analysis/scorer_output.json"
+
+# INPUT_FILE = "./claim-analysis/test2.json" 
+# OUTPUT_FILE = "./claim-analysis/test3.json" 
+
+INPUT_FILE = "./claim-analysis/cited_claims.json"
+OUTPUT_FILE = "./claim-analysis/scorer_output.json"
 
 class ScoreTagger:
     def __init__(self, input_file=INPUT_FILE, output_file=OUTPUT_FILE):
@@ -131,10 +135,11 @@ class ScoreTagger:
                 tagged_data = self.process()
                 self.write_processed_segments(tagged_data)
 
-            print("SLEEPING")
+            # print("SLEEPING")
             time.sleep(1)
 
 if __name__ == "__main__":
-    time.sleep(5)
+    time.sleep(90) # Takes at least a minute till transcription starts
+    print("Scorer running")
     processor = ScoreTagger()
     processor.run()

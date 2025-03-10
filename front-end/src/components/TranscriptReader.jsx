@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo, useCallback, useRef } from "react";
 import "./TranscriptReader.css";
 import transcript from "../data/transcript_whole.txt";
-import factChecks from "../data/cited_claims.json";
+import factChecks from "../data/scorer_output.json";
 
 // function that cleans up URLs by removing the "www." at the start
 function formatUrl(url) {
@@ -352,7 +352,9 @@ useEffect(() => {
                   </span>{" "}
                   to view more details.
                             </p>
-            <p>Fact checks are carried out by Perplexity AI.</p>
+            <p>Fact checks (citations) are carried out by Perplexity's Sonar model.</p>
+            <p> It may take a few minutes to see a transcript. </p>
+
           </div>
         )}
       </div>

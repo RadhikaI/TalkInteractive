@@ -39,6 +39,7 @@ def run_scripts():
     subprocess.Popen(["python3", "claim-extraction/claim_extractor.py"])
     subprocess.Popen(["python3", "claim-extraction/pre_sonar_filtering.py"])
     subprocess.Popen(["python3", "claim-analysis/auto_mover_sonar_response.py"])
+    subprocess.Popen(["python3", "claim-analysis/sonar_check.py"])
     subprocess.Popen(["python3", "claim-analysis/copy_files_ui.py"])
 
 @app.route("/start", methods=["POST"])
