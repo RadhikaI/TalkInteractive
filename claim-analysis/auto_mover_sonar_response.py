@@ -19,7 +19,6 @@ class ExtractedProcessor:
                 json.dump([], f, indent=4)
 
     def check_for_change(self):
-
         try:
             with open(self.input_file, 'r') as f:
                 data = json.load(f)

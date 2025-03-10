@@ -1,10 +1,7 @@
 import React, { useEffect, useState, useMemo, useCallback, useRef } from "react";
 import "./TranscriptReader.css";
-import transcriptA from "../data/TestTranscript-A.txt";
-import transcriptB from "../data/TestTranscript-B.txt";
-import transcriptC from "../data/TestTranscript-C.txt";
-import transcriptD from "../data/RecentTranscript.txt";
-import factChecks from "../data/formatted.json";
+import transcript from "../data/transcript_whole.txt";
+import factChecks from "../data/cited_claims.json";
 
 // function that cleans up URLs by removing the "www." at the start
 function formatUrl(url) {
@@ -105,6 +102,7 @@ function TranscriptReader() {
   const [displayedText, setDisplayedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedClaim, setSelectedClaim] = useState(null);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   // track if user has clicked the "Start Transcript" button
   const [isStarted, setIsStarted] = useState(false);
@@ -119,26 +117,23 @@ function TranscriptReader() {
   // fetch and combine transcripts
   useEffect(() => {
     Promise.all([
-      fetch(transcriptA).then((res) => res.text()),
-      fetch(transcriptB).then((res) => res.text()),
-      fetch(transcriptC).then((res) => res.text()),
-      fetch(transcriptD).then((res) => res.text()),
+      fetch(transcript).then((res) => res.text()),
     ])
-      .then(([textA, textB, textC, textD]) => {
-        const combined = textA + "\n\n" + textB + "\n\n" + textC + "\n\n" + textD;
+      .then(([textA]) => {
+        const combined = textA + "\n\n";
         setCombinedTranscript(combined);
       })
       .catch((err) => console.error("Error fetching transcripts:", err));
   }, []);
 
   // reset typewriter effect if transcript changes
-  useEffect(() => {
-    // only reset if user has clicked the start transcript button
-    if (combinedTranscript && isStarted) {
-      setDisplayedText("");
-      setCurrentIndex(0);
-    }
-  }, [combinedTranscript, isStarted]);
+  // useEffect(() => {
+  //   // only reset if user has clicked the start transcript button
+  //   if (combinedTranscript && isStarted) {
+  //     setDisplayedText("");
+  //     setCurrentIndex(0);
+  //   }
+  // }, [combinedTranscript, isStarted]);
 
   // typewriter effect
   useEffect(() => {
@@ -148,7 +143,7 @@ function TranscriptReader() {
       const timer = setTimeout(() => {
         setDisplayedText((prev) => prev + combinedTranscript[currentIndex]);
         setCurrentIndex((prev) => prev + 1);
-      }, 2); // change this number to change ms per character
+      }, 0); // change this number to change ms per character
       return () => clearTimeout(timer);
     }
   }, [combinedTranscript, currentIndex, isStarted]);
@@ -217,7 +212,7 @@ function TranscriptReader() {
         </p>
       );
     },
-    []
+    [factChecks]
   );
 
   // memoise typed lines so they update only when lines change
@@ -237,8 +232,28 @@ function TranscriptReader() {
     }
   }, [selectedClaim, claimOffset]);
 
-  // handle click for the "Start Transcript" button
-  const handleStartClick = () => {
+  // button click functionality
+  const handleStartClick = async () => {
+    setIsProcessing(true);
+    
+    try {
+      const response = await fetch('http://localhost:5000/start', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      if (response.ok) {
+        console.log(response)
+      } else {
+        console.error('Failed to start Flask');
+      }
+    } catch (error) {
+      console.error('Error connecting to Flask server:', error);
+    }
+    
+    setIsProcessing(false);
     setIsStarted(true);
   };
 
@@ -310,12 +325,12 @@ function TranscriptReader() {
           <div className="sidebar">
             <h3>Talk Interactive</h3>
             <p>
-              Click on any{" "}
-              <span style={{ color: "var(--highlight-color)" }}>
-                bold, underlined claim
-              </span>{" "}
-              to view more details.
-            </p>
+                                Click on any{" "}
+                  <span style={{ color: "var(--highlight-color)" }}>
+                    bold, underlined claim
+                  </span>{" "}
+                  to view more details.
+                            </p>
             <p>Fact checks are carried out by Perplexity AI.</p>
           </div>
         )}
