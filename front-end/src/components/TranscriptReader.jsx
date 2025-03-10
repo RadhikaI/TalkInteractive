@@ -326,15 +326,25 @@ useEffect(() => {
                 <ul className="source-list">
                   {selectedClaim.citations.map((c, i) => (
                     <li key={i}>
-                      <span className="source-number">{i + 1}.</span>
-                      <a
-                        href={c.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="link truncated"
-                      >
-                        {formatUrl(c.url)}
-                      </a>
+                      <div className="source-pair">
+                        <div>
+                          <span className="source-number">{i + 1}.</span>
+                          <a
+                            href={c.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="link truncated"
+                          >
+                            {formatUrl(c.url)}
+                          </a>
+                        </div>
+                        
+                        {c.evidence && c.evidence !== 'null' && (
+                          <div className="evidence">
+                            {c.evidence}
+                          </div>
+                        )}
+                      </div>
                     </li>
                   ))}
                 </ul>
