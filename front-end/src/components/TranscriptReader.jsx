@@ -126,7 +126,7 @@ function TranscriptReader() {
       .catch((err) => console.error("Error fetching transcripts:", err));
   }, []);
 
-  // reset typewriter effect if transcript changes
+  // // reset typewriter effect if transcript changes
   // useEffect(() => {
   //   // only reset if user has clicked the start transcript button
   //   if (combinedTranscript && isStarted) {
@@ -135,18 +135,39 @@ function TranscriptReader() {
   //   }
   // }, [combinedTranscript, isStarted]);
 
-  // typewriter effect
-  useEffect(() => {
-    //only run if button is pressed (isStarted state)
-    if (!combinedTranscript || !isStarted) return;
-    if (currentIndex < combinedTranscript.length) {
-      const timer = setTimeout(() => {
-        setDisplayedText((prev) => prev + combinedTranscript[currentIndex]);
-        setCurrentIndex((prev) => prev + 1);
-      }, 0); // change this number to change ms per character
-      return () => clearTimeout(timer);
-    }
-  }, [combinedTranscript, currentIndex, isStarted]);
+  // // typewriter effect
+  // useEffect(() => {
+  //   //only run if button is pressed (isStarted state)
+  //   if (!combinedTranscript || !isStarted) return;
+  //   if (currentIndex < combinedTranscript.length) {
+  //     const timer = setTimeout(() => {
+  //       setDisplayedText((prev) => prev + combinedTranscript[currentIndex]);
+  //       setCurrentIndex((prev) => prev + 1);
+  //     }, 0); // change this number to change ms per character
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [combinedTranscript, currentIndex, isStarted]);
+
+  // Stop typewriter effect reset on every update
+useEffect(() => {
+  if (isStarted && currentIndex === 0) {
+    setDisplayedText("");
+    setCurrentIndex(0);
+  }
+}, [isStarted]);
+
+useEffect(() => {
+  // only run if button is pressed (isStarted state) 
+  if (!combinedTranscript || !isStarted || currentIndex >= combinedTranscript.length) return;
+
+  const timer = setTimeout(() => {
+    setDisplayedText((prev) => prev + combinedTranscript[currentIndex]);
+    setCurrentIndex((prev) => prev + 1);
+  }, 0); // change this number to adjust the typing speed
+
+  return () => clearTimeout(timer);
+}, [combinedTranscript, currentIndex, isStarted]);
+
 
   // split displayed text into lines
   const lines = displayedText.split("\n");
