@@ -1,8 +1,10 @@
+from typing import List, Dict, Tuple, Any
 import requests
 import logging
 import os
 import json
 import re
+import time
 
 MIN_SUPPORT = -1
 MAX_SUPPORT = +1
@@ -10,26 +12,33 @@ MIN_RELIABILITY = 0
 MAX_RELIABILITY = 1
 
 logging.basicConfig(
-    filename="./claim-analysis/scoring.log", 
+    filename="./claim-analysis/utils.log", 
     level=logging.INFO,  
     format="%(asctime)s - %(levelname)s - %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S"
 )
 
-def list_get(l, i):
+timing_log = logging.getLogger("timing_log")
+handler = logging.FileHandler("timing.log")
+handler.setLevel(logging.INFO)
+formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+handler.setFormatter(formatter)
+timing_log.addHandler(handler)
+
+def list_get(l: List[Any], i: int) -> Any:
   try:
     return l[i]
   except IndexError:
     return None
 
-def is_JSON(filename):
+def is_JSON(filename: str) -> bool:
     try:
         data = json.load(open(filename))
         return True
     except:
         return False
 
-def is_float(s):
+def is_float(s: Any) -> bool:
     try:
        float(s)
     except (ValueError, TypeError):
@@ -37,14 +46,14 @@ def is_float(s):
     else:
         return True
 
-def extract_leading_number(s, default=None):
+def extract_leading_number(s: str, default=None) -> float:
     try:
         match = re.match(r"^\d+(\.\d+)?", s) # matches a floating number at the start of the string
         return float(match.group()) if match else default
     except:
         return default
 
-def test_range(s, min, max, default=None):
+def test_range(s: Any, min: float, max: float, default=None) -> Any:
     return s if (is_float(s) and min <= float(s) <= max) else default
 
 def validate_support(s):
@@ -52,13 +61,13 @@ def validate_support(s):
 def validate_reliability(s):
     return test_range(s, MIN_RELIABILITY, MAX_RELIABILITY, None)
 
-def to_float(x, default=None):
+def to_float(x: Any, default=None) -> float:
     if is_float(x):
         return float(x)
     else:
         return default
 
-def float_prefix(s, default=None):
+def float_prefix(s: Any, default=None) -> float:
     try:
         if is_float(s):
             return float(s)
@@ -68,7 +77,7 @@ def float_prefix(s, default=None):
         return default
 
 
-def perplexity_prompt(instruction_message, content_message):
+def perplexity_prompt(instruction_message: str, content_message: str, attempt=None) -> json:
     url = "https://api.perplexity.ai/chat/completions"
     # key = os.getenv("PERPLEXITY_KEY")
     key = "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"
@@ -97,12 +106,28 @@ def perplexity_prompt(instruction_message, content_message):
     }
 
     try:
+        start = time.time()
         response = requests.post(url, json=payload, headers=headers)
         response.raise_for_status() 
         logging.info(f"Perplexity API response: {response.status_code} - {response.text}")  
+        call_time = time.time() - start
+        timing_log.info(f"API response time: {call_time:.3f} seconds")
         return response.json() 
+    
+    except requests.HTTPError as e: #Perplexity error 
+        logging.error(f"HTTP error occurred: {e.response.status_code} - {e.response.text}" + ("" if attempt is None else " - Attempt {attempt}"))
+        return "HTTP error"    
+
     except requests.exceptions.RequestException as e:
-        logging.error(f"Error occurred: {str(e)}")
+        logging.error(f"Request error occurred: {str(e)}" + ("" if attempt is None else " - Attempt {attempt}"))
+        return "Request error"
+    
+    except ConnectionError as e:
+        logging.error(f"Connection error occured: {str(e)}" + ("" if attempt is None else " - Attempt {attempt}"))
+        return "Connection error"
+
+    except Exception as e:
+        logging.error(f"Unexpected error occurred: {str(e)}" + ("" if attempt is None else " - Attempt {attempt}"))
         return "Error"
 
 

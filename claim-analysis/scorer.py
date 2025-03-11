@@ -12,16 +12,12 @@ def uniteVerdict(score: int, uncertainty: int) -> int:
     print(f"mean: {score}, uncertainty: {uncertainty}")
     return score / (9*uncertainty + 1)
 
-# def determineScore(values: List[int], weights: List[int]) -> int:
-#     return np.average(values, weights=weights)
-# def determineUncertainty(values: List[int], weights: List[int]) -> int:
-
 def shift(x: int) -> int:
     return -x**4 + x**3 + x**2 # (1-x**2) * x**2 + (x**2) * x
 def shiftZ(x: int) -> int:
     return math.copysign(shift(abs(x)), x)
 
-def plotShiftZ():
+def plotShiftZ() -> None:
     import matplotlib.pyplot as plt
     x = np.linspace(-1, 1, 1000)
     shiftZ2 = np.vectorize(shiftZ)
@@ -39,7 +35,7 @@ def plotShiftZ():
     plt.show()
 
 accuracy = 0.01
-def roundDown(x):
+def roundDown(x: float) -> float:
     return math.copysign(abs(x) // accuracy * accuracy, x)
 
 def score(evidence: List[Dict[str, int]]) -> Tuple[int, int]:
@@ -62,7 +58,7 @@ def score(evidence: List[Dict[str, int]]) -> Tuple[int, int]:
     # return int(100 * roundDown(uniteVerdict(len(values), *weightedMeanAndVariance(values, weights))))
 
 
-def test_scoring():
+def test_scoring() -> None:
     def testOn(data):
         print(score(data))
     data_list = [

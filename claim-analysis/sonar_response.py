@@ -4,6 +4,7 @@ import os
 import json
 import re
 import time
+import utils
 
 logging.basicConfig(
     filename="auto_mover_sonar_response.log", 
@@ -32,59 +33,11 @@ def save_claim(claim, ERROR_FILE):
     return 
 
 def perplexity_context_prompt(claim, attempt):
-    url = "https://api.perplexity.ai/chat/completions"
-    key = os.getenv("PERPLEXITY_KEY")
-
-    payload = {
-        "model": "sonar",
-        "messages": [
-            {"role": "system", "content": """You are provided with a claim and some context (the broader conversation in which the claim was made). What evidence is there for or against this claim? 
+    instructions = """You are provided with a claim and some context (the broader conversation in which the claim was made). What evidence is there for or against this claim? 
             Be precise and concise: first state if it is supported, not supported, or partially supported/incorrect. There is no need to repeat what the claim is in your opening sentence; when considering the claim, focus on semantic accuracy, and in your output, focus on the evidence. 
             Your output should then contain reasoning for this decision (citing sources). 
-            Once you have written this paragraph, then the final section ("Evidence Mapping") of your output should be a mapping of the source URL to the EXACT sentence that is used FROM THE SOURCE as evidence. This must be done for all forms of media cited, including video sources. If there is no evidence, do not provide any citations alongside your explanation."""},
-            {"role": "user", "content": claim}
-        ],
-        "max_tokens": 300, 
-        "temperature": 0.1,
-        "top_p": 0.9,
-        "search_domain_filter": None,
-        "return_images": False,
-        "return_related_questions": False,
-        "top_k": 0,
-        "stream": False,
-        "presence_penalty": 0,
-        "frequency_penalty": 1
-    }
-
-    headers = {
-        "Authorization": f"Bearer {key}",
-        "Content-Type": "application/json"
-    }
-
-    try:
-        start = time.time()
-        response = requests.post(url, json=payload, headers=headers)
-        response.raise_for_status() 
-        logging.info(f"Perplexity API response: {response.status_code} - {response.text}")  
-        call_time = time.time() - start
-        timing_log.info(f"API response time: {call_time:.3f} seconds")
-        return response.json() 
-    
-    except requests.HTTPError as e: #Perplexity error 
-            logging.error(f"HTTP error occurred: {e.response.status_code} - {e.response.text} - Attempt {attempt}")
-            return "HTTP error"    
-
-    except requests.exceptions.RequestException as e:
-        logging.error(f"Request error occurred: {str(e)} - Attempt {attempt}")
-        return "Request error"
-    
-    except ConnectionError as e:
-        logging.error(f"Connection error occured: {str(e)} - Attempt {attempt}")
-        return "Connection error"
-
-    except Exception as e:
-            logging.error(f"Unexpected error occurred: {str(e)} - Attempt {attempt}")
-            return "Error"
+            Once you have written this paragraph, then the final section ("Evidence Mapping") of your output should be a mapping of the source URL to the EXACT sentence that is used FROM THE SOURCE as evidence. This must be done for all forms of media cited, including video sources. If there is no evidence, do not provide any citations alongside your explanation."""
+    return utils.perplexity_prompt(instruction_message=instructions, content_message=claim, attempt=attempt)
     
 
 def format_response(original_claim, response_json, output_filename):

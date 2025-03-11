@@ -1,9 +1,9 @@
 from utils import *
 
-def perplexity_prompt_printer(instruction_message, content_message):
+def perplexity_prompt_printer(instruction_message: str, content_message: str) -> None:
     print(f"{instruction_message}\n{content_message}\n")
 
-def query_support(claim, evidence):
+def query_support(claim: str, evidence: str) -> json:
     if claim is None or evidence is None:
         return None
     return perplexity_prompt(
@@ -11,7 +11,7 @@ def query_support(claim, evidence):
         content_message = "Claim: '" + claim + "', Evidence: '" + evidence + "'"
     )
 
-def query_reliability(source):
+def query_reliability(source: str) -> json:
     if source is None:
         return None
     return perplexity_prompt(
@@ -21,7 +21,7 @@ def query_reliability(source):
 
 
 
-def generate_support_reliability_pairs(claim, evidence_pairs):
+def generate_support_reliability_pairs(claim: str, evidence_pairs: List[Dict[str, str]]) -> List[Dict[str, int]]:
     # Support scores
     support_scores = []
     for evidence_pair in evidence_pairs:
