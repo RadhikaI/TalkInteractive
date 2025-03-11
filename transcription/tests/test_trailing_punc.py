@@ -1,7 +1,7 @@
 import sys
 import os
 
-# Add the parent directory (Transcription) to sys.path
+# Add the parent directory (transcription) to sys.path
 sys.path.append(os.path.abspath(os.path.dirname(__file__) + "/.."))
 
 from transcription import remove_trailing_punc 
