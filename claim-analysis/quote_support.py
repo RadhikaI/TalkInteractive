@@ -1,5 +1,22 @@
 from utils import *
 
+trusted_sources: Optional[Dict[str, int]] = None
+SOURCE_TRUST_FILE = "./claim-analysis/source_trust.json"
+
+def get_trusted_sources(filename: str = SOURCE_TRUST_FILE) -> None:
+    global trusted_sources
+    if trusted_sources is None:
+        try:
+            with open(filename, 'r') as f:
+                trusted_sources = json.load(f)
+        except (FileNotFoundError):
+            logging.error(f"Error: Output file {filename} does not exist")
+            raise
+        except (json.decoder.JSONDecodeError):
+            logging.error(f"Error: Output file {filename} is not formatted as a JSON")
+            raise
+
+
 def perplexity_prompt_printer(instruction_message: str, content_message: str) -> None:
     print(f"{instruction_message}\n{content_message}\n")
 
@@ -19,7 +36,11 @@ def query_reliability(source: str) -> json:
         content_message = source
     )
 
-
+# look up reliability in database of trust values for sources
+def lookup_source_reliability(source: str) -> Optional[float]:
+    s = normalize_url(source)
+    get_trusted_sources()
+    return trusted_sources.get(s, None)
 
 def generate_support_reliability_pairs(claim: str, evidence_pairs: List[Dict[str, str]]) -> List[Dict[str, int]]:
     # Support scores
@@ -38,12 +59,20 @@ def generate_support_reliability_pairs(claim: str, evidence_pairs: List[Dict[str
     # Reliability scores
     reliability_scores = []
     for evidence_pair in evidence_pairs:
+        # look up in database first - if found, this overwrites the generated reliability
+        r = lookup_source_reliability(evidence_pair["source"])
+        if r is not None:
+            # print(f" for {evidence_pair["source"]}")
+            # print(f"Source found in database: {r}")
+            # print()
+            reliability_scores.append(r)
+            continue
+
         response_json = query_reliability(evidence_pair["source"])
         # print(f" for {evidence_pair["source"]}")
         # print(response_json)
         # print()
         
-        # print(response_json)
         if isinstance(response_json, dict):
             reliability_scores.append(list_get(response_json.get("choices"), 0).get("message").get("content"))
         else:
