@@ -4,10 +4,6 @@ import requests
 import json
 import os
 import time
-from transformers import T5Tokenizer, TFT5ForConditionalGeneration
-
-tokenizer = T5Tokenizer.from_pretrained('SJ-Ray/Re-Punctuate')
-model = TFT5ForConditionalGeneration.from_pretrained('SJ-Ray/Re-Punctuate')
 
 # nlp library for named entity recognition
 nlp = spacy.load("en_core_web_sm")
@@ -65,19 +61,10 @@ def is_claim_sentence(sentence):
 
     return has_relevant_entity and has_verb and is_objective
 
-def add_punctuation(chunk):
-    inputs = tokenizer.encode("punctuate: " + chunk, return_tensors="tf") 
-    result = model.generate(inputs)
-
-    decoded_output = tokenizer.decode(result[0], skip_special_tokens=True)
-    return decoded_output
-
 def json_parser(chunk):
   # load from transcript object and parse as json
     str = json.loads(chunk)
-    punctuated = add_punctuation(str['chunk'])
-    print("Punctuated: " + punctuated)
-    analyse(punctuated, str['id'])
+    analyse(str['chunk'], str['id'])
 
 # simple testing function for a full transcript, ignore
 def test_analysis(filepath):
@@ -101,7 +88,7 @@ def test_analysis(filepath):
 def analyse(chunk, id):
     results = []
     result = check_with_claimbuster(chunk)
-    print(result)
+    print("analysis something")
   # if claimbuster flags a chunk as containing one or more claims, print the chunk
     if result[0]:
         claimsArr = []
@@ -109,6 +96,7 @@ def analyse(chunk, id):
         for text in result[1]:
             claimsArr.append(text['text'])
         new_object = {"id": id, "chunk": chunk, "claims": claimsArr}
+        print("tryint to output")
         output_json("extracted_claims.json", new_object)
     return results
   
@@ -120,12 +108,15 @@ def output_json(file_path, new_object):
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
+                print("here!")
                 if not isinstance(data, list):
                     raise ValueError("Error")
         except (json.JSONDecodeError, ValueError):
+            print("some error here")
             data = []
     data.append(new_object)
     with open(file_path, 'w', encoding='utf-8') as f:
+        print("trying to dump")
         json.dump(data, f, indent=4)
         
 # reads the json file and returns the parsed data
@@ -164,13 +155,15 @@ def monitor_json(file_path, interval=10):
     while True:
       # wait a certain interval before checking the file again
         time.sleep(interval)
+        print("polling")
       # read the new data and compare it to the previous data, if an insertion was made then call detect_insertions and update prev_data
         new_data = read_json(file_path)
         if new_data != prev_data: 
+            print("got to here")
             detect_insertions(prev_data, new_data)
-            prev_data = new_data   
+            prev_data = new_data  
 
-time.sleep(90)
+time.sleep(40) # Takes at least a minute till transcription starts
 
 def delete_and_save_records(file_path):
         
@@ -195,5 +188,6 @@ def delete_and_save_records(file_path):
         with open(file_path, "w") as f:
             json.dump([], f, indent=4)
         
-monitor_json("./transcript_chunks.json")
 
+
+monitor_json("./transcript_chunks.json")
