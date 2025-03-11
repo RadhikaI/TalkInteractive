@@ -4,6 +4,10 @@ import requests
 import json
 import os
 import time
+from transformers import T5Tokenizer, TFT5ForConditionalGeneration
+
+tokenizer = T5Tokenizer.from_pretrained('SJ-Ray/Re-Punctuate')
+model = TFT5ForConditionalGeneration.from_pretrained('SJ-Ray/Re-Punctuate')
 
 # nlp library for named entity recognition
 nlp = spacy.load("en_core_web_sm")
@@ -61,10 +65,19 @@ def is_claim_sentence(sentence):
 
     return has_relevant_entity and has_verb and is_objective
 
+def add_punctuation(chunk):
+    inputs = tokenizer.encode("punctuate: " + chunk, return_tensors="tf") 
+    result = model.generate(inputs)
+
+    decoded_output = tokenizer.decode(result[0], skip_special_tokens=True)
+    return decoded_output
+
 def json_parser(chunk):
   # load from transcript object and parse as json
     str = json.loads(chunk)
-    analyse(str['chunk'], str['id'])
+    punctuated = add_punctuation(str['chunk'])
+    print("Punctuated: " + punctuated)
+    analyse(punctuated, str['id'])
 
 # simple testing function for a full transcript, ignore
 def test_analysis(filepath):
@@ -88,6 +101,7 @@ def test_analysis(filepath):
 def analyse(chunk, id):
     results = []
     result = check_with_claimbuster(chunk)
+    print(result)
   # if claimbuster flags a chunk as containing one or more claims, print the chunk
     if result[0]:
         claimsArr = []
@@ -154,9 +168,9 @@ def monitor_json(file_path, interval=10):
         new_data = read_json(file_path)
         if new_data != prev_data: 
             detect_insertions(prev_data, new_data)
-            prev_data = new_data  
+            prev_data = new_data   
 
-time.sleep(90) # Takes at least a minute till transcription starts
+time.sleep(90)
 
 def delete_and_save_records(file_path):
         
@@ -181,9 +195,5 @@ def delete_and_save_records(file_path):
         with open(file_path, "w") as f:
             json.dump([], f, indent=4)
         
-
-
 monitor_json("./transcript_chunks.json")
-
-
 
