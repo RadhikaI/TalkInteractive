@@ -4,6 +4,11 @@ import os
 import json
 import re
 
+MIN_SUPPORT = -1
+MAX_SUPPORT = +1
+MIN_RELIABILITY = 0
+MAX_RELIABILITY = 1
+
 logging.basicConfig(
     filename="./claim-analysis/scoring.log", 
     level=logging.INFO,  
@@ -32,11 +37,36 @@ def is_float(s):
     else:
         return True
 
+def extract_leading_number(s, default=None):
+    try:
+        match = re.match(r"^\d+(\.\d+)?", s) # matches a floating number at the start of the string
+        return float(match.group()) if match else default
+    except:
+        return default
+
+def test_range(s, min, max, default=None):
+    return s if (is_float(s) and min <= float(s) <= max) else default
+
+def validate_support(s):
+    return test_range(s, MIN_SUPPORT, MAX_SUPPORT, None)
+def validate_reliability(s):
+    return test_range(s, MIN_RELIABILITY, MAX_RELIABILITY, None)
+
 def to_float(x, default=None):
     if is_float(x):
         return float(x)
     else:
         return default
+
+def float_prefix(s, default=None):
+    try:
+        if is_float(s):
+            return float(s)
+        else:
+            return extract_leading_number(s, default)
+    except:
+        return default
+
 
 def perplexity_prompt(instruction_message, content_message):
     url = "https://api.perplexity.ai/chat/completions"
@@ -117,5 +147,3 @@ def save_citations(data, filename="./claim-analysis/citations.json"):
     current_data.append(data)
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(current_data, f, indent=4, ensure_ascii=False)
-
-

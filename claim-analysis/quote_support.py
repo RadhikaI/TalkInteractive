@@ -26,6 +26,7 @@ def generate_support_reliability_pairs(claim, evidence_pairs):
     support_scores = []
     for evidence_pair in evidence_pairs:
         response_json = query_support(claim, evidence_pair["evidence"])
+        # print(f" for {claim} and {evidence_pair["evidence"]}")
         # print(response_json)
         # print()
 
@@ -38,6 +39,7 @@ def generate_support_reliability_pairs(claim, evidence_pairs):
     reliability_scores = []
     for evidence_pair in evidence_pairs:
         response_json = query_reliability(evidence_pair["source"])
+        # print(f" for {evidence_pair["source"]}")
         # print(response_json)
         # print()
         
@@ -47,7 +49,10 @@ def generate_support_reliability_pairs(claim, evidence_pairs):
         else:
             reliability_scores.append(None)
     
-    return [{"support": to_float(s), "reliability": to_float(r)} for s, r in zip(support_scores, reliability_scores)]
+    return [{
+        "support": validate_support(float_prefix(s)),
+        "reliability": validate_reliability(float_prefix(r))
+    } for s, r in zip(support_scores, reliability_scores)]
 
 
 
