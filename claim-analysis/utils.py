@@ -1,4 +1,4 @@
-from typing import List, Dict, Tuple, Any
+from typing import List, Dict, Tuple, Any, Optional
 import requests
 import logging
 import os
@@ -75,6 +75,26 @@ def float_prefix(s: Any, default=None) -> float:
             return extract_leading_number(s, default)
     except:
         return default
+
+# formats the url in a normalized form (domain only)
+def normalize_url(s: str) -> str:
+    # remove scheme
+    prefixes = ["http://", "https://"]
+    for p in prefixes:
+        if s.startswith(p):
+            s = s[len(p):]
+            break
+    
+    # remove www.
+    if s.startswith("www."):
+        s = s[len("www."):]
+    
+    # remove subdirectories
+    i = s.find('/')
+    if i != -1:
+        s = s[:i]
+
+    return s        
 
 
 def perplexity_prompt(instruction_message: str, content_message: str, attempt=None) -> json:
