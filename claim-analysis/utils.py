@@ -14,7 +14,7 @@ MAX_RELIABILITY = 1
 
 
 logging.basicConfig(
-    filename="./claim-analysis/utils.log", 
+    filename="./claim-analysis/perplexity_calls.log", 
     level=logging.INFO,  
     format="%(asctime)s - %(levelname)s - %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S"

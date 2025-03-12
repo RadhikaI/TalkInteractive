@@ -4,7 +4,7 @@ import time
 import os
 
 INPUT_FILE = "./extracted_claims.json"
-PROCESSED_FILE = "claim-analysis/automatic-citing/sample-processed.json"
+PROCESSED_FILE = "claim-analysis/processed_claims.json"
 
 class ExtractedProcessor:
     def __init__(self, input_file):
