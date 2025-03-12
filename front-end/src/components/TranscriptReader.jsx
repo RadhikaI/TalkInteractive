@@ -44,10 +44,10 @@ function rgbToHex(r, g, b) {
   );
 }
 
-// interpolating colours for things like gradients
-function interpolateColor(color1, color2, factor) {
-  const c1 = hexToRgb(color1);
-  const c2 = hexToRgb(color2);
+// interpolating colours for the score bit in the fact check box (as it's colour coded)
+function interpolateColour(colour1, colour2, factor) {
+  const c1 = hexToRgb(colour1);
+  const c2 = hexToRgb(colour2);
   const r = Math.round(c1.r + (c2.r - c1.r) * factor);
   const g = Math.round(c1.g + (c2.g - c1.g) * factor);
   const b = Math.round(c1.b + (c2.b - c1.b) * factor);
@@ -58,12 +58,12 @@ function interpolateColor(color1, color2, factor) {
 function getScoreColor(score) {
   if (score <= 0) {
     // for negative scores, interpolate between dark red and grey (-100 = dark red, 0 = grey)
-    const factor = (score + 100) / 100; // 0 for -100, 1 for 0
-    return interpolateColor("#8B0000", "#808080", factor);
+    const factor = (score + 100) / 100; 
+    return interpolateColour("#8B0000", "#808080", factor);
   } else {
     // for positive scores, interpolate between grey and bright minty green (0 = grey, 100 = turquoise)
-    const factor = score / 100; // 0 for 0, 1 for 100
-    return interpolateColor("#808080", "#00FF7F", factor);
+    const factor = score / 100; 
+    return interpolateColour("#808080", "#00FF7F", factor);
   }
 }
 
@@ -111,11 +111,11 @@ function TranscriptReader() {
   const [claimOffset, setClaimOffset] = useState(0);
   // state to hold the final top value for factcheck-panel
   const [factCheckTop, setFactCheckTop] = useState(0);
-
   const transcriptContainerRef = useRef(null);
   const factcheckPanelRef = useRef(null);
 
   // fetch and combine transcripts
+  // previously used to combine transcripts from multiple files, now it's just one
   useEffect(() => {
     Promise.all([
       fetch(transcript).then((res) => res.text()),
@@ -262,7 +262,7 @@ useEffect(() => {
     setIsProcessing(true);
     
     try {
-      // FOR CONNECTING TO FLASK SERVER
+      // FOR CONNECTING TO FLASK SERVER FOR BACKEND STUFF
       const response = await fetch('http://localhost:5000/start', {
         method: 'POST',
         headers: {
@@ -283,6 +283,7 @@ useEffect(() => {
     setIsStarted(true);
   };
 
+  // THE ACTUAL UI STUFF
   return (
     <div className="transcript-container" ref={transcriptContainerRef}>
       <TranscriptBox
