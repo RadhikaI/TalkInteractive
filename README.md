@@ -9,5 +9,6 @@
 - Run `npm install react-scripts`
 
 ### Running the project
+- Obtain a Perplexity authentication key, find the `utils.py` file in the `claim-analysis` folder, replace `key = os.getenv("PERPLEXITY_KEY")` with `key = "YOUR KEY"`
 - To start the flask backend server, cd into the project folder and run `python -m flaskserver`
 - To start running the UI, cd into the `front-end` folder within the project folder and run `npm start`
