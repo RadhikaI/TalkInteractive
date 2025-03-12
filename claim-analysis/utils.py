@@ -156,30 +156,3 @@ def perplexity_prompt(instruction_message: str, content_message: str, attempt=No
     except Exception as e:
         logging.error(f"Unexpected error occurred: {str(e)}" + ("" if attempt is None else " - Attempt {attempt}"))
         return "Error"
-
-
-def extract_citations(response_json, claim):
-    choices = response_json.get("choices", [])
-    if not choices or "message" not in choices[0]:
-        logging.error(f"Error: invalid response format")
-        return "Error"
-
-    response = choices[0]["message"].get("content", "")
-    citations = response_json.get("citations", [])
-    citation_matches = re.findall(r"\[(\d+)\]", response)
-
-    extracted_data = {"original_claim": claim, "citations": []}
-
-    for match in citation_matches:
-        index = int(match) - 1
-        if 0 <= index < len(citations):
-            cited_sentence = next(
-                (sentence.strip() for sentence in response.split(". ") if f"[{match}]" in sentence),
-                None
-            )
-            extracted_data["citations"].append({
-                "sonar_explanation": cited_sentence,
-                "website": citations[index]
-            })
-
-    return extracted_data

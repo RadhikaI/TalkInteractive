@@ -4,7 +4,7 @@ import time
 import os
 from threading import Thread
 
-def copy_citations(source, dest, interval=15):
+def copy_citations(source, dest, interval=10):
     """Copies finalised citation data (including scoring)"""
     while True:
         shutil.copy2(source, dest)
@@ -61,6 +61,6 @@ if __name__ == "__main__":
     
     try:
         while True:
-            time.sleep(10)
+            time.sleep(5)
     except KeyboardInterrupt:
         print("File copying stopped") # Threads will automatically stop when main thread exits.
