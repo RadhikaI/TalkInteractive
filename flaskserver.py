@@ -1,51 +1,37 @@
-# from flask import Flask
-# import subprocess
-
-# # Placeholder for when we switch to using blueprints (triggered by button)
-# from app.transcription_bp import transcription_blueprint
-# from app.claim_extractor_bp import claim_extractor_blueprint
-# from app.sonar_response_bp import sonar_response_blueprint
-
-# app = Flask(__name__)
-
-# app.register_blueprint(transcription_blueprint, url_prefix='/')
-# app.register_blueprint(claim_extractor_blueprint, url_prefix='/')
-# app.register_blueprint(sonar_response_blueprint, url_prefix='/')
-
-# def run_scripts():
-#     subprocess.Popen(["python3", "transcription/transcription.py"])
-#     subprocess.Popen(["python3", "claim-extraction/claim_extractor.py"])
-#     subprocess.Popen(["python3", "claim-extraction/pre_sonar_filtering.py"])
-#     subprocess.Popen(["python3", "claim-analysis/auto_mover_sonar_response.py"])
-#     subprocess.Popen(["python3", "claim-analysis/copy_files_ui.py"])
-
-# @app.route("/")
-# def home():
-#     return ""
-
-# if __name__ == "__main__":
-#     run_scripts()
-#     app.run(host="0.0.0.0", port=5000, debug=False)
+"""
+Endpoint for starting multiple Python scripts (as subprocesses). 
+"""
 
 from flask import Flask, jsonify
 from flask_cors import CORS
 import subprocess
 
 app = Flask(__name__)
-CORS(app) 
+CORS(app)
 
+script_refs = {} # Each subprocess is polled to see if they have already started. 
 def run_scripts():
-    subprocess.Popen(["python3", "transcription/transcription.py"])
-    subprocess.Popen(["python3", "claim-extraction/claim_extractor.py"])
-    # subprocess.Popen(["python3", "claim-extraction/pre_sonar_filtering.py"])
-    subprocess.Popen(["python3", "claim-analysis/auto_mover_sonar_response.py"])
-    subprocess.Popen(["python3", "claim-analysis/sonar_check.py"])
-    subprocess.Popen(["python3", "claim-analysis/copy_files_ui.py"])
+    global script_refs
+
+    # Prevents repeated transcriptions (+ similar for other files)
+    if "transcription" in script_refs and script_refs["transcription"].poll() is None:
+        return False 
+
+    script_refs["transcription"] = subprocess.Popen(["python3", "transcription/transcription.py"])
+    script_refs["claim_extractor"] = subprocess.Popen(["python3", "claim-extraction/claim_extractor.py"])
+    script_refs["auto_mover"] = subprocess.Popen(["python3", "claim-analysis/auto_mover_sonar_response.py"])
+    script_refs["sonar_check"] = subprocess.Popen(["python3", "claim-analysis/sonar_check.py"])
+    script_refs["copy_files"] = subprocess.Popen(["python3", "claim-analysis/copy_files_ui.py"])
+
+    return True  
 
 @app.route("/start", methods=["POST"])
 def start_scripts():
-    run_scripts()
-    return jsonify({"message": "Python scripts running."}), 200
+    if run_scripts():
+        return jsonify({"message": "Python scripts started."}), 200
+    else:
+        print("Scripts are already running.")
+        return jsonify({"message": "Scripts already running."}), 200
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)
