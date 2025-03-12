@@ -23,6 +23,7 @@ def run_scripts():
     # Starts all these as subprocesses
     script_refs["transcription"] = subprocess.Popen(["python3", "transcription/transcription.py"])
     script_refs["claim_extractor"] = subprocess.Popen(["python3", "claim-extraction/claim_extractor.py"])
+    # script_refs["filtering"] = subprocess.Popen(["python3", "claim-analysis/pre_sonar_filtering.py"])
     script_refs["citations"] = subprocess.Popen(["python3", "claim-analysis/citations_for_claims.py"])
     script_refs["sonar_check"] = subprocess.Popen(["python3", "claim-analysis/sonar_check.py"])
     script_refs["copy_files"] = subprocess.Popen(["python3", "claim-analysis/copy_files_ui.py"])

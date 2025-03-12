@@ -3,7 +3,7 @@ import json
 import time
 import os
 
-INPUT_FILE = "./extracted_claims.json"
+INPUT_FILE = "./extracted_claims.json" # Change this to filtered_claims.json if using a filtering stage
 PROCESSED_FILE = "claim-analysis/processed_claims.json"
 
 class ExtractedProcessor:
@@ -74,13 +74,13 @@ class ExtractedProcessor:
     def run(self):
         while True:
             if self.check_for_change():
-                print("New claims detected in extracted_claims.json")
+                print("New claims detected in input file (extracted_claims.json)")
                 claims_by_segment = self.process()
                 for segment_id, data in claims_by_segment.items():
                     context = data["context"]
                     claims = data["claims"]
                     for claim in claims:
-                        run_perplexity(claim, "./claim-analysis/cited_claims.json")
+                        run_perplexity(claim, "./claim-analysis/cited_claims.json") 
                     self.write_processed_segment({
                         "id": segment_id,
                         "context": context,

@@ -3,6 +3,7 @@ Functionality to filter extracted claims based on relevance criteria.
 
 Not currently used in production - kept as placeholder for future use if processing data that needs some filtering. 
     This was useful when having advertisement breaks, weather etc. in our source channel. 
+    Changes needed for utilisation: update INPUT_FILE claim-analysis/citations_for_claims.py to filtered_claims.json
 
 Currently using the Together AI API (using a Llama 3.2 model) to evaluate claims, can be modified to use other models if needed. 
 """
@@ -136,8 +137,8 @@ def monitor_extracted_claims(INPUT_FILE, OUTPUT_FILE, interval=10):
             last_modified = os.path.getmtime(INPUT_FILE)
 
 if __name__ == "__main__":
-    extracted_claims_file = 'extracted_claims.json'
+    INPUT_FILE = 'extracted_claims.json'
     # Note target file, would need to change perplexity caller
-    filtered_claims_file = 'filtered_claims.json'
+    OUTPUT_FILE = 'filtered_claims.json'
 
-    monitor_extracted_claims(extracted_claims_file, filtered_claims_file)
+    monitor_extracted_claims(INPUT_FILE, OUTPUT_FILE)
