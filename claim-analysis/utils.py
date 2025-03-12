@@ -99,8 +99,7 @@ def normalize_url(s: str) -> str:
 
 def perplexity_prompt(instruction_message: str, content_message: str, attempt=None) -> json:
     url = "https://api.perplexity.ai/chat/completions"
-    # key = os.getenv("PERPLEXITY_KEY")
-    key = "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"
+    key = os.getenv("PERPLEXITY_KEY")
 
     payload = {
         "model": "sonar",

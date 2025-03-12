@@ -282,9 +282,10 @@ class TranscriptProcessor:
 class AudioTranscriber:
     """Manages audio recording and transcription."""
 
-    def __init__(self, refiner, exporter, URL: str ="http://media-ice.musicradio.com/Test-M-TI", model_type: str = "base"):
-        # Currently set to take interviewee's channel. 
-        # If general audio needed, use http://media-ice.musicradio.com/LBCUK
+    def __init__(self, refiner, exporter, URL: str ="http://media-ice.musicradio.com/LBCUK", model_type: str = "base"):
+        # Currently set to general feed. 
+        # If interviewee's channel wanted, use http://media-ice.musicradio.com/Test-M-TI
+        # Note that whisper tends to struggle with an empty feed.
         logging.info(f"AudioTranscriber object initalised with URL={URL}, model_type={model_type}.")
 
         self.__URL = URL
