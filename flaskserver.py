@@ -9,6 +9,7 @@ import subprocess
 app = Flask(__name__)
 CORS(app)
 
+
 script_refs = {} # Each subprocess is polled to see if they have already started. 
 def run_scripts():
     global script_refs
@@ -16,6 +17,8 @@ def run_scripts():
     # Prevents repeated transcriptions (+ similar for other files)
     if "transcription" in script_refs and script_refs["transcription"].poll() is None:
         return False 
+
+    subprocess.run(["python3", "clear_files.py"], check=True)
 
     script_refs["transcription"] = subprocess.Popen(["python3", "transcription/transcription.py"])
     script_refs["claim_extractor"] = subprocess.Popen(["python3", "claim-extraction/claim_extractor.py"])
