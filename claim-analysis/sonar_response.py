@@ -37,8 +37,9 @@ def perplexity_context_prompt(claim, attempt):
 
     instructions = """You are provided with a claim and some context (the broader conversation in which the claim was made). What evidence is there for or against this claim? 
             Be precise and concise: first state if it is supported, not supported, or partially supported/incorrect. There is no need to repeat what the claim is in your opening sentence; when considering the claim, focus on semantic accuracy, and in your output, focus on the evidence. 
-            Your output should then contain reasoning for this decision (citing sources). 
-            Once you have written this paragraph, then the final section (clearly separated as "Evidence Mapping") of your output should be a mapping of the source URL to the EXACT sentence that is used FROM THE SOURCE as evidence. This must be done for ALL media cited. If there is no evidence, do not provide any citations alongside your explanation."""
+            Your output should then contain reasoning for this decision (citing sources). Ensure you consider the surrounding context.
+            Once you have written this paragraph, then the final section (clearly separated as "Evidence Mapping") of your output should be a mapping of the source URL to the EXACT sentence that is used FROM THE SOURCE as evidence. This must be done for ALL media cited. If there is no evidence, do not provide any citations alongside your explanation.
+            Note the claim and context come from an excerpt of a live radio channel in the UK."""
     return utils.perplexity_prompt(instruction_message=instructions, content_message=claim, attempt=attempt)
     
 

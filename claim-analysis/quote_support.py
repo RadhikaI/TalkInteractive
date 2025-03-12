@@ -1,3 +1,4 @@
+from typing import Optional
 from utils import *
 
 trusted_sources: Optional[Dict[str, int]] = None
