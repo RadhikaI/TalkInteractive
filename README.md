@@ -1,6 +1,6 @@
 # Talk Interactive
 ### Installing Packages
-- Install `Python 3.12` (not compatible with 3.13) 
+- Install `Python 3.12` (https://www.python.org/downloads/release/python-3129/) 
 - Install `C++ Build Tools` (https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 - Install `Microsoft Visual C++ Redistributable` (https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170)
 - Install `Node.js` (https://nodejs.org/en)
@@ -9,5 +9,5 @@
 - Run `npm install react-scripts`
 
 ### Running the project
-- Start flask server by running `python -m flaskserver` 
-- cd into the `front-end` folder and run `npm start`
+- To start the flask backend server, cd into the project folder and run `python -m flaskserver`
+- To start running the UI, cd into the `front-end` folder within the project folder and run `npm start`
