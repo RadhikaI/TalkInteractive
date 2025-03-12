@@ -140,7 +140,8 @@ def perplexity_prompt(instruction_message: str, content_message: str, attempt=No
         timing_log.info(f"API response time: {call_time:.3f} seconds")
         return response.json() 
 
-    except requests.HTTPError as e: #Perplexity error 
+    # Perplexity errors
+    except requests.HTTPError as e:
         logging.error(f"HTTP error occurred: {e.response.status_code} - {e.response.text}" + ("" if attempt is None else " - Attempt {attempt}"))
         return "HTTP error"    
 
