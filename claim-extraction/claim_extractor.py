@@ -169,8 +169,6 @@ def monitor_json(file_path, interval=10):
             detect_insertions(prev_data, new_data)
             prev_data = new_data  
 
-time.sleep(40) # Takes at least a minute till transcription starts
-
 def delete_and_save_records(file_path):
         
     timestamp = time.strftime("%Y%m%d_%H%M%S")

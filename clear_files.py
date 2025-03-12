@@ -1,3 +1,7 @@
+"""
+Clearing all transcript related files when flask server initialises. Reload may be necessary.
+"""
+
 files = {
     "front-end/src/data/scorer_output.json":'[]'  ,
     "front-end/src/data/transcript_whole.txt":"",
@@ -13,6 +17,7 @@ def clear():
         try:
             with open(path, "w") as f:  
                 f.write(content)
+                print(f"Clearing: {path}, {content}")
         except Exception as e:
             print("Error with clearing files before start.")
 if __name__ == "__main__":

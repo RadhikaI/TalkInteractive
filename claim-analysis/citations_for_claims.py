@@ -23,6 +23,14 @@ class ExtractedProcessor:
             with open(self.processed_file, 'w') as f:
                 json.dump([], f, indent=4)
 
+    def write_processed_segment(self, segment):
+        """Backs up processed segments"""
+        with open(self.processed_file, 'r') as f:
+            processed_segments = json.load(f)
+        processed_segments.append(segment)
+        with open(self.processed_file, 'w') as f:
+            json.dump(processed_segments, f, indent=4)
+
     def check_for_change(self):
         """Detects if input file has been modified, i.e. new claims have been extracted."""
         try:
@@ -42,42 +50,31 @@ class ExtractedProcessor:
             return True
         return False
 
-    def write_processed_segment(self, segment):
-        """Backs up processed segments"""
-        with open(self.processed_file, 'r') as f:
-            processed_segments = json.load(f)
-        processed_segments.append(segment)
-        with open(self.processed_file, 'w') as f:
-            json.dump(processed_segments, f, indent=4)
 
     def process(self):
         """Collects new segments based on their ID to be cited."""
         with open(self.input_file, 'r') as f:
             segment_data = json.load(f)
         total_segments = len(segment_data)
-        print("Total segments in file:", total_segments)
         
         new_segments = segment_data[self.last_processed_index:]
         print(f"Processing segments from index {self.last_processed_index} to {total_segments}")
 
         claims_by_segment = {}
-        for idx, obj in enumerate(new_segments):
+        for _, obj in enumerate(new_segments):
             segment_id = obj.get("id")
             context = obj.get("chunk")
-            print(f"Segment id: {segment_id} at index: {idx}")
             if segment_id not in claims_by_segment:
                 claims_by_segment[segment_id] = {"context": context, "claims": []}
             claims_by_segment[segment_id]["claims"].extend(obj.get("claims", []))
         
-
         self.last_processed_index = total_segments # Move pointer
-
         return claims_by_segment
 
     def run(self):
         while True:
             if self.check_for_change():
-                print("New claims detected")
+                print("New claims detected in extracted_claims.json")
                 claims_by_segment = self.process()
                 for segment_id, data in claims_by_segment.items():
                     context = data["context"]
@@ -89,7 +86,7 @@ class ExtractedProcessor:
                         "context": context,
                         "processed_claims": claims,
                     })
-                    print(f"Processed segment number {segment_id} with claims: {claims}")
+                    print(f"Processed claims: {claims}")
             time.sleep(5)  
 
 if __name__ == "__main__":
