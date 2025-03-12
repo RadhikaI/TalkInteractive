@@ -4,22 +4,25 @@ import time
 import os
 from threading import Thread
 
-def copy_citations(source, dest, interval=20):
+def copy_citations(source, dest, interval=15):
+    """Copies finalised citation data (including scoring)"""
     while True:
         shutil.copy2(source, dest)
         time.sleep(interval)
 
 def copy_transcript_txt(source, dest, interval=5):
+    """Transforms whole transcript JSON into text file to be displayed."""
     while True:
         try:
             os.makedirs(os.path.dirname(dest), exist_ok=True)
             
             with open(source, 'r', encoding='utf-8') as json_file:
                 try:
+                    # Try parsing as JSON
                     content = json.load(json_file)
                 except json.JSONDecodeError:
                     json_file.seek(0)
-                    content = json_file.read()
+                    content = json_file.read() # Read as plain text instead
                 
                 with open(dest, 'w', encoding='utf-8') as txt_file:
                     txt_file.write(content)
@@ -60,4 +63,4 @@ if __name__ == "__main__":
         while True:
             time.sleep(10)
     except KeyboardInterrupt:
-        print("File copying stopped")
+        print("File copying stopped") # Threads will automatically stop when main thread exits.

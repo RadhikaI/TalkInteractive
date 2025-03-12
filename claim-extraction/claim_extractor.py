@@ -1,3 +1,9 @@
+"""
+Extracts factual claims using ClaimBuster's API. 
+
+Main output file: ./extracted_claims.json
+Backup storage: ./saved-files/claims_{timestamp}.json
+"""
 from textblob import TextBlob
 import spacy
 import requests

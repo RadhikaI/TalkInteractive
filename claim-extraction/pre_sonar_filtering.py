@@ -1,3 +1,12 @@
+"""
+Functionality to filter extracted claims based on relevance criteria. 
+
+Not currently used in production - kept as placeholder for future use if processing data that needs some filtering. 
+    This was useful when having advertisement breaks, weather etc. in our source channel. 
+
+Currently using the Together AI API (using a Llama 3.2 model) to evaluate claims, can be modified to use other models if needed. 
+"""
+
 import logging
 import json
 import os
@@ -18,6 +27,7 @@ logging.basicConfig(
 ERROR_FILE = "./claim-analysis/together_request_failures.json"
 
 def save_claim(claim, context, response, file_path):
+    """Store claims when processing fails"""
     entry = {"claim": claim, "context": context, "response": response}
     
     if os.path.exists(file_path):
@@ -35,6 +45,7 @@ def save_claim(claim, context, response, file_path):
         json.dump(data, f, indent=4)
 
 def together_function(claim, context, max_retries=3, delay=2, additional_filtering=False):
+    """Set up call for Together AI API - evaluating if a claim is checkable."""
     system_message = (
         """Return 1 if the following has a phrase that makes up an entire claim, i.e. something said that can be checked within the string claim. You should return 0 otherwise. Return 0 if these claims are also irrelevant to a fact checker, for example, claims from advertisements, about the current time or weather. """
     )
@@ -51,8 +62,9 @@ def together_function(claim, context, max_retries=3, delay=2, additional_filteri
     attempt = 1
     while attempt <= max_retries:
         try:            
+            # API call can be changed as necessary if using a different model provider
             response = together_client.chat.completions.create(
-                model="meta-llama/Llama-3.2-3B-Instruct-Turbo",
+                model="meta-llama/Llama-3.2-3B-Instruct-Turbo", # Can change Together-hosted models here
                 messages=messages,
                 max_tokens=1,
                 temperature=0,
@@ -73,6 +85,7 @@ def together_function(claim, context, max_retries=3, delay=2, additional_filteri
             logging.error(error_message)
             save_claim(claim, context, error_message, ERROR_FILE)
             
+            # No retry for authentication errors (e.g. credit topup needed)
             if "Invalid API key" in str(e) or "AuthenticationError" in str(type(e)):
                 logging.error(f"Authentication error detected. No retries made.")
                 break
@@ -84,6 +97,7 @@ def together_function(claim, context, max_retries=3, delay=2, additional_filteri
     return -1 
 
 def run_filtering(INPUT_FILE, OUTPUT_FILE):
+    """Processes extracted claims, filter as required."""
     with open(INPUT_FILE, 'r') as f:
         data = json.load(f)
 
@@ -110,6 +124,7 @@ def run_filtering(INPUT_FILE, OUTPUT_FILE):
         json.dump(remaining_data, f, indent=4)
 
 def monitor_extracted_claims(INPUT_FILE, OUTPUT_FILE, interval=10):
+    """Detects when new claims have been extracted, monitoring file changes"""
     last_modified = os.path.getmtime(INPUT_FILE)
     print("Monitoring", INPUT_FILE)
     while True:
@@ -122,5 +137,7 @@ def monitor_extracted_claims(INPUT_FILE, OUTPUT_FILE, interval=10):
 
 if __name__ == "__main__":
     extracted_claims_file = 'extracted_claims.json'
+    # Note target file, would need to change perplexity caller
     filtered_claims_file = 'filtered_claims.json'
+
     monitor_extracted_claims(extracted_claims_file, filtered_claims_file)

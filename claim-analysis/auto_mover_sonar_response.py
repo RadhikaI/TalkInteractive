@@ -36,7 +36,7 @@ class ExtractedProcessor:
 
         current_modified = os.path.getmtime(self.input_file)
         diff = current_modified - self.latest_modified
-        print("LATEST:", self.latest_modified, "CURRENT:", current_modified, "DIFFERENCE:", diff)
+        # print("LATEST:", self.latest_modified, "CURRENT:", current_modified, "DIFFERENCE:", diff)
         if diff > 0:
             self.latest_modified = current_modified
             return True
