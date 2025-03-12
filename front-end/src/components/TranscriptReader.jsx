@@ -3,7 +3,7 @@ import "./TranscriptReader.css";
 import transcript from "../data/transcript_whole.txt";
 import factChecks from "../data/scorer_output.json";
 
-// function that cleans up URLs by removing the "www." at the start
+// helper function that cleans up URLs by removing the "www." at the start
 function formatUrl(url) {
   try {
     const u = new URL(url);
@@ -19,7 +19,7 @@ function formatUrl(url) {
   }
 }
 
-// helper functions for color interpolation
+// helper functions for colour interpolation
 function hexToRgb(hex) {
   hex = hex.replace("#", "");
   if (hex.length === 3) {
@@ -44,6 +44,7 @@ function rgbToHex(r, g, b) {
   );
 }
 
+// interpolating colours for things like gradients
 function interpolateColor(color1, color2, factor) {
   const c1 = hexToRgb(color1);
   const c2 = hexToRgb(color2);
@@ -66,7 +67,7 @@ function getScoreColor(score) {
   }
 }
 
-// helper function to get the score label based on the score range
+// helper function to get the score label based on the score range (for score box)
 function getScoreLabel(score) {
   if (score >= -15 && score <= 15) return "Unsure";
   else if (score < -15) {
@@ -125,6 +126,8 @@ function TranscriptReader() {
       })
       .catch((err) => console.error("Error fetching transcripts:", err));
   }, []);
+
+// ALL THIS STUFF IS BASICALLY DEPRECATED NOW, WAS USED A TYPEWRITING EFFECT FOR TESTING
 
   // // reset typewriter effect if transcript changes
   // useEffect(() => {
@@ -247,8 +250,9 @@ useEffect(() => {
   useEffect(() => {
     if (selectedClaim && factcheckPanelRef.current) {
       const panelHeight = factcheckPanelRef.current.offsetHeight;
-      let newTop = (claimOffset - panelHeight / 2) - 25; // adjust this value to move the box higher or lower
-      if (newTop < 0) newTop = 0; // ensure it doesn't go off the top
+      let newTop = (claimOffset - panelHeight / 2) - 25; // ADJUST THIS value to move the box higher or lower
+      // INCREASING THE BIT AFTER THE MINUS MAKES IT HIGHER
+      if (newTop < 0) newTop = 0; // ensure it doesn't go off the top of the page
       setFactCheckTop(newTop);
     }
   }, [selectedClaim, claimOffset]);
@@ -258,6 +262,7 @@ useEffect(() => {
     setIsProcessing(true);
     
     try {
+      // FOR CONNECTING TO FLASK SERVER
       const response = await fetch('http://localhost:5000/start', {
         method: 'POST',
         headers: {

@@ -191,7 +191,7 @@ body {
 /* score box styled similar to other fact-check boxes */
 .fact-check-score {
   padding-top: 10px;
-  background: rgba(255, 255, 255, 0.04); /* this adjusts the background */
+  background: rgba(255, 255, 255, 0.04); /* this adjusts the background of the score box*/
   border-radius: 8px;
   text-align: center;
 }
@@ -211,7 +211,7 @@ body {
   text-align: center !important;
 }
 
-/* make sure source list is in a numbered list */
+/* make sure source list is in a numbered list so it can be cited in the response (e.g. [1]) */
 .source-list {
   padding-left: 1.25rem;
   list-style-type: decimal;
